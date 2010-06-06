@@ -20,8 +20,13 @@ class Session
   # Returns true or false
   def save
     @user = User.authenticate(self.username, self.password)
-    self.errors.add_to_base I18n.t(:invalid_login, :scope => [:authentasaurus, :active_record, :errors, :messages]) if @user.nil?
-    !@user.nil?
+    if @user.nil?
+      self.errors.add_to_base I18n.t(:invalid_login, :scope => [:activerecord, :errors, :messages]) 
+      false
+    else
+      @user.create_remember_me_token if self.remember
+      true
+    end
   end
   
   # Takes a hash of attributes keys and values just like new and authenticates the information.
@@ -33,5 +38,10 @@ class Session
   
   def new_record? #:nodoc:
     true
+  end
+  
+  # Takes an id (usually from an ActiveController session) and returns a User object
+  def self.current_user(id)
+    User.find id
   end
 end

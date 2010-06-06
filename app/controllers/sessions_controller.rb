@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :check_is_logged_in
+  before_filter :check_is_logged_in, :except => :destroy
 
   def new
     @session = Session.new
@@ -14,8 +14,9 @@ class SessionsController < ApplicationController
     
     respond_to do |format|
       if @session.save
+        cookies[:remember_me_token] = { :value => @session.user.remember_me_token, :expires => 3.years.from_now } if @session.remember
         session[:user_id] = @session.user.id
-        format.html { redirect_to session[:original_url] || catalogs_url }
+        format.html { redirect_to session[:original_url] || root_url }
       else
         format.html { render :action => :new }
       end
@@ -24,7 +25,8 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    reset_session
+    session[:user_id] = nil
+    cookies.delete :remember_me_token
     
     respond_to do |format|
       format.html { redirect_to :action => :new }
