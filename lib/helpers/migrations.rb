@@ -125,8 +125,7 @@ module Migrations
         string :email, :null => false
         boolean :active, :null => false, :default => false
         integer :group_id, :null => false
-  
-        timestamps
+        string  :group_type, :null => false
       end
     end
   end
