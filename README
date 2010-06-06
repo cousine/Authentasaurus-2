@@ -1,0 +1,97 @@
+== Authentasaurus
+
+Authentasaurus is a generator plugin that generates a stub for restful
+authentication controllers, models, tests, routes and migrations.
+
+Authentasaurus is also a group/permission authorization system, you can define permissions per
+controller action for each group of users.
+
+== Installation
+
+To start using Authentasaurus follow these simple steps :
+
+1. install authentasaurus by running the following command in your app root
+    script/plugin install git://github.com/cousine/Authentasaurus.git
+2. to generate the necessary models, controllers and views run
+    script/generate authentausaurus UserModelName 
+   replace UserModelName with the desired name for the main user model --usually called user--
+   the generated user model contains the necessary fields for authentasaurus, feel free to customize it.
+3. run the migrations to create the necessary tables
+4. run "rake authentasaurus:load_defaults" to create the default groups and admin user
+5. if you installed authentasaurus without --skip-validation setup your email
+   settings in config/environment.rb
+
+that's it you can now test your application by running script/server in your
+project root directory and going to http://localhost:3000/login
+
+== Under the hood
+
+Authentasaurus takes advantage of rails' before_filter; it checks for the appropriate permissions before 
+every action that requires a login, a write or read permission.
+
+At login, authentasaurus would load the user's group permissions into a session hash and then attempts to read that hash
+when it meets a require helper on a controller.
+
+=== Authentasaurus uses the following terms:
+
+<tt>Area</tt>:: 
+  An area is in plain english the controller's name, so if you have a controller named "PostsController", the corresponding
+  area name would be "posts" (just as you type it in the generator command)
+
+<tt>Group</tt>::
+  A group is as the name suggests, each group contains a number of users, and each user inherits the group permissions,
+  also note that at any given time, the user can only belong to one group
+
+<tt>Permission</tt>::
+  A permission is one of two, either read or write, but take care, read or write is only a naming, and though it doesn't make
+  sense, you could treat a read permission as a write permission and vice versa, but as i said it makes no sense !
+
+== Generator options
+
+You can use some options with the Authentasaurus generator; currently only one
+is available:
+
+<tt>--skip-validation</tt>::
+  Skips generating the validation files used to send activation emails
+
+== Session/Permissions Helpers
+
+There are three main session helpers in Authentasaurus:
+
+<tt>require_login</tt>::
+  requires the user to login before accessing the actions specified
+
+  <b>ex:</b> Tells Authentasaurus that the action destroy requires login and that
+  Authentasaurus shouldn't store the request in the session
+  (typically for logout actions)
+
+  * :actions - actions that require the permission (list)
+  * :skip_request - skips saving the original request (to redirect to after login)
+
+    require_login :actions => :destroy, :skip_request => true
+
+<tt>require_write</tt>::
+  requires the user to have a write permission to that area to access the actions specified
+    
+  <b>ex:</b> Tells Authentasaurus that the actions create_user and delete_user
+  requires login and write permission.
+  
+  * :actions - actions that require the permission (list)
+  * :skip_request - skips saving the original request (to redirect to after login)
+
+    require_write :actions => [:create_user, :delete_user]
+
+<tt>require_read</tt>::
+  requires the user to have a read permission to that area to access the actions specified
+    
+  <b>ex:</b> Tells Authentasaurus that the action show_user requires login and read
+  permission. 
+  
+  * :actions - actions that require the permission (list)
+  * :skip_request - skips saving the original request (to redirect to after login)
+
+    require_read :actions => :show_user
+
+
+
+Copyright (c) 2010 Mash, Ltd., released under the MIT license

@@ -1,0 +1,19 @@
+<h1>Create Permission</h1>
+<% form_for @permission do |f| %>
+	<%= f.label :group_id %>
+	<%= f.collection_select(:group_id, Group.find(:all), :id, :name, {:prompt => true}) %>
+	<br>
+	<%= f.label :area_id %>
+	<%= f.collection_select(:area_id, Area.find(:all), :id, :name, {:prompt => true}) %>
+	<br>
+	<%= f.label :group_id %>
+	<%= f.collection_select(:group_id, Group.find(:all), :id, :name, {:prompt => true}) %>
+	<br>
+	<%= f.label :read %>
+	<%= f.check_box :read %>
+	<br>
+	<%= f.label :write %>
+	<%= f.check_box :write %>
+	<br>
+	<%= f.submit %>
+<% end %>

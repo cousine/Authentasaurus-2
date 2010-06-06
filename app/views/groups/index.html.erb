@@ -1,0 +1,13 @@
+<h1>Groups</h1>
+<table width="100%">
+	<tr>
+		<th>Name</th>
+		<th>Number of users</th>
+	</tr>
+	<% @groups.each do |group| %>
+		<tr>
+			<td><%= link_to group.name, group %></td>
+			<td><%= group.users.count %></td>
+		</tr>
+	<% end %>
+</table>

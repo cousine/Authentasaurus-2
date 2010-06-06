@@ -1,0 +1,11 @@
+<h1>Areas</h1>
+<table>
+	<tr>
+		<th>Target</th>
+	</tr>
+	<% @areas.each do |area| %>
+		<tr>
+			<td><%= link_to area.name, area %></td>
+		</tr>
+	<% end %>
+</table>
