@@ -7,11 +7,11 @@ module Authenticatable
   module ClassMethods
     def authenticatable(options = {})
       # Associations
-      belongs_to :group, :polymorphic => true
-      has_many :permissions, :through => :group
+      belongs_to :group
+      has_many :permissions, :through => :groups
       # Validation
       # basic attributes
-      validates_presence_of :username, :hashed_password, :seed, :fname, :lname, :email
+      validates_presence_of :username, :hashed_password, :password_seed, :email, :name
       validates_uniqueness_of :username, :email
       validates_format_of :email, :with => %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
       # password validations

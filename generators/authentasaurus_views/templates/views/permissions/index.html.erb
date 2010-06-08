@@ -1,0 +1,17 @@
+<h1>Permissions</h1>
+<table>
+	<tr>
+		<th>Group</th>
+		<th>Area</th>
+		<th>Read</th>
+		<th>Write</th>
+	</tr>
+	<% @permissions.each do |permission| %>
+		<tr>
+			<td><%= link_to permission.group.name, permission.group %></td>
+			<td><%= link_to permission.area.name, permission.area %></td>
+			<td><%= check_box_tag :read, "read", permission.read, :disabled => true %></td>
+			<td><%= check_box_tag :write, "write", permission.write, :disabled => true %></td>
+		</tr>
+	<% end %>
+</table>

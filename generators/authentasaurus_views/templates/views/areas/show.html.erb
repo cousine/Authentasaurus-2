@@ -1,0 +1,7 @@
+<h1><%= @area.name %></h1>
+<h3>Groups that have permission on this area</h3>
+<ul>
+	<% @area.groups.each do |group| %>
+		<li><%= link_to group.name, group %></li>
+	<% end %>
+</ul>

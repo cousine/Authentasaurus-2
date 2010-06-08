@@ -16,7 +16,6 @@ module ActsAsAuthenticatable
       return user
     end
     
-    private
     ## Encrypts the password using the given seed
 		def encrypt_password(password, password_seed)
 			pass_to_hash=password + "Securasaurus" + password_seed

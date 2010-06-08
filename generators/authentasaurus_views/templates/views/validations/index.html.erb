@@ -1,0 +1,6 @@
+﻿<h3><%= flash.now[:notice] %></h3>
+<% form_tag do %>
+	Validation Code :<br>
+	<p><%= text_field_tag :validation_code, params[:vcode], :size => 44 %></p>
+	<p><%= submit_tag "Validate" %></p>
+<% end %>

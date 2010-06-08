@@ -1,0 +1,12 @@
+Description:
+    Generates a stub for Authentasaurus restful authentication views.
+
+Examples:
+    `./script/generate authentasaurus_views users`
+
+        creates views for Authentasaurus with main user model named "user"
+
+    `./script/generate authentasaurus_views users --authorizable --validatable
+
+        creates views for Authentasaurus with main user model named "user" and also creates views
+        for authorization (--authorizable) and validation (--validatable)

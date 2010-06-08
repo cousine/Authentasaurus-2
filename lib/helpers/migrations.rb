@@ -16,7 +16,7 @@ module Migrations
       end
       
       # creates users table
-      def authentasaurus_user?(*opts)
+      def authentasaurus_user(*opts)
         create_table :users do |t|
           t.string :username, :null => false
           t.string :hashed_password, :null => false
@@ -27,7 +27,6 @@ module Migrations
           
           if opts.include?(:authorizable)
             t.integer :group_id, :null => false
-            t.string :group_type, :null => false
           end
     
           t.timestamps
@@ -124,8 +123,9 @@ module Migrations
         string :name, :null => false
         string :email, :null => false
         boolean :active, :null => false, :default => false
-        integer :group_id, :null => false
-        string  :group_type, :null => false
+        if opts.include?(:authorizable)
+          t.integer :group_id, :null => false
+        end
       end
     end
   end
