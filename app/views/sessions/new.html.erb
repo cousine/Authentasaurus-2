@@ -20,7 +20,7 @@
     <div>
       <div style="float:left; padding-top: 9px;">
         <a href="#">Forgot your password?</a><br>
-        <%= link_to t(:resend_validation_email_link, :scope => [:authentasaurus, :views, :sessions]), resend_validation_email_path %>
+        <%= link_to t(:resend_validation_email_link, :scope => [:authentasaurus, :views, :sessions]), resend_validation_email_path unless defined?(resend_validation_email_path).nil? %>
       </div>
       <div style="float:right;">
         <%= submit_tag "Sign in" %>
