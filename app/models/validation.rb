@@ -13,6 +13,6 @@ class Validation < ActiveRecord::Base
 
   private
   def send_validation
-    validation_emailer.validation_mail(self.user.name, self.user.email, self.validation_code)
+    AuthentasaurusEmailer.validation_mail(self.user.name, self.user.email, self.validation_code)
   end
 end
