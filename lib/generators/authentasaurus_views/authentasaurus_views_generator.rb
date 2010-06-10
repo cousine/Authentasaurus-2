@@ -8,6 +8,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
       # Other directories
       m.directory File.join('app/views', class_path, "sessions")
       m.directory File.join('app/views', class_path, file_name)
+      m.directory File.join('app/views', class_path, "authentasaurus_emailer")
       
       # Views
       ## user sessions
@@ -18,6 +19,8 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
       m.file 'views/users/index.html.erb', File.join("app/views", class_path, file_name, "index.html.erb")
       m.file 'views/users/new.html.erb', File.join("app/views", class_path, file_name, "new.html.erb")
       m.file 'views/users/show.html.erb', File.join("app/views", class_path, file_name, "show.html.erb")
+      ## emailer
+      
       
       if options[:authorizable]
         m.directory File.join('app/views', class_path, "groups")
@@ -42,12 +45,12 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
 
       # Validations
       if options[:validatable]
-        m.directory File.join('app/views', class_path, "validation_emailer")
         m.directory File.join('app/views', class_path, "validations")
         
         # Views
-        m.file 'views/validations/index.html.erb', File.join("app/views", class_path, "validations", "index.html.erb")
-        m.file 'views/validation_emailer/validation_mail.erb', File.join("app/views", class_path, "validation_emailer", "validation_mail.erb")
+        m.file 'views/validations/activate.html.erb', File.join("app/views", class_path, "validations", "activate.html.erb")
+        m.file 'views/validations/resend_validation_email.html.erb', File.join("app/views", class_path, "validations", "resend_validation_email.html.erb")
+        m.file 'views/authentasaurus_emailer/validation_mail.html.erb', File.join("app/views", class_path, "authentasaurus_emailer", "validation_mail.html.erb")
       end
     end
   end

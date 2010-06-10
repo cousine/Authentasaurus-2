@@ -44,6 +44,7 @@ module Authenticatable
     def authenticatable_with(strong_password, *options)
       authenticatable(:strong_password => strong_password)
       if options.include?(:validation)
+        has_one :validation, :as => :user
         before_create :create_validation
       end
     end

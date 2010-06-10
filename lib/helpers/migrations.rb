@@ -67,6 +67,8 @@ module Migrations
       def authentasaurus_validation
         create_table :validations do |t|
           t.integer :user_id, :null => false
+          t.string  :user_type, :null => false
+          t.string :email, :null => false
           t.string :validation_code, :null => false
     
           t.timestamps

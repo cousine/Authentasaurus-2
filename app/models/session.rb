@@ -21,7 +21,7 @@ class Session
   def save
     @user = User.authenticate(self.username, self.password)
     if @user.nil?
-      self.errors.add_to_base I18n.t(:invalid_login, :scope => [:activerecord, :errors, :messages]) 
+      self.errors.add_to_base I18n.t(:invalid_login, :scope => [:authentasaurus, :messages, :sessions]) 
       false
     else
       @user.create_remember_me_token if self.remember

@@ -1,0 +1,6 @@
+<h3><%= flash.now[:notice] %></h3>
+<% form_tag do_resend_validation_email_path do %>
+	Email :<br>
+	<p><%= text_field_tag :email, params[:email], :size => 44 %></p>
+	<p><%= submit_tag "Submit" %></p>
+<% end %>

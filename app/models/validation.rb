@@ -1,18 +1,18 @@
 class Validation < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :polymorphic => true
   
   # Check that everything is there
-  validates_presence_of :user_id, :validation_code
+  validates_presence_of :user_id, :validation_code, :user_type, :email
   # Check foreign keys
   validates_associated :user
   # Check unique user
-  validates_uniqueness_of :user_id, :validation_code
+  validates_uniqueness_of :user_id, :scope => [:user_type, :email]
+  validates_uniqueness_of :validation_code
 
   #send email
   after_create :send_validation
 
-  private
   def send_validation
-    AuthentasaurusEmailer.validation_mail(self.user.name, self.user.email, self.validation_code)
+    AuthentasaurusEmailer.validation_mail(self.user.name, self.email, self.validation_code)
   end
 end

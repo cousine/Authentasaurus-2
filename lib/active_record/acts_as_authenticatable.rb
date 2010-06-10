@@ -48,6 +48,14 @@ module ActsAsAuthenticatable
       self.hashed_password = self.class.encrypt_password(@new_password, self.password_seed)
     end
     
+    def activate
+      self.update_attribute :active, true
+    end
+    
+    def deactivate
+      self.update_attribute :active, false
+    end
+    
     private
 		def new_password_blank? 
 			self.new_password.blank?
@@ -55,7 +63,7 @@ module ActsAsAuthenticatable
 		
 		def create_validation
 			unless self.active
-				validation = Validation.new(:user_id => self.id, :validation_code => User.encrypt_password(self.username,self.password_seed))
+				validation = Validation.new(:user => self, :email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
 				unless validation.save
 					raise "Could not create validation record"
 				end

@@ -14,7 +14,8 @@ Gem::Specification.new do |spec|
   
   spec.extra_rdoc_files = [
      "MIT-LICENSE",
-     "README.rdoc"
+     "README.rdoc",
+     "TODO"
   ]
   
   spec.files = [
@@ -52,7 +53,8 @@ Gem::Specification.new do |spec|
     "app/views/users/new.html.erb",
     "app/views/users/show.html.erb",
     "app/views/authentasaurus_emailer/validation_mail.html.erb",
-    "app/views/validations/index.html.erb",
+    "app/views/validations/activate.html.erb",
+    "app/views/validations/resend_validation_email.html.erb",
     
     "lib/action_controller/authorization.rb",
     
@@ -91,7 +93,8 @@ Gem::Specification.new do |spec|
     "lib/generators/authentasaurus_views/templates/views/users/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/show.html.erb",
     "lib/generators/authentasaurus_views/templates/views/authentasaurus_emailer/validation_mail.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/validations/index.html.erb",
+    "lib/generators/authentasaurus_views/templates/views/validations/activate.html.erb",
+    "lib/generators/authentasaurus_views/templates/views/validations/resend_validation_email.html.erb",
     
     "lib/helpers/migrations.rb",
     "lib/helpers/routing.rb",
@@ -101,6 +104,8 @@ Gem::Specification.new do |spec|
     "lib/authentasaurus.rb",
     
     "rails/init.rb",
+    
+    "config/locales/en.yml",
     
     "MIT-LICENSE",
     "Rakefile",

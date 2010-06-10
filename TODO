@@ -1,0 +1,4 @@
+* Update views to use the new flash convention
+  * flash[:notice] for information messages
+  * flash[:alert] for error messages
+* Localize views
