@@ -1,0 +1,31 @@
+<div class="form-stroke">
+  <% form_for @session do |f| %>
+    <h2>Sign in</h2>
+    <br>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :username %>
+      <%= f.text_field :username, :style => "width: 98%;" %>
+    </p>
+    
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, :style => "width: 98%;" %>
+    </p>
+    
+    <label>
+      <%= f.check_box :remember %> Remember me
+    </label>
+    
+    <div>
+      <div style="float:left; padding-top: 9px;">
+        <a href="#">Forgot your password?</a><br>
+        <a href="#">Haven't recieved your validation email?</a>
+      </div>
+      <div style="float:right;">
+        <%= submit_tag "Sign in" %>
+      </div>
+      <br style="clear: both;">
+    </div>
+  <% end %>
+</div>
