@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa"]
   spec.name = %q{authentasaurus-2}
-  spec.version = "0.0.3"
+  spec.version = "0.1.3"
 
   spec.required_rubygems_version = Gem::Requirement.new("> 1.3.7") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-06-10}
