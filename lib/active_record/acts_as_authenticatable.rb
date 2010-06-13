@@ -55,6 +55,12 @@ module ActsAsAuthenticatable
     def deactivate
       self.update_attribute :active, false
     end
+
+    def create_remember_me_token
+      pass_to_hash=Time.now.to_i.to_s + "Securasaurus" + password_seed
+      self.update_attribute :remember_me_token, Digest::SHA1.hexdigest(pass_to_hash)
+      self.remember_me_token
+    end
     
     private
 		def new_password_blank? 

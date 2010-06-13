@@ -14,7 +14,10 @@ class Authentasaurus::SessionsController < ApplicationController
     
     respond_to do |format|
       if @session.save
-        cookies[:remember_me_token] = { :value => @session.user.remember_me_token, :expires => 3.years.from_now } if @session.remember
+        if @session.remember == "1"
+          cookies.signed.permanent[:remember_me_token] =
+            @session.user.remember_me_token
+        end
         session[:user_id] = @session.user.id
         format.html { redirect_to session[:original_url] || root_url }
       else
