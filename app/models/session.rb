@@ -13,6 +13,8 @@ class Session
       attributes.each do |key,value|
         send(key.to_s + '=', value)
       end
+    else
+      self.remember = false
     end
   end
   
@@ -24,7 +26,7 @@ class Session
       self.errors.add_to_base I18n.t(:invalid_login, :scope => [:authentasaurus, :messages, :sessions]) 
       false
     else
-      @user.create_remember_me_token if self.remember
+      @user.create_remember_me_token if self.remember == "1"
       true
     end
   end

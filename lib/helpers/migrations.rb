@@ -24,6 +24,7 @@ module Migrations
           t.string :name, :null => false
           t.string :email, :null => false
           t.boolean :active, :null => false, :default => false
+          t.string :remember_me_token
           
           if opts.include?(:authorizable)
             t.integer :group_id, :null => false
@@ -124,6 +125,7 @@ module Migrations
         string :password_seed, :null => false
         string :name, :null => false
         string :email, :null => false
+        string :remember_me_token
         boolean :active, :null => false, :default => false
         if opts.include?(:authorizable)
           t.integer :group_id, :null => false
