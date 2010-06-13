@@ -1,5 +1,5 @@
 Gem::Specification.new do |spec|
-  spec.authors = ["Omar Mekky", "Kareem Diaa"]
+  spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus-2}
   spec.version = "0.1.3"
 
