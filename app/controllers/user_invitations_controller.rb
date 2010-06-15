@@ -1,0 +1,2 @@
+class UserInvitationsController < Authentasaurus::UserInvitationsController
+end

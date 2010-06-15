@@ -1,0 +1,9 @@
+<h1>Create new user invitation</h1>
+<% form_for @invitation do |f| %>
+	<%= f.error_messages %>
+	<br>
+	<%= f.label :email %>
+	<%= f.text_field :email, :size => 30 %>
+	<br>
+	<%= f.submit "Create" %>
+<% end %>
