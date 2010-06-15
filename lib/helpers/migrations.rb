@@ -13,7 +13,8 @@ module Migrations
         authentasaurus_area
         authentasaurus_permission
         authentasaurus_validation
-        authentasaurus_invitation
+        authentasaurus_user_invitation
+        authentasaurus_recovery
       end
       
       # creates users table
@@ -78,7 +79,7 @@ module Migrations
       end
       
       # creates user_invitations table
-      def authentasaurus_invitation
+      def authentasaurus_user_invitation
         create_table :user_invitations do |t|
           t.string  :token, :null => false, :unique => true
           t.string  :email
@@ -87,6 +88,16 @@ module Migrations
         end
       end
       
+      # creates recoveries table
+		  def authentasaurus_recovery
+		    create_table :recoveries do |t|
+		      t.integer :user_id, :null => false
+		      t.string :token, :null => false, :unique => true
+		
+		      t.timestamps
+		    end
+		  end
+      
       # drops all tables
       def authentasaurus_drop_tables
         authentasaurus_drop_user
@@ -94,7 +105,8 @@ module Migrations
         authentasaurus_drop_area
         authentasaurus_drop_permission
         authentasaurus_drop_validation
-        authentasaurus_drop_validation
+        authentasaurus_drop_user_invitation
+        authentasaurus_drop_recovery
       end
       
       # drops users table
@@ -123,8 +135,13 @@ module Migrations
       end
       
       # drops user_invitations table
-      def authentasaurus_drop_validation
+      def authentasaurus_drop_user_invitation
         drop_table :user_invitations
+      end
+      
+      # drops recoveries table
+      def authentasaurus_drop_recovery
+        drop_table :recoveries
       end
     end
   end

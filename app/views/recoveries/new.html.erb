@@ -1,0 +1,15 @@
+<h1>New recovery</h1>
+
+<% form_tag do_forgot_password_path, :method => :post do %>
+	<%= error_messages_for :recovery %>
+  <p>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </p>
+  
+  <p>
+    <%= submit_tag "Proceed" %>
+  </p>
+<% end %>
+
+<%= link_to "Cancel", url_for(:back) %>

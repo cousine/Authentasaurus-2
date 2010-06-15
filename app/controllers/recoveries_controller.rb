@@ -1,0 +1,2 @@
+class RecoveriesController < Authentasaurus::RecoveriesController
+end

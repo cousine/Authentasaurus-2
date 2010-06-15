@@ -27,6 +27,11 @@ module Routing
       if opts.include?(:invitable)
         authentasaurus_invitable options.dup
       end
+      
+      # Recoverable
+      if opts.include?(:recoverable)
+      	authentasaurus_recoverable options.dup
+    	end
     end
     
     # TODO: add documentation here
@@ -67,5 +72,15 @@ module Routing
       
       resources :user_invitations, options.dup.merge({:except => [:show, :edit, :update]})
     end
+    
+    # TODO: add documentation here
+    def authentasaurus_recoverable(*opts)
+    	options = opts.extract_options!
+    	
+	  	forgot_password			"/forgot-password", 					options.dup.merge({ :controller => :recoveries, :action => :new,			:conditions => { :method => :get } })
+	  	do_forgot_password	"/forgot-password", 					options.dup.merge({ :controller => :recoveries, :action => :create,		:conditions => { :method => :post } })
+	  	recover_password		"/recover-password/:token", 	options.dup.merge({ :controller => :recoveries, :action => :edit,			:conditions => { :method => :get } })
+	  	do_recover_password	"/recover-password/:token", 	options.dup.merge({ :controller => :recoveries, :action => :destroy,	:conditions => { :method => :delete } })
+  	end
   end
 end

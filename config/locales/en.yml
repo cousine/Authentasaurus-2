@@ -1,13 +1,21 @@
 en:
   authentasaurus:
-      messages:
-        sessions:
-          invalid_login: Invalid Username/Password combination
-        validations:
-          validation_successful: Account activated successfully
-          validation_failed: Validation failed, check your validation code and try again
-          validation_email_sent: A message containing instructions to validate your email has been sent to your email
-          validation_email_invalid: Could not find {{email}}
-      views:
-        sessions:
-          resend_validation_email_link: Havent recieved your validation email?
+    messages:
+      sessions:
+        invalid_login: Invalid Username/Password combination
+      validations:
+        validation_successful: Account activated successfully
+        validation_failed: Validation failed, check your validation code and try again
+        validation_email_sent: A message containing instructions to validate your email has been sent to your email
+        validation_email_invalid: Could not find {{email}}
+      recoveries:
+        recovery_successful: Password recovered successfully
+        recovery_failed: Token no longer valid
+        recovery_email_sent: A message containing instructions to recover your password has been sent to {{email}}
+        recovery_email_invalid: Email format is invalid
+        recovery_email_unknown: Email does not exist
+        recovery_field_blank: "{{field}} can't be blank"
+    views:
+      sessions:
+        resend_validation_email_link: Haven't recieved your validation email?
+        forgot_password_link: Forgot your password?
