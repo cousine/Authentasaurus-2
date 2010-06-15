@@ -14,7 +14,7 @@ class Authentasaurus::RecoveriesController < ApplicationController
 	  	if params[:email].blank?
 	  		@recovery.errors.add_to_base t(:recovery_field_blank, :scope => [:authentasaurus, :messages, :recoveries], :field => "Email")
 	  		format.html { render :action => :new }
-	  	elsif %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}.match params[:email]
+	  	elsif params[:email] =~ %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
 	  		user = User.find_by_email(params[:email])
 	  		if user.nil?
 	  			@recovery.errors.add_to_base t(:recovery_email_unknown, :scope => [:authentasaurus, :messages, :recoveries])
