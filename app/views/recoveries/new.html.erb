@@ -1,4 +1,4 @@
-<h1>New recovery</h1>
+<h1>Recover your password</h1>
 
 <% form_tag do_forgot_password_path, :method => :post do %>
 	<%= error_messages_for :recovery %>
@@ -8,7 +8,7 @@
   </p>
   
   <p>
-    <%= submit_tag "Proceed" %>
+    <%= submit_tag "Send Instructions" %>
   </p>
 <% end %>
 
