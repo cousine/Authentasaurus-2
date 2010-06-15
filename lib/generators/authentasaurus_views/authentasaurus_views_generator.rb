@@ -52,6 +52,15 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
         m.file 'views/validations/resend_validation_email.html.erb', File.join("app/views", class_path, "validations", "resend_validation_email.html.erb")
         m.file 'views/authentasaurus_emailer/validation_mail.html.erb', File.join("app/views", class_path, "authentasaurus_emailer", "validation_mail.html.erb")
       end
+      
+      # User invitations
+      if options[:invitable]
+        m.directory File.join('app/views', class_path, "user_invitations")
+        
+        #Views
+        m.file 'views/user_invitations/index.html.erb', File.join('app/views', class_path, 'user_invitations', "index.html.erb")
+        m.file 'views/user_invitations/new.html.erb', File.join('app/views', class_path, 'user_invitations', "new.html.erb")
+      end
     end
   end
 

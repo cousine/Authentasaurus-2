@@ -22,6 +22,11 @@ module Routing
       if opts.include?(:validatable)
         authentasaurus_validatable options.dup
       end
+      
+      # Invitable
+      if opts.include?(:invitable)
+        authentasaurus_invitable options.dup
+      end
     end
     
     # TODO: add documentation here
@@ -56,5 +61,11 @@ module Routing
       do_resend_validation_email "/resend-validation", options.dup.merge({:controller => :validations, :action => :do_resend_validation_email, :conditions => {:method => :post}})
     end
     
+    # TODO: add documentation here
+    def authentasaurus_invitable(*opts)
+      options = opts.extract_options!
+      
+      resources :user_invitations, options.dup.merge({:except => [:show, :edit, :update]})
+    end
   end
 end

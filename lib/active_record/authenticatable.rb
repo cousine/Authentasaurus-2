@@ -19,8 +19,8 @@ module Authenticatable
       validates_presence_of :password, :on => :create
       validates_length_of :password, :minimum => 6, :on => :create
       # new password
-      validates_confirmation_of :new_password, :on => :update, :unless => :new_password?
-      validates_length_of :new_password, :minimum => 6, :on => :update, :unless => :new_password?
+      validates_confirmation_of :new_password, :on => :update, :unless => :new_password_blank?
+      validates_length_of :new_password, :minimum => 6, :on => :update, :unless => :new_password_blank?
       # format of password
       if options[:strong_password]
         validates_format_of :password, :with => %r{[a-z]}, :on => :create
@@ -28,10 +28,10 @@ module Authenticatable
         validates_format_of :password, :with => %r{[0-9]}, :on => :create
         validates_format_of :password, :with => %r{[@$%!&]}, :on => :create
         # new password
-        validates_format_of :new_password, :with => %r{[a-z]}, :on => :update, :unless => :new_password?
-        validates_format_of :new_password, :with => %r{[A-Z]}, :on => :update, :unless => :new_password?
-        validates_format_of :new_password, :with => %r{[0-9]}, :on => :update, :unless => :new_password?
-        validates_format_of :new_password, :with => %r{[@$%!&]}, :on => :update, :unless => :new_password?
+        validates_format_of :new_password, :with => %r{[a-z]}, :on => :update, :unless => :new_password_blank?
+        validates_format_of :new_password, :with => %r{[A-Z]}, :on => :update, :unless => :new_password_blank?
+        validates_format_of :new_password, :with => %r{[0-9]}, :on => :update, :unless => :new_password_blank?
+        validates_format_of :new_password, :with => %r{[@$%!&]}, :on => :update, :unless => :new_password_blank?
       end
       # Accessors
       attr_accessor :password_confirmation, :new_password_confirmation

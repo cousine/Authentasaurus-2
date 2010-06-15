@@ -13,6 +13,7 @@ module Migrations
         authentasaurus_area
         authentasaurus_permission
         authentasaurus_validation
+        authentasaurus_invitation
       end
       
       # creates users table
@@ -76,12 +77,23 @@ module Migrations
         end
       end
       
+      # creates user_invitations table
+      def authentasaurus_invitation
+        create_table :user_invitations do |t|
+          t.string  :token, :null => false, :unique => true
+          t.string  :email
+    
+          t.timestamps
+        end
+      end
+      
       # drops all tables
       def authentasaurus_drop_tables
         authentasaurus_drop_user
         authentasaurus_drop_group
         authentasaurus_drop_area
         authentasaurus_drop_permission
+        authentasaurus_drop_validation
         authentasaurus_drop_validation
       end
       
@@ -108,6 +120,11 @@ module Migrations
       # drops validations table
       def authentasaurus_drop_validation
         drop_table :validations
+      end
+      
+      # drops user_invitations table
+      def authentasaurus_drop_validation
+        drop_table :user_invitations
       end
     end
   end
