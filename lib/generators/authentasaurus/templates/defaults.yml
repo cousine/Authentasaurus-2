@@ -1,0 +1,26 @@
+## Authentasaurus configuration
+development: &non_production_settings
+  :mail:
+    :email:     "foo_bar@your-domain.com"
+    :host:      "your-domain.com"
+    :address:   "mail.your-domain.com"
+    :port:      25
+    :domain:    "your-domain.com"
+    :user_name: "foo.bar"
+    :password:  "secret"
+  :modules:
+    :recoverable:
+      :token_expires_after: 10 # days
+
+test:
+  <<: *non_production_settings
+
+production:
+  :mail:
+    :email:     "foo_bar@your-domain.com"
+    :host:      "your-domain.com"
+    :address:   "mail.your-domain.com"
+    :port:      25
+    :domain:    "your-domain.com"
+    :user_name: "foo.bar"
+    :password:  "secret"

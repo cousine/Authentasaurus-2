@@ -31,7 +31,7 @@ class Authentasaurus::RecoveriesController < ApplicationController
   end
 
   def edit
-    @recovery = Recovery.find_by_token(params[:token])
+    @recovery = Recovery.valid.find_by_token(params[:token])
     
     respond_to do |format|
 	    unless @recovery.nil?
