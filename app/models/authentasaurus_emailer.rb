@@ -18,4 +18,14 @@ class AuthentasaurusEmailer < ActionMailer::Base
     body       :name => user.name, :token => token
     content_type "text/html"
   end
+  
+  def invitation_mail(email, token, sent_at = Time.now)
+    subject    "You've been invited to your-domain.com"
+    recipients email
+    from       'no-reply@your-domain.com' # dont forget to change me
+    sent_on    sent_at
+    
+    body       :token => token
+    content_type "text/html"
+  end
 end

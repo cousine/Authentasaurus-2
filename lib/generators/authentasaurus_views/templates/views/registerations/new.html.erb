@@ -1,0 +1,21 @@
+<h1>Enter your data</h1>
+<% form_for @user, :url => registerations_path(:token => params[:token]) do |f| %>
+	<%= f.error_messages %>
+	<br>
+	<%= f.label :username %>
+	<%= f.text_field :username, :size => 30 %>
+	<br>
+	<%= f.label :password %>
+	<%= f.password_field :password, :size => 30 %>
+	<br>
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation, :size => 30 %>
+	<br>
+	<%= f.label :name %>
+	<%= f.text_field :name, :size => 30 %>
+	<br>
+	<%= f.label :email %>
+	<%= f.text_field :email, :size => 30 %>
+	<br>
+	<%= f.submit "Create" %>
+<% end %>

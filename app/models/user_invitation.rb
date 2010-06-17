@@ -5,6 +5,12 @@ class UserInvitation < ActiveRecord::Base
   validates_format_of :email, :with => %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
   
   before_validation :create_token
+  #send email
+  after_create :send_invitation
+
+  def send_invitation
+    AuthentasaurusEmailer.invitation_mail(self.email, self.token)
+  end
   
   private
   def create_token

@@ -164,7 +164,7 @@ module Authorization
     end
     
     # Returns an object of the current user
-    def current_user(user_model)
+    def current_user(user_model = nil)
       user_model = User if user_model.nil?
       return user_model.find session[:user_id] if session[:user_id]
     end

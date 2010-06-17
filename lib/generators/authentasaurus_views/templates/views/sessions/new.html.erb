@@ -1,4 +1,5 @@
 <div class="form-stroke">
+  <%= flash[:alert] if flash[:alert] %>
   <% form_for @session do |f| %>
     <h2>Sign in</h2>
     <br>
@@ -19,8 +20,17 @@
     
     <div>
       <div style="float:left; padding-top: 9px;">
-        <a href="#">Forgot your password?</a><br>
-        <a href="#">Haven't recieved your validation email?</a>
+        <% unless defined?(forgot_password_path).nil? %>
+          <p>
+            <%= link_to(t(:forgot_password_link, :scope => [:authentasaurus, :views, :sessions]), forgot_password_path) %>
+          </p>
+        <% end %>
+        
+        <% unless defined?(resend_validation_email_path).nil? %>
+          <p>
+            <%= link_to(t(:resend_validation_email_link, :scope => [:authentasaurus, :views, :sessions]), resend_validation_email_path) %>
+          </p>
+        <% end %>
       </div>
       <div style="float:right;">
         <%= submit_tag "Sign in" %>

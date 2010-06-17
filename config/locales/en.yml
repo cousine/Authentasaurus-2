@@ -15,6 +15,8 @@ en:
         recovery_email_invalid: Email format is invalid
         recovery_email_unknown: Email does not exist
         recovery_field_blank: "{{field}} can't be blank"
+      user_invitations:
+        invalid_invitation_token: Invalid invitation token
     views:
       sessions:
         resend_validation_email_link: Haven't recieved your validation email?
