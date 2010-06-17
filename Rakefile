@@ -2,8 +2,8 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-# desc 'Default: run unit tests.'
-# task :default => :test
+desc 'Default: generate authentasaurus configuration'
+task :default => :authentasaurus
 
 # desc 'Test the authentasaurus plugin.'
 # Rake::TestTask.new(:test) do |t|

@@ -1,5 +1,5 @@
 class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
-  default_options :authorizable => false, :validatable => false
+  default_options :authorizable => false, :validatable => false, :invitable => false
 
   def manifest
     record do |m|
@@ -70,7 +70,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
 
   protected
   def banner
-    "Usage: #{$0} #{spec.name} MainUserModelName"
+    "Usage: #{$0} #{spec.name} MainUserControllerName"
   end
 
   def add_options!(opt)
@@ -80,5 +80,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
            "Add validation to authentasaurus") { |v| options[:validatable] = v }
     opt.on("--authorizable",
            "Add authorization to authentasaurus") { |v| options[:authorizable] = v }
+    opt.on("--invitable",
+           "Add invitations to authentasaurus") { |v| options[:invitable] = v }
   end
 end

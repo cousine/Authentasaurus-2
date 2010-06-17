@@ -67,6 +67,7 @@ There are three main session helpers in Authentasaurus:
 
   * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
+  * :user_model - if defined, authentasaurus will use that model instead of the default "User"
 
     require_login :actions => :destroy, :skip_request => true
 
@@ -78,6 +79,7 @@ There are three main session helpers in Authentasaurus:
   
   * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
+  * :user_model - if defined, authentasaurus will use that model instead of the default "User"
 
     require_write :actions => [:create_user, :delete_user]
 
@@ -89,6 +91,7 @@ There are three main session helpers in Authentasaurus:
   
   * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
+  * :user_model - if defined, authentasaurus will use that model instead of the default "User"
 
     require_read :actions => :show_user
 

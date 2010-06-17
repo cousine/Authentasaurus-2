@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  spec.name = %q{authentasaurus-2}
-  spec.version = "0.1.3"
+  spec.name = %q{Authentasaurus-2}
+  spec.version = "0.1.4"
 
   spec.required_rubygems_version = Gem::Requirement.new("> 1.3.7") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-06-10}
@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
     "app/controllers/groups_controller.rb",
     "app/controllers/permissions_controller.rb",
     "app/controllers/recoveries_controller.rb",
+    "app/controllers/registerations_controller.rb",
     "app/controllers/sessions_controller.rb",
     "app/controllers/users_controller.rb",
     "app/controllers/validations_controller.rb",
@@ -33,6 +34,7 @@ Gem::Specification.new do |spec|
     "app/models/recovery.rb",
     "app/models/session.rb",
     "app/models/user.rb",
+    "app/models/user_invitation.rb",
     "app/models/validation.rb",
     "app/models/authentasaurus_emailer.rb",
     
@@ -50,6 +52,7 @@ Gem::Specification.new do |spec|
     "app/views/permissions/show.html.erb",
     "app/views/recoveries/edit.html.erb",
     "app/views/recoveries/new.html.erb",
+    "app/views/registerations/new.html.erb",
     "app/views/sessions/new.html.erb",
     "app/views/sessions/no_access.html.erb",
     "app/views/users/edit.html.erb",
@@ -71,10 +74,18 @@ Gem::Specification.new do |spec|
     
     "lib/authentasaurus/areas_controller.rb",
     "lib/authentasaurus/groups_controller.rb",
+    "lib/authentasaurus/recoveries_controller.rb",
+    "lib/authentasaurus/registerations_controller.rb",
     "lib/authentasaurus/permissions_controller.rb",
     "lib/authentasaurus/sessions_controller.rb",
     "lib/authentasaurus/users_controller.rb",
+    "lib/authentasaurus/user_invitations_controller.rb",
     "lib/authentasaurus/validations_controller.rb",
+    
+    "lib/generators/authentasaurus/authentasaurus_generator.rb",
+    "lib/generators/authentasaurus/USAGE",
+    "lib/generators/authentasaurus/templates/defaults.yml",
+    "lib/generators/authentasaurus/templates/initializer.rb",
     
     "lib/generators/authentasaurus_views/authentasaurus_views_generator.rb",
     "lib/generators/authentasaurus_views/USAGE",
@@ -92,12 +103,15 @@ Gem::Specification.new do |spec|
     "lib/generators/authentasaurus_views/templates/views/permissions/show.html.erb",
     "lib/generators/authentasaurus_views/templates/views/recoveries/edit.html.erb",
     "lib/generators/authentasaurus_views/templates/views/recoveries/new.html.erb",
+    "lib/generators/authentasaurus_views/templates/views/registerations/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/sessions/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/sessions/no_access.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/edit.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/index.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/show.html.erb",
+    "lib/generators/authentasaurus_views/templates/views/user_invitations/index.html.erb",
+    "lib/generators/authentasaurus_views/templates/views/user_invitations/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/authentasaurus_emailer/validation_mail.html.erb",
     "lib/generators/authentasaurus_views/templates/views/validations/activate.html.erb",
     "lib/generators/authentasaurus_views/templates/views/validations/resend_validation_email.html.erb",
