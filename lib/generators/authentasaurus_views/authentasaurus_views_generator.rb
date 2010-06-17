@@ -19,7 +19,6 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
       m.file 'views/users/index.html.erb', File.join("app/views", class_path, file_name, "index.html.erb")
       m.file 'views/users/new.html.erb', File.join("app/views", class_path, file_name, "new.html.erb")
       m.file 'views/users/show.html.erb', File.join("app/views", class_path, file_name, "show.html.erb")
-      ## emailer
       
       
       if options[:authorizable]

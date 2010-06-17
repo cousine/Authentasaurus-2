@@ -1,0 +1,24 @@
+<h1>Fill in your new password</h1>
+
+<% form_tag do_recover_password_path, :method => :delete do %>
+  <%= error_messages_for :user %>
+  
+  <p>
+  	<%= label_tag :name %><br />
+  	<%= text_field_tag :name, @user.name, :disabled => true %>
+	</p>
+  
+  <p>
+    <%= label_tag "user[new_password]", "Password" %><br />
+    <%= password_field_tag "user[new_password]" %>
+  </p>
+  <p>
+    <%= label_tag "user[new_password_confirmation]", "Password confirmation" %><br />
+    <%= password_field_tag "user[new_password_confirmation]" %>
+  </p>
+  <p>
+    <%= submit_tag "Set" %>
+  </p>
+<% end %>
+
+<%= link_to "Cancel", url_for(:back) %>
