@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "app/controllers/groups_controller.rb",
     "app/controllers/permissions_controller.rb",
     "app/controllers/recoveries_controller.rb",
-    "app/controllers/registerations_controller.rb",
+
     "app/controllers/sessions_controller.rb",
     "app/controllers/users_controller.rb",
     "app/controllers/validations_controller.rb",
@@ -52,7 +52,7 @@ Gem::Specification.new do |spec|
     "app/views/permissions/show.html.erb",
     "app/views/recoveries/edit.html.erb",
     "app/views/recoveries/new.html.erb",
-    "app/views/registerations/new.html.erb",
+
     "app/views/sessions/new.html.erb",
     "app/views/sessions/no_access.html.erb",
     "app/views/users/edit.html.erb",
@@ -75,7 +75,7 @@ Gem::Specification.new do |spec|
     "lib/authentasaurus/areas_controller.rb",
     "lib/authentasaurus/groups_controller.rb",
     "lib/authentasaurus/recoveries_controller.rb",
-    "lib/authentasaurus/registerations_controller.rb",
+
     "lib/authentasaurus/permissions_controller.rb",
     "lib/authentasaurus/sessions_controller.rb",
     "lib/authentasaurus/users_controller.rb",
@@ -103,7 +103,7 @@ Gem::Specification.new do |spec|
     "lib/generators/authentasaurus_views/templates/views/permissions/show.html.erb",
     "lib/generators/authentasaurus_views/templates/views/recoveries/edit.html.erb",
     "lib/generators/authentasaurus_views/templates/views/recoveries/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/registerations/new.html.erb",
+
     "lib/generators/authentasaurus_views/templates/views/sessions/new.html.erb",
     "lib/generators/authentasaurus_views/templates/views/sessions/no_access.html.erb",
     "lib/generators/authentasaurus_views/templates/views/users/edit.html.erb",

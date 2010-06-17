@@ -62,7 +62,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
         #Views
         m.file 'views/user_invitations/index.html.erb', File.join('app/views', class_path, 'user_invitations', "index.html.erb")
         m.file 'views/user_invitations/new.html.erb', File.join('app/views', class_path, 'user_invitations', "new.html.erb")
-        m.file 'views/registerations/new.html.erb', File.join('app/views', class_path, 'registerations', "new.html.erb")
+
         m.file 'views/authentasaurus_emailer/invitation_mail.html.erb', File.join("app/views", class_path, "authentasaurus_emailer", "invitation_mail.html.erb")
       end
     end

@@ -77,7 +77,7 @@ module Routing
     def authentasaurus_invitable_public(*opts)
       options = opts.extract_options!
       
-      resources :registerations, options.dup.merge({:only => [:new, :create], :path_prefix => "/:token", :requirements => {:token => /[0-9a-zA-Z]+/}})
+
     end
     
     # TODO: add documentation here

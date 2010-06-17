@@ -1,4 +1,4 @@
-class Authentasaurus::RegisterationsController < ApplicationController
+
   def new
     @user = User.new
     @user_invitation = UserInvitation.find_by_token params[:token]
