@@ -5,12 +5,12 @@ Gem::Specification.new do |spec|
 
   spec.required_rubygems_version = Gem::Requirement.new("> 1.3.7") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-06-10}
-  spec.description = %q{Simple and easy restful group/permission based authentication and authorization engine plugin for Rails}
+  spec.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   spec.email = %q{info@mashsolvents.com}
   spec.homepage = %q{http://github.com/cousine/Authentasuarus-2}
   spec.require_paths = ["lib"]
   spec.rubygems_version = %q{1.3.7}
-  spec.summary = %q{Restful group/permission based authentication and authorization for Rails}
+  spec.summary = %q{Restful dynamic group/permission based authentication and authorization for Rails}
   
   spec.extra_rdoc_files = [
      "MIT-LICENSE",
