@@ -10,8 +10,8 @@ namespace :authentasaurus do
     end
   end
 
-  desc "Creates default user"
-  task :create_user => :environment do
+  desc "Creates the default user"
+  task :create_default_user => :environment do
     User.create! :username=> "admin" ,:password => "Pass@123",:password_confirmation => "Pass@123",:name=> "kareem",
       :email=> "email@yourdomain.com",:group_id => 1, :active => true
   end

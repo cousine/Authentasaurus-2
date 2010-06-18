@@ -92,6 +92,7 @@ module Migrations
 		  def authentasaurus_recovery
 		    create_table :recoveries do |t|
 		      t.integer :user_id, :null => false
+		      t.string  :email, :null => false
 		      t.string :token, :null => false, :unique => true
 		
 		      t.timestamps

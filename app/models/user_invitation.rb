@@ -9,7 +9,7 @@ class UserInvitation < ActiveRecord::Base
   after_create :send_invitation
 
   def send_invitation
-    AuthentasaurusEmailer.invitation_mail(self.email, self.token)
+    AuthentasaurusEmailer.deliver_invitation_mail(self.email, self.token)
   end
   
   private

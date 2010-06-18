@@ -7,27 +7,41 @@ class Authentasaurus::RecoveriesController < ApplicationController
     end
   end
 
+  # def create
+  #     respond_to do |format|
+  #       user = User.find_by_email(params[:recovery][:email])
+  #       if user.nil?
+  #         @recovery = Recovery.new
+  #         @recovery.errors.add_to_base t(:recovery_email_unknown, :scope => [:authentasaurus, :messages, :recoveries])
+  #         format.html { render :action => :new }
+  #       else
+  #         @recovery = Recovery.find_or_initialize_by_user_id(:user => user)
+  #         @recovery.email = params[:recovery][:email]
+  #         if @recovery.save
+  #           @recovery.touch
+  #           format.html { redirect_to new_session_path, :notice => t(:recovery_email_sent, :scope => [:authentasaurus, :messages, :recoveries], :email => params[:recovery][:email]) }
+  #         else
+  #           format.html { render :new }
+  #         end
+  #       end
+  #     end
+  #   end
+  
   def create
-  	@recovery = Recovery.new
-  	
-  	respond_to do |format|
-	  	if params[:email].blank?
-	  		@recovery.errors.add_to_base t(:recovery_field_blank, :scope => [:authentasaurus, :messages, :recoveries], :field => "Email")
-	  		format.html { render :action => :new }
-	  	elsif params[:email] =~ %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
-	  		user = User.find_by_email(params[:email])
-	  		if user.nil?
-	  			@recovery.errors.add_to_base t(:recovery_email_unknown, :scope => [:authentasaurus, :messages, :recoveries])
-	  			format.html { render :action => :new }
-				else
-					Recovery.find_or_initialize_by_user_id(:user => user).touch
-					format.html { redirect_to new_session_path, :notice => t(:recovery_email_sent, :scope => [:authentasaurus, :messages, :recoveries], :email => params[:email]) }
-				end
-			else
-				@recovery.errors.add_to_base t(:recovery_email_invalid, :scope => [:authentasaurus, :messages, :recoveries])
-				format.html { render :action => :new }
-			end
-		end
+    @recovery = Recovery.find_or_initialize_by_email :email => params[:recovery][:email]
+    
+    if @recovery.new_record?
+      @recovery.user = User.find_by_email @recovery.email
+    end
+    
+    respond_to do |format|
+      if @recovery.save
+        @recovery.touch
+        format.html { redirect_to new_session_path, :notice => t(:recovery_email_sent, :scope => [:authentasaurus, :messages, :recoveries], :email => @recovery.email) }
+      else
+        format.html {render :new}
+      end
+    end  
   end
 
   def edit

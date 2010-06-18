@@ -1,4 +1,10 @@
 en:
+  activerecord:
+    errors:
+      full_messages:
+        recovery:
+          user_id:
+            blank: "There exists no user with the given email"
   authentasaurus:
     messages:
       sessions:

@@ -1,14 +1,14 @@
 <h1>Recover your password</h1>
 
-<% form_tag do_forgot_password_path, :method => :post do %>
-	<%= error_messages_for :recovery %>
+<% form_for @recovery, :url => do_forgot_password_path do |f| %>
+	<%= f.error_messages %>
   <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </p>
   
   <p>
-    <%= submit_tag "Send Instructions" %>
+    <%= f.submit "Send Instructions" %>
   </p>
 <% end %>
 

@@ -12,6 +12,8 @@ module Routing
       # Authenticatable
       authentasaurus_sessions options.dup
       authentasaurus_users options.dup
+      # Recoverable
+    	authentasaurus_recoverable options.dup
       
       # Authorizable
       if opts.include?(:authorizable)
@@ -28,11 +30,6 @@ module Routing
         authentasaurus_invitable options.dup
         authentasaurus_invitable_public
       end
-      
-      # Recoverable
-      if opts.include?(:recoverable)
-      	authentasaurus_recoverable options.dup
-    	end
     end
     
     # TODO: add documentation here
