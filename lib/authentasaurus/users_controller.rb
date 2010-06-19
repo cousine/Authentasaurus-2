@@ -1,4 +1,4 @@
-class Authentasaurus::UsersController < ApplicationController
+class Authentasaurus::UsersController < Authentasaurus::AuthentasaurusController
 	require_read :actions => [:index, :show]
 	require_write :actions => [:new, :create, :edit, :update, :destroy]
 	

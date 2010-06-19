@@ -1,4 +1,4 @@
-class Authentasaurus::SessionsController < ApplicationController
+class Authentasaurus::SessionsController < Authentasaurus::AuthentasaurusController
   before_filter :check_is_logged_in, :except => :destroy
 
   def new

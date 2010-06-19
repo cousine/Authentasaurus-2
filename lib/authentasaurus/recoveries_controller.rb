@@ -1,4 +1,4 @@
-class Authentasaurus::RecoveriesController < ApplicationController
+class Authentasaurus::RecoveriesController < Authentasaurus::AuthentasaurusController
   def new
     @recovery = Recovery.new
     
@@ -6,26 +6,6 @@ class Authentasaurus::RecoveriesController < ApplicationController
       format.html
     end
   end
-
-  # def create
-  #     respond_to do |format|
-  #       user = User.find_by_email(params[:recovery][:email])
-  #       if user.nil?
-  #         @recovery = Recovery.new
-  #         @recovery.errors.add_to_base t(:recovery_email_unknown, :scope => [:authentasaurus, :messages, :recoveries])
-  #         format.html { render :action => :new }
-  #       else
-  #         @recovery = Recovery.find_or_initialize_by_user_id(:user => user)
-  #         @recovery.email = params[:recovery][:email]
-  #         if @recovery.save
-  #           @recovery.touch
-  #           format.html { redirect_to new_session_path, :notice => t(:recovery_email_sent, :scope => [:authentasaurus, :messages, :recoveries], :email => params[:recovery][:email]) }
-  #         else
-  #           format.html { render :new }
-  #         end
-  #       end
-  #     end
-  #   end
   
   def create
     @recovery = Recovery.find_or_initialize_by_email :email => params[:recovery][:email]

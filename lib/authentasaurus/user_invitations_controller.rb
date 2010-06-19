@@ -1,4 +1,4 @@
-class Authentasaurus::UserInvitationsController < ApplicationController
+class Authentasaurus::UserInvitationsController < Authentasaurus::AuthentasaurusController
   # require_read :actions => [:index]
   #   require_write :actions => [:new, :create, :destroy]
   

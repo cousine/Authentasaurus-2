@@ -1,4 +1,4 @@
-class Authentasaurus::ValidationsController < ApplicationController
+class Authentasaurus::ValidationsController < Authentasaurus::AuthentasaurusController
 	def validate
 		respond_to do |format|
 			validation = Validation.find_by_validation_code(params[:vcode])
