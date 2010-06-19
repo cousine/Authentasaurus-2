@@ -126,6 +126,7 @@ Gem::Specification.new do |spec|
     "lib/authentasaurus/models/group.rb",
     
     "lib/authentasaurus/areas_controller.rb",
+    "lib/authentasaurus/authentasaurus_controller.rb",
     "lib/authentasaurus/groups_controller.rb",
     "lib/authentasaurus/permissions_controller.rb",
     "lib/authentasaurus/recoveries_controller.rb",
