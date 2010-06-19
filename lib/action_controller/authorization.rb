@@ -26,14 +26,14 @@ module Authorization
       options = attrs.extract_options!.symbolize_keys
       attrs = attrs.flatten
       
-      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
-      
   		unless attrs.empty?
-  		  before_filter :only => attrs do |controller|
+  		  before_filter :only => attrs, :if => options[:if], :unless => options[:unless] do |controller|
   		    controller.instance_eval {check_logged_in !options[:skip_request].nil?, options[:user_model]}
 		    end
   		else
-  			before_filter {|c| c.instance_eval {check_logged_in !options[:skip_request].nil?, options[:user_model]} }
+  			before_filter :if => options[:if], :unless => options[:unless] do |c| 
+  			  c.instance_eval {check_logged_in !options[:skip_request].nil?, options[:user_model]}
+			  end
   		end
     end
     
@@ -53,14 +53,15 @@ module Authorization
       options = attrs.extract_options!.symbolize_keys
       attrs = attrs.flatten
       
-      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
       
   		unless attrs.empty?
-  			before_filter :only => attrs do |controller|
+  			before_filter :only => attrs, :if => options[:if], :unless => options[:unless] do |controller|
   			  controller.instance_eval { check_write_permissions !options[:skip_request].nil?, options[:user_model] }
 			  end
   		else
-  			before_filter {|c| c.instance_eval {check_write_permissions !options[:skip_request].nil?, options[:user_model]} }
+  			before_filter :if => options[:if], :unless => options[:unless] do |c| 
+  			  c.instance_eval {check_write_permissions !options[:skip_request].nil?, options[:user_model]}
+			  end
   		end
     end
     
@@ -80,14 +81,14 @@ module Authorization
       options = attrs.extract_options!.symbolize_keys
       attrs = attrs.flatten
       
-      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
-      
   		unless attrs.empty?
-  			before_filter :only => attrs do |controller|
+  			before_filter :only => attrs, :if => options[:if], :unless => options[:unless] do |controller|
   			  controller.instance_eval { check_read_permissions !options[:skip_request].nil?, options[:user_model] }
 			  end
   		else
-  			before_filter {|c| c.instance_eval { check_read_permissions !options[:skip_request].nil?, options[:user_model] } }
+  			before_filter :if => options[:if], :unless => options[:unless] do |c| 
+  			  c.instance_eval { check_read_permissions !options[:skip_request].nil?, options[:user_model] } 
+			  end
   		end
     end
   end
@@ -206,5 +207,9 @@ module Authorization
       end
       return check
     end
+    
+    def controller_instance
+      self
+    end 
   end
 end
