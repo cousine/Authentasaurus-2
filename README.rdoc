@@ -165,6 +165,6 @@ In addition there is also the has? helper which is available in both Controllers
 <tt>has?(permission, area=nil)</tt>::
     Checks if the current user has the appropriate permissions for the area specified
     
-     *ex*: has?(:write) or has?(:read, :users)
+    <b>ex</b>: has?(:write) or has?(:read, :users)
 
 Copyright (c) 2010 Mash, Ltd., released under the MIT license
