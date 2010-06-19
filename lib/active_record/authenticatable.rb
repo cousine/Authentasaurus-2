@@ -8,7 +8,7 @@ module Authenticatable
     def authenticatable(options = {})
       # Associations
       belongs_to :group
-      has_many :permissions, :through => :groups
+      has_many :permissions, :through => :group
       # Validation
       # basic attributes
       validates_presence_of :username, :hashed_password, :password_seed, :email, :name
