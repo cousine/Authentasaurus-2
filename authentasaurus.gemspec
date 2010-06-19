@@ -143,7 +143,6 @@ Gem::Specification.new do |spec|
     "rails/init.rb",
     
     "MIT-LICENSE",
-    "Rakefile",
     "README.rdoc"
   ]
 end
