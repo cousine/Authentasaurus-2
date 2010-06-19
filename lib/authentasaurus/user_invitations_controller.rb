@@ -1,6 +1,4 @@
 class Authentasaurus::UserInvitationsController < Authentasaurus::AuthentasaurusController
-  require_read :index
-  require_write :new, :create, :destroy
   
   def index
     @invitations = UserInvitation.find :all

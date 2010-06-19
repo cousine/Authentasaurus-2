@@ -1,2 +1,2 @@
-
+class RegistrationsController < Authentasaurus::RegistrationsController
 end

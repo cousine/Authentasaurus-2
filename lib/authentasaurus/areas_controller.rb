@@ -1,6 +1,4 @@
 class Authentasaurus::AreasController < Authentasaurus::AuthentasaurusController
-	require_read :index, :show
-	require_write :new, :create, :edit, :update, :destroy
 	
 	def index
 		@areas= Area.find :all

@@ -1,6 +1,4 @@
 class Authentasaurus::PermissionsController < Authentasaurus::AuthentasaurusController
-	require_read :index, :show
-	require_write :new, :create, :edit, :update, :destroy
 	
 	def index
 		@permissions = Permission.find :all
