@@ -77,7 +77,7 @@ Gem::Specification.new do |spec|
     "app/views/validations/activate.html.erb",
     "app/views/validations/resend_validation_email.html.erb",
     
-    "config/locales/en.yml"
+    "config/locales/en.yml",
     
     "generators/authentasaurus/authentasaurus_generator.rb",
     "generators/authentasaurus/USAGE",
