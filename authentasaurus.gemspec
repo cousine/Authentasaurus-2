@@ -45,7 +45,7 @@ Gem::Specification.new do |spec|
     "app/views/areas/show.html.erb",
     
     "app/views/authentasaurus_emailer/invitation_mail.html.erb",
-    "app/views/authentasaurus_emailer/recovery_maill.html.erb",
+    "app/views/authentasaurus_emailer/recovery_mail.html.erb",
     "app/views/authentasaurus_emailer/validation_mail.html.erb",
     
     "app/views/groups/edit.html.erb",
