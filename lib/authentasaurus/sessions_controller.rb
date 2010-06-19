@@ -15,10 +15,10 @@ class Authentasaurus::SessionsController < Authentasaurus::AuthentasaurusControl
     respond_to do |format|
       if @session.save
         if @session.remember == "1"
-          cookies.signed.permanent[:remember_me_token] =
-            @session.user.remember_me_token
+          cookies.signed.permanent[:remember_me_token] = @session.user.remember_me_token
         end
         session[:user_id] = @session.user.id
+        session[:user_permissions] =   {:read => @session.user.permissions.collect{|per| per.area.name if per.read}, :write => @session.user.permissions.collect{|per| per.area.name if per.write}}
         format.html { redirect_to session[:original_url] || root_url }
       else
         format.html { render :action => :new }
@@ -29,6 +29,7 @@ class Authentasaurus::SessionsController < Authentasaurus::AuthentasaurusControl
   
   def destroy
     session[:user_id] = nil
+    session[:user_permissions] = nil
     cookies.delete :remember_me_token
     
     respond_to do |format|

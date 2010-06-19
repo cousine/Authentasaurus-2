@@ -37,9 +37,9 @@ namespace :authentasaurus do
       if controller =~ /_controller/ && !(controller =~ /application_controller/)
         cont = controller.gsub("_controller.rb","")
         puts "--- Creating #{cont} area"
-        Area.find_or_create_by_name cont
-        unless Area.errors.empty?
-          puts Area.errors.full_messages
+        area = Area.find_or_create_by_name cont
+        unless area.errors.empty?
+          puts area.errors.full_messages
           raise "Could not create areas"
         end
       end
