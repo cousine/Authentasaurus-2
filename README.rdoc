@@ -53,17 +53,40 @@ when it meets a require helper on a controller.
   A permission is one of two, either read or write, but take care, read or write is only a naming, and though it doesn't make
   sense, you could treat a read permission as a write permission and vice versa, but as i said it makes no sense !
 
-== Generator options
+== Generators
 
-You can use some options with the Authentasaurus generator; currently only one
-is available:
+There are two generators in Authentasaurus, the default generator
+  authentasaurus
+and the views generator
+  authentasaurus_views
 
-<tt>--skip-validation</tt>::
-  Skips generating the validation files used to send activation emails
+The default generator generates configurations and tasks needed by Authentasaurus, while the views generator
+generates the views used by Authentasaurus in your application, this is useful for customizing authentasaurus and is totally
+optional.
 
-== Session/Permissions Helpers
+Authentasaurus views generator takes the name of the user controller, by default it's users
+  script/generate authentasaurus_views users
 
-There are three main session helpers in Authentasaurus:
+You can also use namespaces:
+  script/generate authentasaurus_views admin/users
+  
+Also you can use some options with the Authentasaurus views generator to add the modules you need:
+
+<tt>--authorizable</tt>::
+  generates the views necessary for authorization (groups, areas and permissions)
+
+<tt>--invitable</tt>::
+  generates the views necessary for invitable users
+  
+<tt>--validatable</tt>::
+  generates the views necessary for validatable users
+  
+You can use a combination of those options like the following example:
+  script/generate authentasaurus_views users --authorizable --invitable --validatable
+
+== Controller Authorization Helpers
+
+There are four main authorization helpers in Authentasaurus for use on controllers:
 
 <tt>require_login</tt>::
   requires the user to login before accessing the actions specified
@@ -102,6 +125,46 @@ There are three main session helpers in Authentasaurus:
 
     require_read :actions => :show_user
 
+You can use any of those class methods on you controllers to restrict access levels like so:
+  class PostsController < ApplicationController
+    require_login :actions => :index
+    require_read :actions => :show
+    require_write :actions => [:new, :create, :edit, :update, :destroy]
+    
+    def index
+      # your code here
+    end
+    
+    def show
+      # your code here
+    end
+    
+    def new
+      # your code here
+    end
+    
+    def create
+      # your code here
+    end
+    
+    def edit
+      # your code here
+    end
+    
+    def update
+      # your code here
+    end
+    
+    def destroy
+      # your code here
+    end
+  end
 
+In addition there is also the has? helper which is available in both Controllers and Views
+
+<tt>has?(permission, area=nil)</tt>::
+    Checks if the current user has the appropriate permissions for the area specified
+    
+     *ex*: has?(:write) or has?(:read, :users)
 
 Copyright (c) 2010 Mash, Ltd., released under the MIT license

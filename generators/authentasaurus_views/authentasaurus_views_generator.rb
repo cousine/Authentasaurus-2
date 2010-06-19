@@ -9,6 +9,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
       m.directory File.join('app/views', class_path, "sessions")
       m.directory File.join('app/views', class_path, file_name)
       m.directory File.join('app/views', class_path, "authentasaurus_emailer")
+      m.directory File.join('app/views', class_path, "recoveries")
       
       # Views
       ## user sessions
@@ -29,7 +30,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
         m.directory File.join('app/views', class_path, "areas")
         m.directory File.join('app/views', class_path, "permissions")
         ## groups
-        m.template 'views/groups/show.html.erb', File.join('app/views', class_path, "groups", "show.html.erb")
+        m.file 'views/groups/show.html.erb', File.join('app/views', class_path, "groups", "show.html.erb")
         m.file 'views/groups/index.html.erb', File.join("app/views", class_path, "groups", "index.html.erb")
         m.file 'views/groups/edit.html.erb', File.join("app/views", class_path, "groups", "edit.html.erb")
         m.file 'views/groups/new.html.erb', File.join("app/views", class_path, "groups", "new.html.erb")
