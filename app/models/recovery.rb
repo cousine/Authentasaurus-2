@@ -6,7 +6,7 @@ class Recovery < ActiveRecord::Base
 	before_validation_on_create :make_token!
 	before_save :send_recovery
 	
-	named_scope :valid, lambda { { :conditions => ["updated_at <= ?", AUTHENTASAURUS_CONFIGURATIONS[:modules][:recoverable][:token_expires_after].days.from_now] } }
+	named_scope :valid, lambda { { :conditions => ["updated_at <= ?", AUTHENTASAURUS[:modules][:recoverable][:token_expires_after].days.from_now] } }
 	
 	validates_uniqueness_of :user_id
 	validates_presence_of :email
