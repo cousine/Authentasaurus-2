@@ -1,6 +1,6 @@
 class Authentasaurus::GroupsController < Authentasaurus::AuthentasaurusController
-	require_read :actions => [:index, :show]
-	require_write :actions => [:new, :create, :edit, :update, :destroy]
+	require_read :index, :show
+	require_write :new, :create, :edit, :update, :destroy
 	
 	def index
 		@groups = Group.find :all

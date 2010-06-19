@@ -95,11 +95,12 @@ There are four main authorization helpers in Authentasaurus for use on controlle
   Authentasaurus shouldn't store the request in the session
   (typically for logout actions)
 
-  * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+  * :if - specifies a method, proc or string to call to determine if the authorization should occur
+  * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
 
-    require_login :actions => :destroy, :skip_request => true
+    require_login :destroy, :skip_request => true
 
 <tt>require_write</tt>::
   requires the user to have a write permission to that area to access the actions specified
@@ -107,11 +108,12 @@ There are four main authorization helpers in Authentasaurus for use on controlle
   <b>ex:</b> Tells Authentasaurus that the actions create_user and delete_user
   requires login and write permission.
   
-  * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+  * :if - specifies a method, proc or string to call to determine if the authorization should occur
+  * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
 
-    require_write :actions => [:create_user, :delete_user]
+    require_write :create_user, :delete_user
 
 <tt>require_read</tt>::
   requires the user to have a read permission to that area to access the actions specified
@@ -119,17 +121,18 @@ There are four main authorization helpers in Authentasaurus for use on controlle
   <b>ex:</b> Tells Authentasaurus that the action show_user requires login and read
   permission. 
   
-  * :actions - actions that require the permission (list)
   * :skip_request - skips saving the original request (to redirect to after login)
   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+  * :if - specifies a method, proc or string to call to determine if the authorization should occur
+  * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
 
-    require_read :actions => :show_user
+    require_read :show_user, :if api_key.nil?
 
 You can use any of those class methods on you controllers to restrict access levels like so:
   class PostsController < ApplicationController
-    require_login :actions => :index
-    require_read :actions => :show
-    require_write :actions => [:new, :create, :edit, :update, :destroy]
+    require_login :index
+    require_read :show
+    require_write :new, :create, :edit, :update, :destroy
     
     def index
       # your code here

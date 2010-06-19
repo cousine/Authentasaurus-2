@@ -16,14 +16,20 @@ module Authorization
     #   Authentasaurus shouldn't store the request in the session
     #   (typically for logout actions)
     # 
-    #   * :actions - actions that require the permission (list)
     #   * :skip_request - skips saving the original request (to redirect to after login)
     #   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+    #   * :if - specifies a method, proc or string to call to determine if the authorization should occur
+    #   * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
     # 
-    #     require_login :actions => :destroy, :skip_request => true
-    def require_login (options ={})
-  		if options[:actions]
-  		  before_filter :only => options[:actions] do |controller|
+    #     require_login :destroy, :skip_request => true
+    def require_login (*attrs)
+      options = attrs.extract_options!.symbolize_keys
+      attrs = attrs.flatten
+      
+      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
+      
+  		unless attrs.empty?
+  		  before_filter :only => attrs do |controller|
   		    controller.instance_eval {check_logged_in !options[:skip_request].nil?, options[:user_model]}
 		    end
   		else
@@ -37,14 +43,20 @@ module Authorization
     #   <b>ex:</b> Tells Authentasaurus that the actions create_user and delete_user
     #   requires login and write permission.
     #   
-    #   * :actions - actions that require the permission (list)
     #   * :skip_request - skips saving the original request (to redirect to after login)
     #   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+    #   * :if - specifies a method, proc or string to call to determine if the authorization should occur
+    #   * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
     # 
-    #     require_write :actions => [:create_user, :delete_user]
-    def require_write(options = {})
-  		if options[:actions]
-  			before_filter :only => options[:actions] do |controller|
+    #     require_write :create_user, :delete_user
+    def require_write(*attrs)
+      options = attrs.extract_options!.symbolize_keys
+      attrs = attrs.flatten
+      
+      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
+      
+  		unless attrs.empty?
+  			before_filter :only => attrs do |controller|
   			  controller.instance_eval { check_write_permissions !options[:skip_request].nil?, options[:user_model] }
 			  end
   		else
@@ -58,14 +70,20 @@ module Authorization
     #   <b>ex:</b> Tells Authentasaurus that the action show_user requires login and read
     #   permission. 
     #   
-    #   * :actions - actions that require the permission (list)
     #   * :skip_request - skips saving the original request (to redirect to after login)
     #   * :user_model - if defined, authentasaurus will use that model instead of the default "User"
+    #   * :if - specifies a method, proc or string to call to determine if the authorization should occur
+    #   * :unless - specifies a method, proc or string to call to determine if the authorization should not occur
     # 
-    #     require_read :actions => :show_user
-    def require_read(options = {})
-  		if options[:actions]
-  			before_filter :only => options[:actions] do |controller|
+    #     require_read :show_user
+    def require_read(*attrs)
+      options = attrs.extract_options!.symbolize_keys
+      attrs = attrs.flatten
+      
+      return unless [options[:if]].flatten.compact.all? { |a| Authentasaurus.evaluate_method(a, *attrs) } && ![options[:unless]].flatten.compact.any? { |a| Authentasaurus.evaluate_method(a, *attrs) }
+      
+  		unless attrs.empty?
+  			before_filter :only => attrs do |controller|
   			  controller.instance_eval { check_read_permissions !options[:skip_request].nil?, options[:user_model] }
 			  end
   		else
