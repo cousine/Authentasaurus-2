@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{Authentasaurus-2}
-  spec.version = "0.1.4"
+  spec.version = "0.1.6"
 
-  spec.required_rubygems_version = Gem::Requirement.new("> 1.3.7") if spec.respond_to? :required_rubygems_version=
-  spec.date = %q{2010-06-10}
+  spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.7") if spec.respond_to? :required_rubygems_version=
+  spec.date = %q{2010-06-19}
   spec.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   spec.email = %q{info@mashsolvents.com}
   spec.homepage = %q{http://github.com/cousine/Authentasuarus-2}
@@ -82,39 +82,39 @@ Gem::Specification.new do |spec|
     "lib/authentasaurus/user_invitations_controller.rb",
     "lib/authentasaurus/validations_controller.rb",
     
-    "lib/generators/authentasaurus/authentasaurus_generator.rb",
-    "lib/generators/authentasaurus/USAGE",
-    "lib/generators/authentasaurus/templates/defaults.yml",
-    "lib/generators/authentasaurus/templates/initializer.rb",
+    "generators/authentasaurus/authentasaurus_generator.rb",
+    "generators/authentasaurus/USAGE",
+    "generators/authentasaurus/templates/defaults.yml",
+    "generators/authentasaurus/templates/initializer.rb",
     
-    "lib/generators/authentasaurus_views/authentasaurus_views_generator.rb",
-    "lib/generators/authentasaurus_views/USAGE",
-    "lib/generators/authentasaurus_views/templates/views/areas/edit.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/areas/index.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/areas/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/areas/show.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/groups/edit.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/groups/index.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/groups/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/groups/show.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/permissions/edit.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/permissions/index.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/permissions/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/permissions/show.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/recoveries/edit.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/recoveries/new.html.erb",
+    "generators/authentasaurus_views/authentasaurus_views_generator.rb",
+    "generators/authentasaurus_views/USAGE",
+    "generators/authentasaurus_views/templates/views/areas/edit.html.erb",
+    "generators/authentasaurus_views/templates/views/areas/index.html.erb",
+    "generators/authentasaurus_views/templates/views/areas/new.html.erb",
+    "generators/authentasaurus_views/templates/views/areas/show.html.erb",
+    "generators/authentasaurus_views/templates/views/groups/edit.html.erb",
+    "generators/authentasaurus_views/templates/views/groups/index.html.erb",
+    "generators/authentasaurus_views/templates/views/groups/new.html.erb",
+    "generators/authentasaurus_views/templates/views/groups/show.html.erb",
+    "generators/authentasaurus_views/templates/views/permissions/edit.html.erb",
+    "generators/authentasaurus_views/templates/views/permissions/index.html.erb",
+    "generators/authentasaurus_views/templates/views/permissions/new.html.erb",
+    "generators/authentasaurus_views/templates/views/permissions/show.html.erb",
+    "generators/authentasaurus_views/templates/views/recoveries/edit.html.erb",
+    "generators/authentasaurus_views/templates/views/recoveries/new.html.erb",
 
-    "lib/generators/authentasaurus_views/templates/views/sessions/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/sessions/no_access.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/users/edit.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/users/index.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/users/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/users/show.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/user_invitations/index.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/user_invitations/new.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/authentasaurus_emailer/validation_mail.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/validations/activate.html.erb",
-    "lib/generators/authentasaurus_views/templates/views/validations/resend_validation_email.html.erb",
+    "generators/authentasaurus_views/templates/views/sessions/new.html.erb",
+    "generators/authentasaurus_views/templates/views/sessions/no_access.html.erb",
+    "generators/authentasaurus_views/templates/views/users/edit.html.erb",
+    "generators/authentasaurus_views/templates/views/users/index.html.erb",
+    "generators/authentasaurus_views/templates/views/users/new.html.erb",
+    "generators/authentasaurus_views/templates/views/users/show.html.erb",
+    "generators/authentasaurus_views/templates/views/user_invitations/index.html.erb",
+    "generators/authentasaurus_views/templates/views/user_invitations/new.html.erb",
+    "generators/authentasaurus_views/templates/views/authentasaurus_emailer/validation_mail.html.erb",
+    "generators/authentasaurus_views/templates/views/validations/activate.html.erb",
+    "generators/authentasaurus_views/templates/views/validations/resend_validation_email.html.erb",
     
     "lib/helpers/migrations.rb",
     "lib/helpers/routing.rb",
