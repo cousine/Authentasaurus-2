@@ -1,28 +1,35 @@
 == Authentasaurus
 
-Authentasaurus is a generator plugin that generates a stub for restful
-authentication controllers, models, tests, routes and migrations.
+Authentasaurus is a dynamic group/permission based authentication and authorization engine plugin, its simple to use and easy
+to setup.
 
-Authentasaurus is also a group/permission authorization system, you can define permissions per
-controller action for each group of users.
+Most helpers are inspired by Devise.
 
 == Installation
 
 To start using Authentasaurus follow these simple steps :
 
-1. install authentasaurus by running the following command in your app root
-    script/plugin install git://github.com/cousine/Authentasaurus.git
-2. to generate the necessary models, controllers and views run
-    script/generate authentausaurus UserModelName 
-   replace UserModelName with the desired name for the main user model --usually called user--
-   the generated user model contains the necessary fields for authentasaurus, feel free to customize it.
-3. run the migrations to create the necessary tables
-4. run "rake authentasaurus:load_defaults" to create the default groups and admin user
-5. if you installed authentasaurus without --skip-validation setup your email
-   settings in config/environment.rb
+1. install authentasaurus gem by running the following command
+    gem install authentasaurus
+2. add authentasaurus to your application environment; in config/environment.rb
+    config.gem "authentasaurus"
+3. generate authentasaurus configuration and tasks in your application
+    script/generate authentasaurus
+4. setup your migrations using the migration helpers
+    in the migration up method just use
+      authentasaurus_tables
+    in the migration down method
+      authentasaurus_drop_tables
+5. migrate your database and setup your default data
+    rake authentasaurus:setup_defaults
+6. add your routes
+    map.authentasaurus_routes :authorizable, :validatable, :invitable
 
-that's it you can now test your application by running script/server in your
-project root directory and going to http://localhost:3000/login
+that's the most basic and quick setup, you can now test your application by running script/server in your
+project root directory and going to http://localhost:3000/sessions/sign-in
+
+Authentasaurus is modular, you can install modules as you need them (the previous setup contains all modules), refer to the documentation for more
+information.
 
 == Under the hood
 
