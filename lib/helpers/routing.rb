@@ -74,7 +74,7 @@ module Routing
     def authentasaurus_invitable_public(*opts)
       options = opts.extract_options!
       
-      map.resources :registrations, :only => [:new, :create], :path_prefix => "/:token", :requirements => {:token => /[0-9a-zA-Z]+/}
+      resources :registrations, :only => [:new, :create], :path_prefix => "/:token", :requirements => {:token => /[0-9a-zA-Z]+/}
     end
     
     # TODO: add documentation here
