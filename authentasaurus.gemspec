@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus}
-  spec.version = "0.2.11"
+  spec.version = "0.3.0"
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.7") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-06-19}
@@ -123,7 +123,14 @@ Gem::Specification.new do |spec|
     "lib/active_record/acts_as_authenticatable.rb",
     "lib/active_record/authenticatable.rb",
     
+    "lib/authentasaurus/models/area.rb",
+    "lib/authentasaurus/models/authentasaurus_emailer.rb",
     "lib/authentasaurus/models/group.rb",
+    "lib/authentasaurus/models/permission.rb",
+    "lib/authentasaurus/models/recovery.rb",
+    "lib/authentasaurus/models/session.rb",
+    "lib/authentasaurus/models/user_invitation.rb",
+    "lib/authentasaurus/models/validation.rb",
     
     "lib/authentasaurus/areas_controller.rb",
     "lib/authentasaurus/authentasaurus_controller.rb",
