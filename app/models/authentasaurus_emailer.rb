@@ -1,8 +1,8 @@
 class AuthentasaurusEmailer < ActionMailer::Base
   def validation_mail(name, email, validation_code, sent_at = Time.now)
-    subject    'Validate your account'
+    subject    AUTHENTASAURUS[:modules][:validatable][:mail_subject]
     recipients email
-    from       'no-reply@your-domain.com' # dont forget to change me
+    from       AUTHENTASAURUS[:modules][:validatable][:mail_from]
     sent_on    sent_at
     
     body       :name => name, :vcode => validation_code
@@ -10,9 +10,9 @@ class AuthentasaurusEmailer < ActionMailer::Base
   end
   
   def recovery_mail(user, token, sent_at = Time.now)
-    subject    'Recover your password'
+    subject    AUTHENTASAURUS[:modules][:recoverable][:mail_subject]
     recipients user.email
-    from       'no-reply@your-domain.com' # dont forget to change me
+    from       AUTHENTASAURUS[:modules][:recoverable][:mail_from] # dont forget to change me
     sent_on    sent_at
     
     body       :name => user.name, :token => token
@@ -20,9 +20,9 @@ class AuthentasaurusEmailer < ActionMailer::Base
   end
   
   def invitation_mail(email, token, sent_at = Time.now)
-    subject    "You've been invited to your-domain.com"
+    subject   AUTHENTASAURUS[:modules][:invitable][:mail_subject]
     recipients email
-    from       'no-reply@your-domain.com' # dont forget to change me
+    from       AUTHENTASAURUS[:modules][:invitable][:mail_from]
     sent_on    sent_at
     
     body       :token => token

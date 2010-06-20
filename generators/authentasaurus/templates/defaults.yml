@@ -1,17 +1,39 @@
 ## Authentasaurus configuration
 development: &non_production_settings
   :mail:
-    :email:     "foo_bar@your-domain.com"
+    :email: &development_email "foo_bar@your-domain.com"
   :modules:
     :recoverable:
       :token_expires_after: 10 # days
+      :send_email: true
+      :mail_subject: "Reset your password on your-domain.com"
+      :mail_from: *development_email
+    :invitable:
+      :send_email: true
+      :mail_subject: "You've been invited to your-domain.com"
+      :mail_from: *development_email
+    :validatable:
+      :send_email: true
+      :mail_subject: "Validate your account on your-domain.com"
+      :mail_from: *development_email
 
 test:
   <<: *non_production_settings
 
 production:
   :mail:
-    :email:     "foo_bar@your-domain.com"
+    :email: &production_email "foo_bar@your-domain.com"
   :modules:
     :recoverable:
       :token_expires_after: 10 # days
+      :send_email: true
+      :mail_subject: "Reset your password on your-domain.com"
+      :mail_from: *production_email
+    :invitable:
+      :send_email: true
+      :mail_subject: "You've been invited to your-domain.com"
+      :mail_from: *production_email
+    :validatable:
+      :send_email: true
+      :mail_subject: "Validate your account on your-domain.com"
+      :mail_from: *production_email

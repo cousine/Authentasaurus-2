@@ -19,6 +19,6 @@ class Recovery < ActiveRecord::Base
 	end
 	
 	def send_recovery
-		AuthentasaurusEmailer.deliver_recovery_mail(self.user, self.token)
+		AuthentasaurusEmailer.deliver_recovery_mail(self.user, self.token) if AUTHENTASAURUS[:modules][:recoverable][:send_email]
 	end
 end
