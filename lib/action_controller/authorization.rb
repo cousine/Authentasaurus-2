@@ -1,5 +1,5 @@
 # Defines authorization helpers for ActionController
-module Authorization
+module ActionController::Authorization
   
   def self.included(base) # :nodoc:
     base.send :extend, ClassMethods

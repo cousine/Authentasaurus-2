@@ -1,5 +1,5 @@
 ## Authentasaurus routes helper
-module Routing
+module Helpers::Routing
   def self.included(base) # :nodoc:
     base.send :include, InstanceMethods
   end

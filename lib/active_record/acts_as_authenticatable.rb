@@ -1,4 +1,4 @@
-module ActsAsAuthenticatable
+module ActiveRecord::ActsAsAuthenticatable
   def self.included(base)
     base.send :extend, ClassMethods
     base.send :include, InstanceMethods
@@ -11,7 +11,7 @@ module ActsAsAuthenticatable
       user=self.find_by_username username
       if user
         expected_password=encrypt_password(password, user.password_seed)
-        user = nil unless expected_password == user.hashed_password && user.active && user.validation.nil?    
+        user = nil unless expected_password == user.hashed_password && user.active
       end
       return user
     end
@@ -65,15 +65,6 @@ module ActsAsAuthenticatable
     private
 		def new_password_blank? 
 			self.new_password.blank?
-		end
-		
-		def create_validation
-			unless self.active
-				validation = Validation.new(:user => self, :email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
-				unless validation.save
-					raise "Could not create validation record"
-				end
-			end
 		end
 		
 		## Creates password seed (salt)

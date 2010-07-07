@@ -1,4 +1,4 @@
-module Migrations
+module Helpers::Migrations
   # Extends ActiveRecord::ConnectionAdapters::SchemaStatements
   module Tables
     def self.included(base) # :nodoc:
@@ -28,7 +28,7 @@ module Migrations
           t.boolean :active, :null => false, :default => false
           t.string :remember_me_token
           
-          if opts.include?(:authorizable)
+          if opts.include?(:authorizable) || opts.include?("authorizable")
             t.integer :group_id, :null => false
           end
     

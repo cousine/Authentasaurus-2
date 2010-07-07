@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  authenticatable_with true, :validation
+  authenticatable :strong_password, :validatable
 end

@@ -2,6 +2,11 @@ en:
   activerecord:
     errors:
       full_messages:
+        authenticatable:
+          lower_case_password: "Your password must include at least one lower case character"
+          upper_case_password: "Your password must include at least one upper case character"
+          digit_password: "Your password must include at least one digit"
+          symbol_password: "Your password must include at least one of the following symbols \"@$%!&\""
         recovery:
           user_id:
             blank: "There exists no user with the given email"

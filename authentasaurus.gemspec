@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus}
-  spec.version = "0.3.0"
+  spec.version = "0.4.0"
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.7") if spec.respond_to? :required_rubygems_version=
-  spec.date = %q{2010-06-19}
+  spec.date = %q{2010-07-7}
   spec.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   spec.email = %q{info@mashsolvents.com}
   spec.homepage = %q{http://github.com/cousine/Authentasuarus-2}
@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
     "app/models/session.rb",
     "app/models/user.rb",
     "app/models/user_invitation.rb",
+    "app/models/user_sync.rb",
     "app/models/validation.rb",
     
     "app/views/areas/edit.html.erb",
@@ -121,7 +122,11 @@ Gem::Specification.new do |spec|
     "lib/action_view/authorization.rb",
     
     "lib/active_record/acts_as_authenticatable.rb",
+    "lib/active_record/acts_as_authenticatable_validatable.rb",
     "lib/active_record/authenticatable.rb",
+    
+    "lib/active_resource/acts_as_authenticatable.rb",
+    "lib/active_resource/authenticatable.rb",
     
     "lib/authentasaurus/models/area.rb",
     "lib/authentasaurus/models/authentasaurus_emailer.rb",

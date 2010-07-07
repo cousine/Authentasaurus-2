@@ -3,6 +3,12 @@ development: &non_production_settings
   :mail:
     :email: &development_email "foo_bar@your-domain.com"
   :modules:
+    :remote:
+      :user:
+        :site: "http://localhost:3000/api_key/auth"
+        :session_element: "remote_sync"
+        :sync: true
+        :sync_to: "user"
     :recoverable:
       :token_expires_after: 10 # days
       :send_email: true
@@ -24,6 +30,12 @@ production:
   :mail:
     :email: &production_email "foo_bar@your-domain.com"
   :modules:
+    :remote:
+      :user:
+        :site: "http://localhost:3000/api_key/auth"
+        :session_element: "remote_sync"
+        :sync: true
+        :sync_to: "user"
     :recoverable:
       :token_expires_after: 10 # days
       :send_email: true
