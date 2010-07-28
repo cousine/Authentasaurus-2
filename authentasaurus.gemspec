@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
     "app/controllers/user_invitations_controller.rb",
     "app/controllers/users_controller.rb",
     "app/controllers/validations_controller.rb",
+    "app/controllers/authentasaurus/authentasaurus_controller.rb"
     
     "app/models/area.rb",
     "app/models/authentasaurus_emailer.rb",
@@ -138,7 +139,6 @@ Gem::Specification.new do |spec|
     "lib/authentasaurus/models/validation.rb",
     
     "lib/authentasaurus/areas_controller.rb",
-    "lib/authentasaurus/authentasaurus_controller.rb",
     "lib/authentasaurus/groups_controller.rb",
     "lib/authentasaurus/permissions_controller.rb",
     "lib/authentasaurus/recoveries_controller.rb",
