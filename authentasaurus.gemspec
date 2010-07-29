@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus}
-  spec.version = "0.4.7"
+  spec.version = "0.4.8"
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.0") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-07-29}
@@ -31,7 +31,6 @@ Gem::Specification.new do |spec|
     "app/controllers/authentasaurus/authentasaurus_controller.rb",
     
     "app/models/area.rb",
-    "app/models/authentasaurus_emailer.rb",
     "app/models/group.rb",
     "app/models/permission.rb",
     "app/models/recovery.rb",
