@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
     "app/controllers/authentasaurus/authentasaurus_controller.rb",
     
     "app/models/area.rb",
+    "app/models/authentasaurus_emailer.rb",
     "app/models/group.rb",
     "app/models/permission.rb",
     "app/models/recovery.rb",
@@ -129,7 +130,6 @@ Gem::Specification.new do |spec|
     "lib/active_resource/authenticatable.rb",
     
     "lib/authentasaurus/models/area.rb",
-    "lib/authentasaurus/models/authentasaurus_emailer.rb",
     "lib/authentasaurus/models/group.rb",
     "lib/authentasaurus/models/permission.rb",
     "lib/authentasaurus/models/recovery.rb",

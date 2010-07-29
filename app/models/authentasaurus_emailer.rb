@@ -1,4 +1,4 @@
-class Authentasaurus::Models::AuthentasaurusEmailer < ActionMailer::Base
+class AuthentasaurusEmailer < ActionMailer::Base
   def validation_mail(name, email, validation_code, sent_at = Time.now)
     subject    AUTHENTASAURUS[:modules][:validatable][:mail_subject]
     recipients email
