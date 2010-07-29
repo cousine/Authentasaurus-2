@@ -31,7 +31,7 @@ class Authentasaurus::UsersController < Authentasaurus::AuthentasaurusController
 			if @user.save
 				format.html { redirect_to :action=>:index, :notice => "User saved successfully" }
 			else
-				flash[:alert] = "Error saving user"
+				flash.now[:alert] = I18n.t(:create_failed, :scope => [:authentasaurus, :messages, :users])
 				format.html { render :new }
 			end
 		end
@@ -52,7 +52,7 @@ class Authentasaurus::UsersController < Authentasaurus::AuthentasaurusController
 			if @user.update_attributes(params[:user])
 				format.html { redirect_to @user, :notice => "User updated" }
 			else
-				flash[:alert] = "Error updating user"
+				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :users])
 				format.html { render :edit }
 			end
 		end

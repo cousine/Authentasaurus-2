@@ -31,7 +31,7 @@ class Authentasaurus::GroupsController < Authentasaurus::AuthentasaurusControlle
 			if @group.save
 				format.html { redirect_to :action=>:index, :notice => "Group created" }
 			else
-				flash.[:alert] = "Error creating group"
+				flash.now[:alert] = I18n.t(:create_failed, :scope => [:authentasaurus, :messages, :groups])
 				format.html { render :new }
 			end
 		end
@@ -52,7 +52,7 @@ class Authentasaurus::GroupsController < Authentasaurus::AuthentasaurusControlle
 			if @group.update_attributes(params[:group])
 				format.html { redirect_to @group, :notice => "Group updated" }
 			else
-				flash.[:alert] = "Error updating group"
+				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :groups])
 				format.html { render :edit }
 			end
 		end

@@ -52,7 +52,8 @@ class Authentasaurus::RecoveriesController < Authentasaurus::AuthentasaurusContr
 				@recovery.destroy
 				format.html { redirect_to new_session_path, :notice => t(:recovery_successful, :scope => [:authentasaurus, :messages, :recoveries], :email => params[:email]) }
 			else
-				format.html { render :edit, :alert => t(:recovery_failed, :scope => [:authentasaurus, :messages, :recoveries], :email => params[:email]) }
+			  flash.now[:alert] = t(:recovery_failed, :scope => [:authentasaurus, :messages, :recoveries],  :email => params[:email])
+				format.html { render :edit }
 			end
 		end
   end

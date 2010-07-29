@@ -31,7 +31,7 @@ class Authentasaurus::AreasController < Authentasaurus::AuthentasaurusController
 			if @area.save
 				format.html { redirect_to :action=>:index, :notice => "Area Created" }
 			else
-				flash[:alert] = "Error creating area"
+				flash.now[:alert] = I18n.t(:create_failed, :scope => [:authentasaurus, :messages, :areas])
 				format.html { render :new }
 			end
 		end
@@ -52,7 +52,7 @@ class Authentasaurus::AreasController < Authentasaurus::AuthentasaurusController
 			if @area.update_attributes(params[:area])
 				format.html { redirect_to @area, :notice => "Area updated" }
 			else
-				flash[:alert] = "Error updating area"
+				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :areas])
 				format.html { render :edit }
 			end
 		end

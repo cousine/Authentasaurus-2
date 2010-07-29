@@ -31,7 +31,7 @@ class Authentasaurus::PermissionsController < Authentasaurus::AuthentasaurusCont
 			if @permission.save
 				format.html { redirect_to :action=>:index, :notice => "Permission created" }
 			else
-				flash[:alert] = "Error creating permission"
+				flash.now[:alert] = I18n.t(:create_failed, :scope => [:authentasaurus, :messages, :permissions])
 				format.html { render :new }
 			end
 		end
@@ -53,7 +53,7 @@ class Authentasaurus::PermissionsController < Authentasaurus::AuthentasaurusCont
 				flash.now[:notice] = "Permission updated"
 				format.html { redirect_to @permission }
 			else
-				flash.now[:notice] = "Error updating permission"
+				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :permissions])
 				format.html { render :edit }
 			end
 		end

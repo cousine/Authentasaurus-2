@@ -28,6 +28,19 @@ en:
         recovery_field_blank: "{{field}} can't be blank"
       user_invitations:
         invalid_invitation_token: Invalid invitation token
+      areas:
+        create_failed: Couldn't create area
+        update_failed: Couldn't update area
+      groups:
+        create_failed: Couldn't create groups
+        update_failed: Couldn't update groups
+      permissions:
+        create_failed: Couldn't create permissions
+        update_failed: Couldn't update permissions
+      users:
+        create_failed: Couldn't create users
+        update_failed: Couldn't update users
+        
     views:
       sessions:
         resend_validation_email_link: Haven't recieved your validation email?

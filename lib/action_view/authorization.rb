@@ -89,7 +89,7 @@ module ActionView::Authorization
       unless(skip_request)
         session[:original_url]=request.url
       end
-      flash[:notice] = t(:login_required, :scope => [:authentasaurus, :action_controller, :errors, :messages])
+      flash.now[:alert] = t(:login_required, :scope => [:authentasaurus, :action_controller, :errors, :messages])
       redirect_to new_session_path
     end
     

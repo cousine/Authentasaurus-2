@@ -25,7 +25,7 @@ class Authentasaurus::RegistrationsController < Authentasaurus::AuthentasaurusCo
           format.html {render :new}
         end
       else
-        flash[:alert] = t(:invalid_invitation_token, :scope => [:authentasaurus, :messages, :user_invitations])
+        flash.now[:alert] = t(:invalid_invitation_token, :scope => [:authentasaurus, :messages, :user_invitations])
         format.html {render :new}
       end
     end
