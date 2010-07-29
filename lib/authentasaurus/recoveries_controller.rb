@@ -8,7 +8,7 @@ class Authentasaurus::RecoveriesController < Authentasaurus::AuthentasaurusContr
   end
   
   def create
-    @recovery = Recovery.find_or_initialize_by_email :email => params[:recovery][:email]
+    @recovery = Recovery.find_or_initialize_by_email :email => params[:email]
     
     if @recovery.new_record?
       @recovery.user = User.find_by_email @recovery.email
