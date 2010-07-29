@@ -119,7 +119,7 @@ module ActionController::Authorization
         user_permissions = session[:user_permissions]
         check = user_permissions[:write].find { |perm| perm==self.controller_name || perm=="all" }
         unless check
-          redirect_to no_access_sessions_path
+          redirect_to no_access_session_path
         end
       else
         login_required skip_request
@@ -135,7 +135,7 @@ module ActionController::Authorization
         user_permissions = session[:user_permissions]
         check = user_permissions[:read].find { |perm| perm==self.controller_name || perm=="all" }
         unless check
-          redirect_to no_access_sessions_path
+          redirect_to no_access_session_path
         end
       else
         login_required skip_request
