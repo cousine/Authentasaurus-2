@@ -29,10 +29,9 @@ class Authentasaurus::PermissionsController < Authentasaurus::AuthentasaurusCont
 		
 		respond_to do |format|
 			if @permission.save
-				flash.now[:notice] = "Permission created"
-				format.html { redirect_to :action=>:index }
+				format.html { redirect_to :action=>:index, :notice => "Permission created" }
 			else
-				flash.now[:notice] = "Error creating permission"
+				flash[:alert] = "Error creating permission"
 				format.html { render :new }
 			end
 		end

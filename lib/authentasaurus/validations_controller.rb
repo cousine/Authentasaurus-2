@@ -27,7 +27,8 @@ class Authentasaurus::ValidationsController < Authentasaurus::AuthentasaurusCont
         validation.send_validation
         format.html {redirect_to login_url, :notice => I18n.t(:validation_email_sent, :scope => [:authentasaurus, :messages, :validations])}
       else
-        format.html {render :resend_validation_email, :alert => I18n.t(:validation_email_invalid, :scope => [:authentasaurus, :messages, :validations], :email => params[:email])}
+        flash[:alert] = I18n.t(:validation_email_invalid, :scope => [:authentasaurus, :messages, :validations]
+        format.html { render :resend_validation_email, :email => params[:email]) }
       end
     end
   end

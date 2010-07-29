@@ -29,10 +29,9 @@ class Authentasaurus::UsersController < Authentasaurus::AuthentasaurusController
 			
 		respond_to do |format|
 			if @user.save
-				flash.now[:notice] = "User saved successfully"
-				format.html { redirect_to :action=>:index }
+				format.html { redirect_to :action=>:index, :notice => "User saved successfully" }
 			else
-				flash.now[:notice] = "Error saving user"
+				flash[:alert] = "Error saving user"
 				format.html { render :new }
 			end
 		end
@@ -51,10 +50,9 @@ class Authentasaurus::UsersController < Authentasaurus::AuthentasaurusController
 		
 		respond_to do |format|
 			if @user.update_attributes(params[:user])
-				flash.now[:notice] = "User updated"
-				format.html { redirect_to @user }
+				format.html { redirect_to @user, :notice => "User updated" }
 			else
-				flash.now[:notice] = "Error updating user"
+				flash[:alert] = "Error updating user"
 				format.html { render :edit }
 			end
 		end

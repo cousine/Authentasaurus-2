@@ -29,10 +29,9 @@ class Authentasaurus::AreasController < Authentasaurus::AuthentasaurusController
 		
 		respond_to do |format|
 			if @area.save
-				flash.now[:notice] = "Area created" 
-				format.html { redirect_to :action=>:index }
+				format.html { redirect_to :action=>:index, :notice => "Area Created" }
 			else
-				flash.now[:notice] = "Error creating area"
+				flash[:alert] = "Error creating area"
 				format.html { render :new }
 			end
 		end
@@ -51,10 +50,9 @@ class Authentasaurus::AreasController < Authentasaurus::AuthentasaurusController
 		
 		respond_to do |format|
 			if @area.update_attributes(params[:area])
-				flash.now[:notice] = "Area updated"
-				format.html { redirect_to @area }
+				format.html { redirect_to @area, :notice => "Area updated" }
 			else
-				flash.now[:notice] = "Error updating area"
+				flash[:alert] = "Error updating area"
 				format.html { render :edit }
 			end
 		end

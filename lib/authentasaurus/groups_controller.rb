@@ -29,10 +29,9 @@ class Authentasaurus::GroupsController < Authentasaurus::AuthentasaurusControlle
 		
 		respond_to do |format|
 			if @group.save
-				flash.now[:notice] = "Group created"
-				format.html { redirect_to :action=>:index }
+				format.html { redirect_to :action=>:index, :notice => "Group created" }
 			else
-				flash.now[:notice] = "Error creating group"
+				flash.[:alert] = "Error creating group"
 				format.html { render :new }
 			end
 		end
@@ -51,10 +50,9 @@ class Authentasaurus::GroupsController < Authentasaurus::AuthentasaurusControlle
 		
 		respond_to do |format|
 			if @group.update_attributes(params[:group])
-				flash.now[:notice] = "Group updated"
-				format.html { redirect_to @group }
+				format.html { redirect_to @group, :notice => "Group updated" }
 			else
-				flash.now[:notice] = "Error updating group"
+				flash.[:alert] = "Error updating group"
 				format.html { render :edit }
 			end
 		end
