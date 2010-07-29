@@ -143,7 +143,7 @@ module ActionController::Authorization
     end
     
     # Checks if the current user is logged in but takes no further action
-    def is_logged_in?(user_model)
+    def is_logged_in?(user_model = nil)
       user_model = User if user_model.nil?
       unless user_model.find_by_id(session[:user_id])
         return cookie_login?(user_model)
@@ -152,7 +152,7 @@ module ActionController::Authorization
     end
     
     # Logs in the user through a remember me cookie
-    def cookie_login?(user_model)
+    def cookie_login?(user_model = nil)
       user_model = User if user_model.nil?
       
       if cookies[:remember_me_token]

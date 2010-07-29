@@ -1,5 +1,5 @@
 class Authentasaurus::SessionsController < Authentasaurus::AuthentasaurusController
-  before_filter :check_is_logged_in, :except => :destroy
+  before_filter :check_is_logged_in, :except => [:destroy, :no_access]
 
   def new
     @session = Session.new
