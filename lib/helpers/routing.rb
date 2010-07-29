@@ -36,7 +36,7 @@ module Helpers::Routing
     def authentasaurus_sessions(*opts)
       options = opts.extract_options!
       
-      resources :sessions, options.dup.merge({:except => [:index, :show, :edit, :update], :path_names => {:new => 'sign-in'}, :member => {:no_access => :get}})
+      resources :sessions, options.dup.merge({:except => [:index, :show, :edit, :update], :path_names => {:new => 'sign-in'}, :collection => {:no_access => :get}})
     end
     
     # TODO: add documentation here
