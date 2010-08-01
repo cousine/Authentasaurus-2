@@ -1,4 +1,4 @@
-class Authentasaurus::Models::Recovery < ActiveRecord::Base
+class Authentasaurus::Models::RecoveryModel < ActiveRecord::Base
   require "digest/sha1"
 	belongs_to :user
 	

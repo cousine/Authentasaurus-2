@@ -1,2 +1,2 @@
-class Session < Authentasaurus::Models::Session
+class Session < Authentasaurus::Models::SessionModel
 end

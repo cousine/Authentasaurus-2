@@ -1,2 +1,2 @@
-class Validation < Authentasaurus::Models::Validation
+class Validation < Authentasaurus::Models::ValidationModel
 end

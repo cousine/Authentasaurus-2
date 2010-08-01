@@ -1,2 +1,2 @@
-class UserInvitation < Authentasaurus::Models::UserInvitation
+class UserInvitation < Authentasaurus::Models::UserInvitationModel
 end

@@ -1,2 +1,2 @@
-class Permission < Authentasaurus::Models::Permission
+class Permission < Authentasaurus::Models::PermissionModel
 end

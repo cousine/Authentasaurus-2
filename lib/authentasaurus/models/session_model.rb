@@ -1,7 +1,7 @@
 # This class represents a session model, a session authenticates a username and a password.
 #
 # A session behaves just like an ActiveRecord model
-class Authentasaurus::Models::Session
+class Authentasaurus::Models::SessionModel
   attr_accessor :username, :password, :remember
   attr_accessor :errors
   attr_reader :user

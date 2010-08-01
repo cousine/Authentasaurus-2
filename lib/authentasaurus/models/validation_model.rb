@@ -1,4 +1,4 @@
-class Authentasaurus::Models::Validation < ActiveRecord::Base
+class Authentasaurus::Models::ValidationModel < ActiveRecord::Base
   belongs_to :user, :polymorphic => true
   
   # Check that everything is there

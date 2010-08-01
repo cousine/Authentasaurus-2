@@ -1,2 +1,2 @@
-class Group < Authentasaurus::Models::Group
+class Group < Authentasaurus::Models::GroupModel
 end

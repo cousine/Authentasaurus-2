@@ -1,2 +1,2 @@
-class Area < Authentasaurus::Models::Area
+class Area < Authentasaurus::Models::AreaModel
 end

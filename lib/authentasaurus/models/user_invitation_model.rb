@@ -1,4 +1,4 @@
-class Authentasaurus::Models::UserInvitation < ActiveRecord::Base
+class Authentasaurus::Models::UserInvitationModel < ActiveRecord::Base
   require 'digest/sha1'
   validates_presence_of :email
   validates_uniqueness_of :email, :scope => :token

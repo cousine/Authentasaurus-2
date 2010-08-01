@@ -1,2 +1,2 @@
-class Recovery < Authentasaurus::Models::Recovery
+class Recovery < Authentasaurus::Models::RecoveryModel
 end

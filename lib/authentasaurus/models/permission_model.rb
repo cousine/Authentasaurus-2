@@ -1,4 +1,4 @@
-class Authentasaurus::Models::Permission < ActiveRecord::Base
+class Authentasaurus::Models::PermissionModel < ActiveRecord::Base
   belongs_to :group
   belongs_to :area
 
