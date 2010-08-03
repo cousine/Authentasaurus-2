@@ -29,7 +29,6 @@ Gem::Specification.new do |spec|
     "app/controllers/user_invitations_controller.rb",
     "app/controllers/users_controller.rb",
     "app/controllers/validations_controller.rb",
-    "app/controllers/authentasaurus/authentasaurus_controller.rb",
     
     "app/models/area.rb",
     "app/models/authentasaurus_emailer.rb",
