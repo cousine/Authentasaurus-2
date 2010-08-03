@@ -1,2 +1,3 @@
-class RegistrationsController < Authentasaurus::RegistrationsController
+class RegistrationsController < ApplicationController
+  include Authentasaurus::RegistrationsController
 end

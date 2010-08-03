@@ -1,2 +1,3 @@
-class RecoveriesController < Authentasaurus::RecoveriesController
+class RecoveriesController < ApplicationController
+  include Authentasaurus::RecoveriesController
 end

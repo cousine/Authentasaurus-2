@@ -1,2 +1,3 @@
-class Session < Authentasaurus::Models::Session
+class Session < ActiveRecord::Base
+  include Authentasaurus::Models::SessionModel
 end

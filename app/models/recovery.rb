@@ -1,2 +1,3 @@
-class Recovery < Authentasaurus::Models::Recovery
+class Recovery < ActiveRecord::Base
+  include Authentasaurus::Models::RecoveryModel
 end

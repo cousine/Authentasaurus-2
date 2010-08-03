@@ -1,2 +1,3 @@
-class SessionsController < Authentasaurus::SessionsController
+class SessionsController < ApplicationController
+  include Authentasaurus::SessionsController
 end

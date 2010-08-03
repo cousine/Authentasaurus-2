@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus}
-  spec.version = "0.4.14"
+  spec.version = "0.5.4"
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.0") if spec.respond_to? :required_rubygems_version=
-  spec.date = %q{2010-07-29}
+  spec.date = %q{2010-08-03}
   spec.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   spec.email = %q{info@mashsolvents.com}
   spec.homepage = %q{http://github.com/cousine/Authentasuarus-2}
@@ -15,7 +15,8 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = [
      "MIT-LICENSE",
      "README.rdoc",
-     "TODO"
+     "TODO",
+     "CHANGELIST"
   ]
   
   spec.files = [

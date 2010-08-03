@@ -1,2 +1,3 @@
-class Area < Authentasaurus::Models::Area
+class Area < ActiveRecord::Base
+  include Authentasaurus::Models::AreaModel
 end

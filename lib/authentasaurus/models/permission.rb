@@ -1,9 +1,20 @@
-class Authentasaurus::Models::Permission < ActiveRecord::Base
-  belongs_to :group
-  belongs_to :area
-
-  # Check that everything is there
-  validates_presence_of :group_id,:area_id,:read,:write
-  # Check foreign keys
-  validates_associated :group, :area
+module Authentasaurus::Models::Permission
+  def self.included(base) # :nodoc:
+    base.send :extend, ClassMethods
+    base.send :include, InstanceMethods
+    
+    base.send :belongs_to, :group
+    base.send :belongs_to, :area
+  
+    # Check that everything is there
+    base.send :validates_presence_of, :group_id,:area_id,:read,:write
+    # Check foreign keys
+    base.send :validates_associated, :group, :area
+  end
+  
+  module ClassMethods
+  end
+  
+  module InstanceMethods
+  end
 end

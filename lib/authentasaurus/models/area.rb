@@ -1,8 +1,17 @@
-class Authentasaurus::Models::Area < ActiveRecord::Base
-  has_many :permissions, :dependent => :destroy
-  has_many :groups, :through => :permissions
-
-  # Check that everything is there
-  validates_presence_of :name
+module Authentasaurus::Models::Area
+  def self.included(base) # :nodoc:
+    base.send :extend, ClassMethods
+    base.send :include, InstanceMethods
+    
+    base.send :has_many, :permissions, :dependent => :destroy
+    base.send :has_many, :groups, :through => :permissions
+    
+    base.send :validates_presence_of, :name
+  end
   
+  module ClassMethods
+  end
+  
+  module InstanceMethods
+  end
 end

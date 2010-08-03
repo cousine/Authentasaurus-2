@@ -1,45 +1,54 @@
-class Authentasaurus::SessionsController < Authentasaurus::AuthentasaurusController
-  before_filter :check_is_logged_in, :except => [:destroy, :no_access]
-
-  def new
-    @session = Session.new
+module Authentasaurus::SessionsController
+  def self.included(base) # :nodoc:
+    base.send :extend, ClassMethods
+    base.send :include, InstanceMethods
     
-    respond_to do |format|
-      format.html
-    end
+    base.send :before_filter, :check_is_logged_in, :except => [:destroy, :no_access]
   end
   
-  def create
-    @session = Session.new params[:session]
-    
-    respond_to do |format|
-      if @session.save
-        if @session.remember == "1"
-          cookies.signed.permanent[:remember_me_token] = @session.user.remember_me_token
-        end
-        session[:user_id] = @session.user.id
-        session[:user_permissions] =   {:read => @session.user.permissions.collect{|per| per.area.name if per.read}, :write => @session.user.permissions.collect{|per| per.area.name if per.write}}
-        format.html { redirect_to session[:original_url] || root_url }
-      else
-        format.html { render :action => :new }
+  module ClassMethods
+  end
+  
+  module InstanceMethods
+    def new
+      @session = Session.new
+      
+      respond_to do |format|
+        format.html
       end
     end
     
-  end
-  
-  def destroy
-    session[:user_id] = nil
-    session[:user_permissions] = nil
-    cookies.delete :remember_me_token
+    def create
+      @session = Session.new params[:session]
+      
+      respond_to do |format|
+        if @session.save
+          if @session.remember == "1"
+            cookies.signed.permanent[:remember_me_token] = @session.user.remember_me_token
+          end
+          session[:user_id] = @session.user.id
+          session[:user_permissions] =   {:read => @session.user.permissions.collect{|per| per.area.name if per.read}, :write => @session.user.permissions.collect{|per| per.area.name if per.write}}
+          format.html { redirect_to session[:original_url] || root_url }
+        else
+          format.html { render :action => :new }
+        end
+      end
+      
+    end
     
-    respond_to do |format|
-      format.html { redirect_to :action => :new }
+    def destroy
+      session[:user_id] = nil
+      session[:user_permissions] = nil
+      cookies.delete :remember_me_token
+      
+      respond_to do |format|
+        format.html { redirect_to :action => :new }
+      end
+    end
+    
+    private
+    def check_is_logged_in
+      redirect_to root_path if session[:user_id]
     end
   end
-  
-  private
-  def check_is_logged_in
-    redirect_to root_path if session[:user_id]
-  end
-
 end
