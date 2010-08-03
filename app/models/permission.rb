@@ -1,3 +1,3 @@
 class Permission < ActiveRecord::Base
-  include Authentasaurus::Models::PermissionModel
+  include Authentasaurus::Models::Permission
 end

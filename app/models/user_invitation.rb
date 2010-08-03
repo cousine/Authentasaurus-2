@@ -1,3 +1,3 @@
 class UserInvitation < ActiveRecord::Base
-  include Authentasaurus::Models::UserInvitationModel
+  include Authentasaurus::Models::UserInvitation
 end
