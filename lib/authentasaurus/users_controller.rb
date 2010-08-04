@@ -58,7 +58,7 @@ module Authentasaurus::UsersController
   		
   		respond_to do |format|
   			if @user.update_attributes(params[:user])
-  				format.html { redirect_to @user, :notice => "User updated" }
+  				format.html { redirect_to :action => :index, :notice => "User updated" }
   			else
   				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :users])
   				format.html { render :edit }

@@ -58,7 +58,7 @@ module Authentasaurus::GroupsController
   		
   		respond_to do |format|
   			if @group.update_attributes(params[:group])
-  				format.html { redirect_to @group, :notice => "Group updated" }
+  				format.html { redirect_to :action => :index, :notice => "Group updated" }
   			else
   				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :groups])
   				format.html { render :edit }

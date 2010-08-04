@@ -58,7 +58,7 @@ module Authentasaurus::AreasController
   		
   		respond_to do |format|
   			if @area.update_attributes(params[:area])
-  				format.html { redirect_to @area, :notice => "Area updated" }
+  				format.html { redirect_to :action => :index, :notice => "Area updated" }
   			else
   				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :areas])
   				format.html { render :edit }

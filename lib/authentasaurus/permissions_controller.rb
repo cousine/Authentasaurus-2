@@ -59,7 +59,7 @@ module Authentasaurus::PermissionsController
   		respond_to do |format|
   			if @permission.update_attributes(params[:permission])
   				flash.now[:notice] = "Permission updated"
-  				format.html { redirect_to @permission }
+  				format.html { redirect_to :action => :index }
   			else
   				flash.now[:alert] = I18n.t(:update_failed, :scope => [:authentasaurus, :messages, :permissions])
   				format.html { render :edit }
