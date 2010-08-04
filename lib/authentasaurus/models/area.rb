@@ -3,6 +3,8 @@ module Authentasaurus::Models::Area
     base.send :extend, ClassMethods
     base.send :include, InstanceMethods
     
+    base.send :unloadable
+    
     base.send :has_many, :permissions, :dependent => :destroy
     base.send :has_many, :groups, :through => :permissions
     
