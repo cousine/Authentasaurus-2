@@ -68,8 +68,8 @@ module Authentasaurus::PermissionsController
   	end
   	
   	def destroy
-  		@permssion = Permission.find params[:id]
-  		@permission.destroy()
+  		@permission = Permission.find params[:id]
+  		@permission.destroy
   		
   		respond_to do |format|
   			format.html { redirect_to :action=>:index }
