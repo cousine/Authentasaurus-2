@@ -9,7 +9,7 @@ module Authentasaurus::Models::Permission
     base.send :belongs_to, :area
   
     # Check that everything is there
-    base.send :validates_presence_of, :group_id,:area_id,:read,:write
+    base.send :validates_presence_of, :group_id, :area_id
     # Check foreign keys
     base.send :validates_associated, :group, :area
   end

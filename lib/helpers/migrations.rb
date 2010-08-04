@@ -59,8 +59,8 @@ module Helpers::Migrations
         create_table :permissions do |t|
           t.integer :group_id, :null => false
           t.integer :area_id, :null => false
-          t.boolean :read, :null => false
-          t.boolean :write, :null => false
+          t.boolean :read, :null => false, :default => false
+          t.boolean :write, :null => false, :default => false
     
           t.timestamps
         end
