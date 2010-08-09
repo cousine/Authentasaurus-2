@@ -44,7 +44,7 @@ module ActiveRecord::Authenticatable
       #validation
       if args.include?(:validatable)
         has_one :validation, :as => :user
-        before_create :create_validation
+        after_create :send_validation
         # include authentication methods including validation
         include ActiveRecord::ActsAsAuthenticatableValidatable
       else

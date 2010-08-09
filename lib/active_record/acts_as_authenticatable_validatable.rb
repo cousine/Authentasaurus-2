@@ -20,9 +20,9 @@ module ActiveRecord::ActsAsAuthenticatableValidatable
   
   module InstanceMethods
     private
-		def create_validation
+		def send_validation
 			unless self.active
-				validation = Validation.new(:user => self, :email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
+				validation = self.build_validation(:email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
 				unless validation.save
 					raise "Could not create validation record"
 				end
