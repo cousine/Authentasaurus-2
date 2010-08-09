@@ -8,7 +8,7 @@ module Authentasaurus::ValidationsController
   end
   
   module InstanceMethods
-    def validate
+    def activate
   		respond_to do |format|
   			validation = Validation.find_by_validation_code(params[:vcode])
   			if validation
