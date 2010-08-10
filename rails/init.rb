@@ -27,6 +27,10 @@ if defined? ActiveRecord
   class ActiveRecord::ConnectionAdapters::AbstractAdapter
     include Helpers::Migrations::Tables
   end
+  
+  class ActiveRecord::ConnectionAdapters::TableDefinition
+    include Helpers::Migrations::Columns
+  end
 end
 
 if defined? ActiveResource

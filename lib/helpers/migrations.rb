@@ -163,7 +163,7 @@ module Helpers::Migrations
         string :remember_me_token
         boolean :active, :null => false, :default => false
         if opts.include?(:authorizable)
-          t.integer :group_id, :null => false
+          integer :group_id, :null => false
         end
       end
     end
