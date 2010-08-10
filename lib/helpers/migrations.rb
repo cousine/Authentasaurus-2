@@ -154,7 +154,7 @@ module Helpers::Migrations
     end
     
     module InstanceMethods
-      def user
+      def user(*opts)
         string :username, :null => false
         string :hashed_password, :null => false
         string :password_seed, :null => false
