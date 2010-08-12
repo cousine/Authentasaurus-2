@@ -6,6 +6,8 @@ module Authentasaurus::Models::Session
     base.send :extend, ClassMethods
     base.send :include, InstanceMethods
     
+    base.send :unloadable
+    
     base.send :attr_accessor, :username, :password, :remember
     base.send :attr_accessor, :errors
     base.send :attr_reader, :user
