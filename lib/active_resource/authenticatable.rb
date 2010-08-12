@@ -8,6 +8,7 @@ module ActiveResource::Authenticatable
   module ClassMethods
     
     def authenticatable(*args)
+      self.unloadable
       options = args.extract_options!
       
       self.site = options[:site] || AUTHENTASAURUS[:modules][:remote][self.name.underscore.gsub(/_sync/, "").to_sym][:site]
