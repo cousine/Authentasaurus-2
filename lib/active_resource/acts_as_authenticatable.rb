@@ -30,8 +30,6 @@ module ActiveResource::ActsAsAuthenticatable
           else
             local_user.save
           end
-          
-          user = local_user
         end
       end
       return user
