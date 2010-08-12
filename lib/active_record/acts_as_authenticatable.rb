@@ -5,7 +5,7 @@ module ActiveRecord::ActsAsAuthenticatable
   end
   
   module ClassMethods
-    require 'digest/sha1'
+    require 'digest/sha2'
     ## Authenticates the username and password
     def authenticate(username, password)
       user=self.find_by_username username
@@ -19,7 +19,7 @@ module ActiveRecord::ActsAsAuthenticatable
     ## Encrypts the password using the given seed
 		def encrypt_password(password, password_seed)
 			pass_to_hash=password + "Securasaurus" + password_seed
-			Digest::SHA1.hexdigest(pass_to_hash)
+			Digest::SHA2.hexdigest(pass_to_hash)
 		end
   end
   

@@ -21,11 +21,17 @@ module ActiveResource::ActsAsAuthenticatable
           last_update = user.attributes.delete "updated_at"
           local_user = self.sync_to.find_or_initialize_by_username user.username, user.attributes
           
-          last_update_datetime = (last_update.kind_of?(String)) ? (DateTime.parse(last_update)) : (last_update)
-          
-          if local_user.updated_at < last_update_datetime
-            local_user.update_attributes user.attributes            
+          unless local_user.new_record?
+            last_update_datetime = (last_update.kind_of?(String)) ? (DateTime.parse(last_update)) : (last_update)
+            
+            if local_user.updated_at < last_update_datetime
+              local_user.update_attributes user.attributes            
+            end
+          else
+            local_user.save
           end
+          
+          user = local_user
         end
       end
       return user

@@ -2,6 +2,8 @@ require 'active_resource/acts_as_authenticatable'
 module ActiveResource::Authenticatable
   def self.included(base)
     base.send :extend, ClassMethods
+    
+    base.send :unloadable
   end
   
   module ClassMethods

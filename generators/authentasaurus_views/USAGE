@@ -4,9 +4,9 @@ Description:
 Examples:
     `./script/generate authentasaurus_views users`
 
-        creates views for Authentasaurus with main user model named "user"
+        creates views for Authentasaurus with main user model named "user" and controller named "users"
 
-    `./script/generate authentasaurus_views users --authorizable --validatable
+    `./script/generate authentasaurus_views users --authorizable --validatable --invitable
 
         creates views for Authentasaurus with main user model named "user" and also creates views
-        for authorization (--authorizable) and validation (--validatable)
+        for authorization (--authorizable), invitation (--invitable) and validation (--validatable)

@@ -2,6 +2,7 @@
 development: &non_production_settings
   :mail:
     :email: &development_email "foo_bar@your-domain.com"
+    :host: "http://localhost:3000/"
   :modules:
     :remote:
       :user:
@@ -29,6 +30,7 @@ test:
 production:
   :mail:
     :email: &production_email "foo_bar@your-domain.com"
+    :host: "http://your_website.com/"
   :modules:
     :remote:
       :user:

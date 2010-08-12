@@ -1,7 +1,7 @@
 <p>Dear <%= @name %>,</p>
 
 <p>A request has been made to recover your account's password.</p>
-<p>Please visit this <%= link_to "link", recover_password_url(@token) %> and follow the instructions.</p>
+<p>Please visit this <%= link_to "link", recover_password_url(:host => AUTHENTASAURUS[:mail][:host], @token) %> and follow the instructions.</p>
 
 <p>Best Regards,</p>
-<p>your-domain.com Team</p>
+<p><%= AUTHENTASAURUS[:mail][:host] %> Team</p>

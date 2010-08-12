@@ -5,6 +5,8 @@ module Authentasaurus::Models::Recovery
     
     base.send :require, "digest/sha1"
     
+    base.send :unloadable
+    
     base.send :belongs_to, :user
 	
   	base.send :before_validation_on_create, :make_token!

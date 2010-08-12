@@ -23,6 +23,7 @@ class AuthentasaurusViewsGenerator < Rails::Generator::NamedBase
       ## recoverable
       m.file 'views/recoveries/new.html.erb', File.join("app/views", class_path, "recoveries", "new.html.erb")
       m.file 'views/recoveries/edit.html.erb', File.join("app/views", class_path, "recoveries", "edit.html.erb")
+      m.file 'views/authentasaurus_emailer/recovery_mail.html.erb', File.join("app/views", class_path, "authentasaurus_emailer", "recovery_mail.html.erb")
       
       
       if options[:authorizable]
