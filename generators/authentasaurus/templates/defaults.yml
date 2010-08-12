@@ -1,5 +1,6 @@
 ## Authentasaurus configuration
 development: &non_production_settings
+  :hashing: "SHA2" # MD5 - SHA1 - SHA2
   :mail:
     :email: &development_email "foo_bar@your-domain.com"
     :host: "http://localhost:3000/"
@@ -28,6 +29,7 @@ test:
   <<: *non_production_settings
 
 production:
+  :hashing: "SHA2" # MD5 - SHA1 - SHA2
   :mail:
     :email: &production_email "foo_bar@your-domain.com"
     :host: "http://your_website.com/"

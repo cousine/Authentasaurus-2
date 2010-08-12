@@ -5,7 +5,19 @@ module ActiveRecord::ActsAsAuthenticatable
   end
   
   module ClassMethods
-    require 'digest/sha2'
+    
+    case AUTHENTASAURUS[:hashing] 
+    when "SHA2"
+      require 'digest/sha2'
+    when "SHA1"
+      require 'digest/sha1'
+    when "MD5"
+      require 'digest/md5'
+    else
+      require 'digest/sha2'
+    end
+    
+    
     ## Authenticates the username and password
     def authenticate(username, password)
       user=self.find_by_username username
@@ -19,7 +31,18 @@ module ActiveRecord::ActsAsAuthenticatable
     ## Encrypts the password using the given seed
 		def encrypt_password(password, password_seed)
 			pass_to_hash=password + "Securasaurus" + password_seed
-			Digest::SHA2.hexdigest(pass_to_hash)
+			
+			case AUTHENTASAURUS[:hashing] 
+      when "SHA2"
+        Digest::SHA2.hexdigest(pass_to_hash)
+      when "SHA1"
+        Digest::SHA1.hexdigest(pass_to_hash)
+      when "MD5"
+        Digest::MD5.hexdigest(pass_to_hash)
+      else
+        Digest::SHA2.hexdigest(pass_to_hash)
+      end
+			
 		end
   end
   
