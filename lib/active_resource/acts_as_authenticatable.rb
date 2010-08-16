@@ -6,14 +6,14 @@ module ActiveResource::ActsAsAuthenticatable
   
   module ClassMethods
     ## Authenticates the username and password
-    def authenticate(username, password)
+    def authenticate(username, password, remember = false)
       case(self.format)
       when ActiveResource::Formats::XmlFormat
-        user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password).body).values.first
+        user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password, :remember => remember).body).values.first
       when ActiveResource::Formats::JsonFormat
-        user = self.new ActiveSupport::JSON.decode(self.post(:signin,:username => username, :password => password).body)
+        user = self.new ActiveSupport::JSON.decode(self.post(:signin,:username => username, :password => password, :remember => remember).body)
       else
-        user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password).body).values.first
+        user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password, :remember => remember).body).values.first
       end
       
       unless user.nil?
@@ -25,6 +25,7 @@ module ActiveResource::ActsAsAuthenticatable
             last_update_datetime = (last_update.kind_of?(String)) ? (DateTime.parse(last_update)) : (last_update)
             
             if local_user.updated_at < last_update_datetime
+              
               local_user.update_attributes user.attributes            
             end
           else
@@ -43,7 +44,11 @@ module ActiveResource::ActsAsAuthenticatable
         last_update = user.attributes.delete "updated_at"
         local_user = self.class.sync_to.find_or_initialize_by_username user.username, user.attributes
         
-        local_user.update_attributes user.attributes            
+        unless local_user.new_record?
+          local_user.update_attributes user.attributes            
+        else
+          local_user.save
+        end
       else
         false
       end

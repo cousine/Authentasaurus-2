@@ -19,11 +19,15 @@ module ActiveRecord::ActsAsAuthenticatable
     
     
     ## Authenticates the username and password
-    def authenticate(username, password)
+    def authenticate(username, password, remember = false)
       user=self.find_by_username username
       if user
         expected_password=encrypt_password(password, user.password_seed)
-        user = nil unless expected_password == user.hashed_password && user.active
+        unless expected_password == user.hashed_password && user.active
+          user = nil 
+        else
+          user.create_remember_me_token if remember
+        end
       end
       return user
     end

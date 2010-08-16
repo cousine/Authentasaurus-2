@@ -52,12 +52,11 @@ module Authentasaurus::Models::Session
       
       ret = true
       session_types.each do |type|
-        @user = type.to_s.camelize.constantize.authenticate(self.username, self.password)
+        @user = type.to_s.camelize.constantize.authenticate(self.username, self.password, self.remember == "1")
         if @user.nil?
           self.errors.add_to_base I18n.t(:invalid_login, :scope => [:authentasaurus, :messages, :sessions]) 
           ret &= false
         else
-          @user.create_remember_me_token if self.remember == "1"
           ret = true
           break
         end

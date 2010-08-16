@@ -28,7 +28,7 @@ module Authentasaurus::SessionsController
           end
           session[:user_id] = @session.user.id
           session[:user_permissions] =   {:read => @session.user.permissions.collect{|per| per.area.name if per.read}, :write => @session.user.permissions.collect{|per| per.area.name if per.write}}
-          format.html { redirect_to session[:original_url] || root_url }
+          format.html { redirect_to session[:original_url] || (defined?(signin_redirect_path).nil? ?  root_path : signin_redirect_path) }
         else
           format.html { render :action => :new }
         end
@@ -48,7 +48,9 @@ module Authentasaurus::SessionsController
     
     private
     def check_is_logged_in
-      redirect_to root_path if session[:user_id]
+      if is_logged_in?
+        redirect_to defined?(signin_redirect_path).nil? ?  root_path : signin_redirect_path
+      end
     end
   end
 end
