@@ -14,6 +14,7 @@ module ActiveRecord::Authenticatable
       # basic attributes
       validates_presence_of :username, :hashed_password, :password_seed, :email, :name
       validates_uniqueness_of :username, :email
+      validates_format_of :username, :with => /^[a-z0-9^ ]*([a-z0-9]{4})+[a-z0-9^ ]*$/ # alpha-numeric only and at least 4 characters
       validates_format_of :email, :with => %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
       # password validations
       validates_confirmation_of :password, :on => :create
