@@ -51,9 +51,8 @@ module ActiveRecord::ActsAsAuthenticatable
   end
   
   module InstanceMethods
-    def username=(username)
-      return if username.blank?
-      self.username = username.downcase
+    def username=(username)      
+      super(username.downcase)
     end
     
     ## Password attribute (used when creating a user)

@@ -52,7 +52,7 @@ module Authentasaurus::Models::Session
       
       ret = true
       session_types.each do |type|
-        @user = type.to_s.camelize.constantize.authenticate(self.username, self.password, self.remember == "1")
+        @user = type.to_s.camelize.constantize.authenticate(self.username.downcase, self.password, self.remember == "1")
         if @user.nil?
           self.errors.add_to_base I18n.t(:invalid_login, :scope => [:authentasaurus, :messages, :sessions]) 
           ret &= false
