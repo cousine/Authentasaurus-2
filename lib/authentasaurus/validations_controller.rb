@@ -16,7 +16,7 @@ module Authentasaurus::ValidationsController
   				validation.destroy
   				format.html { redirect_to login_url, :notice => I18n.t(:validation_successful, :scope => [:authentasaurus, :messages, :validations])}
   			else
-  			  self.alert = I18n.t(:validation_failed, :scope => [:authentasaurus, :messages, :validations])
+  			  flash.now[:alert] = I18n.t(:validation_failed, :scope => [:authentasaurus, :messages, :validations])
   				format.html
   			end
   		end
