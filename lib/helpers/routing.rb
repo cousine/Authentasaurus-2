@@ -59,7 +59,8 @@ module Helpers::Routing
     def authentasaurus_validatable(*opts)
       options = opts.extract_options!
       
-      validate "/validate", options.dup.merge({:controller => :validations, :action => :activate})
+      validate "/validate", options.dup.merge({:controller => :validations, :action => :validate})
+      activate "/activate", options.dup.merge({:controller => :validations, :action => :activate})
       resend_validation_email "/resend-validation", options.dup.merge({:controller => :validations, :action => :resend_validation_email, :conditions => {:method => :get}})
       do_resend_validation_email "/resend-validation", options.dup.merge({:controller => :validations, :action => :do_resend_validation_email, :conditions => {:method => :post}})
     end

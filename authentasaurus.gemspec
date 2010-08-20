@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
   spec.name = %q{authentasaurus}
-  spec.version = "0.6.9"
+  spec.version = "0.6.10"
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 1.3.0") if spec.respond_to? :required_rubygems_version=
   spec.date = %q{2010-08-20}
@@ -76,7 +76,7 @@ Gem::Specification.new do |spec|
     "app/views/users/new.html.erb",
     "app/views/users/show.html.erb",
     
-    "app/views/validations/activate.html.erb",
+    "app/views/validations/validate.html.erb",
     "app/views/validations/resend_validation_email.html.erb",
     
     "config/locales/en.yml",
@@ -115,7 +115,7 @@ Gem::Specification.new do |spec|
     "generators/authentasaurus_views/templates/views/users/index.html.erb",
     "generators/authentasaurus_views/templates/views/users/new.html.erb",
     "generators/authentasaurus_views/templates/views/users/show.html.erb",
-    "generators/authentasaurus_views/templates/views/validations/activate.html.erb",
+    "generators/authentasaurus_views/templates/views/validations/validate.html.erb",
     "generators/authentasaurus_views/templates/views/validations/resend_validation_email.html.erb",
     
     "lib/action_controller/authorization.rb",

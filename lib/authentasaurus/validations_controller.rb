@@ -8,6 +8,12 @@ module Authentasaurus::ValidationsController
   end
   
   module InstanceMethods
+    def validate
+      respond_to do |format|
+        format.html
+      end
+    end
+    
     def activate
   		respond_to do |format|
   			validation = Validation.find_by_validation_code(params[:vcode])
@@ -17,7 +23,7 @@ module Authentasaurus::ValidationsController
   				format.html { redirect_to login_url, :notice => I18n.t(:validation_successful, :scope => [:authentasaurus, :messages, :validations])}
   			else
   			  flash.now[:alert] = I18n.t(:validation_failed, :scope => [:authentasaurus, :messages, :validations])
-  				format.html
+  				format.html { render :validate }
   			end
   		end
   	end
