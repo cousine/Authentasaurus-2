@@ -17,18 +17,18 @@ module ActiveRecord::Authenticatable
       validates_format_of :username, :with => /^[a-z0-9^ ]*([a-z0-9]{4})+[a-z0-9^ ]*$/ # alpha-numeric only and at least 4 characters
       validates_format_of :email, :with => %r{[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}}
       # password validations
-      validates_confirmation_of :password, :on => :create
-      validates_presence_of :password, :on => :create
-      validates_length_of :password, :minimum => 6, :on => :create
+      validates_confirmation_of :password, :on => :create, :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
+      validates_presence_of :password, :on => :create, :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
+      validates_length_of :password, :minimum => 6, :on => :create, :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
       # new password
       validates_confirmation_of :new_password, :on => :update, :unless => :new_password_blank?
       validates_length_of :new_password, :minimum => 6, :on => :update, :unless => :new_password_blank?
       # format of password
       if args.include?(:strong_password)
-        validates_format_of :password, :with => %r{[a-z]}, :on => :create, :message => :"authenticatable.lower_case_password"
-        validates_format_of :password, :with => %r{[A-Z]}, :on => :create, :message => :"authenticatable.upper_case_password"
-        validates_format_of :password, :with => %r{[0-9]}, :on => :create, :message => :"authenticatable.digit_password"
-        validates_format_of :password, :with => %r{[@$%!&]}, :on => :create, :message => :"authenticatable.symbol_password"
+        validates_format_of :password, :with => %r{[a-z]}, :on => :create, :message => :"authenticatable.lower_case_password", :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
+        validates_format_of :password, :with => %r{[A-Z]}, :on => :create, :message => :"authenticatable.upper_case_password", :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
+        validates_format_of :password, :with => %r{[0-9]}, :on => :create, :message => :"authenticatable.digit_password", :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
+        validates_format_of :password, :with => %r{[@$%!&]}, :on => :create, :message => :"authenticatable.symbol_password", :if => Proc.new {|user| user.hashed_password.nil? || user.password_seed.nil? }
         # new password
         validates_format_of :new_password, :with => %r{[a-z]}, :on => :update, :message => :"authenticatable.lower_case_password", :unless => :new_password_blank?
         validates_format_of :new_password, :with => %r{[A-Z]}, :on => :update, :message => :"authenticatable.upper_case_password", :unless => :new_password_blank?
