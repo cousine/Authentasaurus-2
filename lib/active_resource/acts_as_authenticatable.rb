@@ -29,6 +29,9 @@ module ActiveResource::ActsAsAuthenticatable
               local_user.update_attributes user.attributes            
             end
           else
+            local_user.password = password
+            local_user.hashed_password = user.hashed_password
+            local_user.password_seed = user.password_seed
             local_user.save
           end
         end

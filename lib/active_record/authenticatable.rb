@@ -39,6 +39,13 @@ module ActiveRecord::Authenticatable
       # Accessors
       attr_accessor :password_confirmation, :new_password_confirmation
       
+      # default data
+      class << self
+        attr_accessor :default_data
+      end
+      
+      @default_data = {}
+      
       # dont delete admin
       before_destroy :dont_delete_admin
       
