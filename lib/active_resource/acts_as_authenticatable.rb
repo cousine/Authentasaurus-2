@@ -25,13 +25,19 @@ module ActiveResource::ActsAsAuthenticatable
             last_update_datetime = (last_update.kind_of?(String)) ? (DateTime.parse(last_update)) : (last_update)
             
             if local_user.updated_at < last_update_datetime
-              
-              local_user.update_attributes user.attributes            
+              local_user.update_attributes user.attributes
             end
           else
             local_user.password = password
+            local_user.password_confirmation = password
+            
             local_user.hashed_password = user.hashed_password
             local_user.password_seed = user.password_seed
+            
+            self.sync_to.default_data.each do |key,value|
+              local_user.send(key.to_s + '=', value)
+            end
+            
             local_user.save
           end
         end
@@ -50,6 +56,10 @@ module ActiveResource::ActsAsAuthenticatable
         unless local_user.new_record?
           local_user.update_attributes user.attributes            
         else
+          self.sync_to.default_data.each do |key,value|
+            local_user.send(key.to_s + '=', value)
+          end          
+          
           local_user.save
         end
       else
