@@ -1,4 +1,4 @@
-module Helpers::Migrations
+module Migrations
   # Extends ActiveRecord::ConnectionAdapters::SchemaStatements
   module Tables
     def self.included(base) # :nodoc:

@@ -1,5 +1,5 @@
 ## Authentasaurus routes helper
-module Helpers::Routing
+module Routing
   def self.included(base) # :nodoc:
     base.send :include, InstanceMethods
   end
@@ -13,20 +13,20 @@ module Helpers::Routing
       authentasaurus_sessions options.dup
       authentasaurus_users options.dup
       # Recoverable
-    	authentasaurus_recoverable options.dup
+      authentasaurus_recoverable
       
       # Authorizable
-      if opts.include?(:authorizable)
+      if opts.include?(:authorization)
         authentasaurus_authorizable options.dup
       end
       
       # Validatable
-      if opts.include?(:validatable)
-        authentasaurus_validatable options.dup
+      if opts.include?(:validation)
+        authentasaurus_validatable
       end
       
       # Invitable
-      if opts.include?(:invitable)
+      if opts.include?(:invitation)
         authentasaurus_invitable options.dup
         authentasaurus_invitable_public
       end
@@ -56,13 +56,11 @@ module Helpers::Routing
     end
     
     # TODO: add documentation here
-    def authentasaurus_validatable(*opts)
-      options = opts.extract_options!
-      
-      validate "/validate", options.dup.merge({:controller => :validations, :action => :validate})
-      activate "/activate", options.dup.merge({:controller => :validations, :action => :activate})
-      resend_validation_email "/resend-validation", options.dup.merge({:controller => :validations, :action => :resend_validation_email, :conditions => {:method => :get}})
-      do_resend_validation_email "/resend-validation", options.dup.merge({:controller => :validations, :action => :do_resend_validation_email, :conditions => {:method => :post}})
+    def authentasaurus_validatable
+      match "/validate" => "validations#validate", :as => 'validate'
+      match "/activate" => "validations#activate", :as => 'activate'
+      match "/resend-validation" => "validations#resend_validation_email", :via => :get, :as => 'recover_password'
+      match "/resend-validation" => "validations#do_resend_validation_email", :via => :post, :as => 'do_recover_password'
     end
     
     # TODO: add documentation here
@@ -71,7 +69,7 @@ module Helpers::Routing
       
       resources :user_invitations, options.dup.merge({:except => [:show, :edit, :update]})
     end
-    
+        
     def authentasaurus_invitable_public(*opts)
       options = opts.extract_options!
       
@@ -79,13 +77,11 @@ module Helpers::Routing
     end
     
     # TODO: add documentation here
-    def authentasaurus_recoverable(*opts)
-    	options = opts.extract_options!
-    	
-	  	forgot_password			"/forgot-password", 					options.dup.merge({ :controller => :recoveries, :action => :new,			:conditions => { :method => :get } })
-	  	do_forgot_password	"/forgot-password", 					options.dup.merge({ :controller => :recoveries, :action => :create,		:conditions => { :method => :post } })
-	  	recover_password		"/recover-password/:token", 	options.dup.merge({ :controller => :recoveries, :action => :edit,			:conditions => { :method => :get } })
-	  	do_recover_password	"/recover-password/:token", 	options.dup.merge({ :controller => :recoveries, :action => :destroy,	:conditions => { :method => :delete } })
-  	end
+    def authentasaurus_recoverable      
+      match "/forgot-password" => "recoveries#new", :via => :get, :as => 'forgot_password'
+      match "/forgot-password" => "recoveries#create", :via => :post, :as => 'do_forgot_password'
+      match "/recover-password/:token" => "recoveries#edit", :via => :get, :as => 'recover_password'
+      match "/recover-password/:token" => "recoveries#destroy", :via => :delete, :as => 'do_recover_password'
+    end
   end
 end

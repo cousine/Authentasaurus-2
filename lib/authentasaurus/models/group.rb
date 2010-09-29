@@ -1,17 +1,19 @@
-module Authentasaurus::Models::Group
-  def self.included(base) # :nodoc:
-    base.send :extend, ClassMethods
-    base.send :include, InstanceMethods
+module Authentasaurus::Models
+  module Group
+    def self.included(base) # :nodoc:
+      base.send :extend, ClassMethods
+      base.send :include, InstanceMethods
+      
+      base.send :has_many, :permissions, :dependent => :destroy
+      base.send :has_many, :areas, :through => :permissions
+      
+      base.send :validates_presence_of, :name
+    end
     
-    base.send :has_many, :permissions, :dependent => :destroy
-    base.send :has_many, :areas, :through => :permissions
+    module ClassMethods
+    end
     
-    base.send :validates_presence_of, :name
-  end
-  
-  module ClassMethods
-  end
-  
-  module InstanceMethods
+    module InstanceMethods
+    end
   end
 end

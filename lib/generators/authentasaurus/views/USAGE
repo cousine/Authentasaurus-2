@@ -5,6 +5,7 @@ Examples:
     `./script/generate authentasaurus_views users`
 
         creates views for Authentasaurus with main user model named "user" and controller named "users"
+        and places the user views under app/views/users
 
     `./script/generate authentasaurus_views users --authorizable --validatable --invitable
 

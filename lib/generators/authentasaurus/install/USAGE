@@ -1,0 +1,5 @@
+Description:
+    Generates configuration files for Authentasaurus.
+
+Example:
+    rails generate authentasaurus:install
