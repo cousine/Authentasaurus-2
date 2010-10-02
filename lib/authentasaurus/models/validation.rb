@@ -23,7 +23,7 @@ module Authentasaurus::Models
     
     module InstanceMethods
       def send_validation
-        AuthentasaurusEmailer.deliver_validation_mail(self.user.name, self.email, self.validation_code) if AUTHENTASAURUS[:modules][:validatable][:send_email]
+        AuthentasaurusEmailer.deliver_validation_mail(self.user.name, self.email, self.validation_code) if Rails.application.config.authentasaurus[:modules][:validatable][:send_email]
       end
     end
   end

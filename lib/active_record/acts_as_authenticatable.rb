@@ -6,7 +6,7 @@ module ActiveRecord::ActsAsAuthenticatable
   
   module ClassMethods
     
-    case AUTHENTASAURUS[:hashing] 
+    case Rails.application.config.authentasaurus[:hashing] 
     when "SHA2"
       require 'digest/sha2'
     when "SHA1"
@@ -36,7 +36,7 @@ module ActiveRecord::ActsAsAuthenticatable
 		def encrypt_password(password, password_seed)
 			pass_to_hash=password + "Securasaurus" + password_seed
 			
-			case AUTHENTASAURUS[:hashing] 
+			case Rails.application.config.authentasaurus[:hashing] 
       when "SHA2"
         Digest::SHA2.hexdigest(pass_to_hash)
       when "SHA1"

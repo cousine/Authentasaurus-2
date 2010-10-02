@@ -12,11 +12,11 @@ namespace :authentasaurus do
       Permission.create! :area_id => area.id, :group_id => group.id, :write => true, :read => true
       puts "- Creating default user"
       User.create! :username=> "admin" ,:password => "Pass@123",:password_confirmation => "Pass@123",:name=> "admin",
-      :email=> AUTHENTASAURUS[:mail][:email], :active => true, :group_id => group.id
+      :email=> Rails.application.config.authentasaurus[:mail][:email], :active => true, :group_id => group.id
     else
       puts "- Creating default user"
       User.create! :username=> "admin" ,:password => "Pass@123",:password_confirmation => "Pass@123",:name=> "admin",
-      :email=> AUTHENTASAURUS[:mail][:email], :active => true
+      :email=> Rails.application.config.authentasaurus[:mail][:email], :active => true
     end
     
     puts "Created admin user, you can now login with the following credentials:"

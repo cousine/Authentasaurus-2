@@ -19,7 +19,7 @@ module Authentasaurus::Models
     
     module InstanceMethods
       def send_invitation
-        AuthentasaurusEmailer.deliver_invitation_mail(self.email, self.token) if AUTHENTASAURUS[:modules][:invitable][:send_email]
+        AuthentasaurusEmailer.deliver_invitation_mail(self.email, self.token) if Rails.application.config.authentasaurus[:modules][:invitable][:send_email]
       end
       
       private

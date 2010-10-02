@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{authentasaurus}
-  s.version = "0.7.0.pre1"
+  s.version = "0.7.0"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  s.date = %q{2010-09-29}
+  s.date = %q{2010-10-02}
   s.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   s.email = %q{info@mashsolvents.com}
   s.extra_rdoc_files = [

@@ -1,3 +1,3 @@
 # Loads the system configuration
-# Usage: AUTHENTASAURUS[:section][:key]
-AUTHENTASAURUS = YAML.load(File.read(Rails.root.join("config", "authentasaurus.yml")))[RAILS_ENV]
+# Usage: Rails.application.config.authentasaurus[:section][:key]
+Rails.application.config.authentasaurus = YAML.load(File.read(Rails.root.join("config", "authentasaurus.yml")))[RAILS_ENV]

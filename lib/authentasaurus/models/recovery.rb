@@ -13,7 +13,7 @@ module Authentasaurus::Models
     	base.send :before_validation_on_create, :make_token!
     	base.send :before_save, :send_recovery
       
-    	base.send :named_scope, :valid, lambda { { :conditions => ["updated_at <= ?", AUTHENTASAURUS[:modules][:recoverable][:token_expires_after].days.from_now] } }
+    	base.send :named_scope, :valid, lambda { { :conditions => ["updated_at <= ?", Rails.application.config.authentasaurus[:modules][:recoverable][:token_expires_after].days.from_now] } }
       
     	base.send :validates_uniqueness_of, :user_id
     	base.send :validates_presence_of, :email
@@ -30,7 +30,7 @@ module Authentasaurus::Models
       end
       
       def send_recovery
-    		AuthentasaurusEmailer.deliver_recovery_mail(self.user, self.token) if AUTHENTASAURUS[:modules][:recoverable][:send_email]
+    		AuthentasaurusEmailer.deliver_recovery_mail(self.user, self.token) if Rails.application.config.authentasaurus[:modules][:recoverable][:send_email]
       end
     end
   end

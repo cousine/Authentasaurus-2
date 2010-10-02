@@ -1,6 +1,6 @@
 <p>Dear <%= @name %>,</p>
 
-<p>Please validate your account at <%= AUTHENTASAURUS[:mail][:host] %> by visiting this <%= link_to "link", activate_url(:host => AUTHENTASAURUS[:mail][:host] , :code => @vcode) %>.</p>
+<p>Please validate your account at <%= Rails.application.config.authentasaurus[:mail][:host] %> by visiting this <%= link_to "link", activate_url(:host => Rails.application.config.authentasaurus[:mail][:host] , :code => @vcode) %>.</p>
 
 <p>Best Regards,</p>
-<p><%= AUTHENTASAURUS[:mail][:host] %> Team</p>
+<p><%= Rails.application.config.authentasaurus[:mail][:host] %> Team</p>
