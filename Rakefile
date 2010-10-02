@@ -11,7 +11,8 @@ begin
     gem.homepage = "http://github.com/cousine/Authentasaurus-2"
     gem.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    gem.files = Dir["*", "{app}/**/*", "{config}/**/*", "{lib}/**/*"]
+    gem.files = Dir["{app}/**/*", "{config}/**/*", "{lib}/**/*"]
+    gem.extra_rdoc_files = ['README.rdoc', 'MIT-LICENSE', 'TODO', 'CHANGELIST']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
