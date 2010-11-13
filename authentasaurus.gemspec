@@ -5,24 +5,21 @@
 
 Gem::Specification.new do |s|
   s.name = %q{authentasaurus}
-  s.version = "0.7.2"
+  s.version = "0.7.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  s.date = %q{2010-10-02}
+  s.date = %q{2010-11-13}
   s.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   s.email = %q{info@mashsolvents.com}
   s.extra_rdoc_files = [
-    "README.rdoc",
-     "TODO"
-  ]
-  s.files = [
     "CHANGELIST",
      "MIT-LICENSE",
      "README.rdoc",
-     "Rakefile",
-     "TODO",
-     "app/controllers/areas_controller.rb",
+     "TODO"
+  ]
+  s.files = [
+    "app/controllers/areas_controller.rb",
      "app/controllers/groups_controller.rb",
      "app/controllers/permissions_controller.rb",
      "app/controllers/recoveries_controller.rb",
@@ -69,7 +66,6 @@ Gem::Specification.new do |s|
      "app/views/users/show.html.erb",
      "app/views/validations/resend_validation_email.html.erb",
      "app/views/validations/validate.html.erb",
-     "authentasaurus.gemspec",
      "config/locales/en.yml",
      "lib/action_controller/authorization.rb",
      "lib/action_view/authorization.rb",
