@@ -10,10 +10,10 @@ module Authentasaurus::Models
       
       base.send :belongs_to, :user
       
-    	base.send :before_validation_on_create, :make_token!
+    	base.send :before_validation, :make_token!, :on => :create
     	base.send :before_save, :send_recovery
       
-    	base.send :named_scope, :valid, lambda { { :conditions => ["updated_at <= ?", Rails.application.config.authentasaurus[:modules][:recoverable][:token_expires_after].days.from_now] } }
+    	base.send :scope, :valid, lambda { { :conditions => ["updated_at <= ?", Rails.application.config.authentasaurus[:modules][:recoverable][:token_expires_after].days.from_now] } }
       
     	base.send :validates_uniqueness_of, :user_id
     	base.send :validates_presence_of, :email
