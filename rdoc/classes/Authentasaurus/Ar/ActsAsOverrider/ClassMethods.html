@@ -45,17 +45,17 @@
                 
                 <li><a href="#M000051">acts_as_area</a>,</li>
                 
-                <li><a href="#M000054">acts_as_group</a>,</li>
+                <li><a href="#M000052">acts_as_group</a>,</li>
                 
-                <li><a href="#M000055">acts_as_permission</a>,</li>
+                <li><a href="#M000053">acts_as_permission</a>,</li>
                 
-                <li><a href="#M000056">acts_as_recovery</a>,</li>
+                <li><a href="#M000054">acts_as_recovery</a>,</li>
                 
-                <li><a href="#M000057">acts_as_session</a>,</li>
+                <li><a href="#M000055">acts_as_session</a>,</li>
                 
-                <li><a href="#M000058">acts_as_user_invitation</a>,</li>
+                <li><a href="#M000056">acts_as_user_invitation</a>,</li>
                 
-                <li><a href="#M000061">acts_as_validation</a></li>
+                <li><a href="#M000057">acts_as_validation</a></li>
                 
             </ul>
         </dd>
@@ -123,6 +123,8 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
                         
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L10" target="_blank" class="github_url">on GitHub</a>
+                        
                     </p>
                     <div id="M000051_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 10</span>
@@ -140,9 +142,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000054">
+                <div class="title" id="M000052">
                     
-                    <a name="M000054"></a><b>acts_as_group</b>()
+                    <a name="M000052"></a><b>acts_as_group</b>()
                     
                 </div>
                 
@@ -151,10 +153,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L19" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000054_source" class="dyn-source">
+                    <div id="M000052_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 19</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_group</span>
         <span class="ruby-identifier">has_many</span> <span class="ruby-identifier">:permissions</span>, <span class="ruby-identifier">:dependent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:destroy</span>
@@ -168,9 +172,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000055">
+                <div class="title" id="M000053">
                     
-                    <a name="M000055"></a><b>acts_as_permission</b>()
+                    <a name="M000053"></a><b>acts_as_permission</b>()
                     
                 </div>
                 
@@ -179,10 +183,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000055_source')" id="l_M000055_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L26" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000055_source" class="dyn-source">
+                    <div id="M000053_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 26</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_permission</span>
         <span class="ruby-identifier">unloadable</span>
@@ -201,9 +207,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000056">
+                <div class="title" id="M000054">
                     
-                    <a name="M000056"></a><b>acts_as_recovery</b>()
+                    <a name="M000054"></a><b>acts_as_recovery</b>()
                     
                 </div>
                 
@@ -212,10 +218,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000056_source')" id="l_M000056_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L38" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000056_source" class="dyn-source">
+                    <div id="M000054_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 38</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_recovery</span>
         <span class="ruby-identifier">include</span> <span class="ruby-constant">Authentasaurus</span><span class="ruby-operator">::</span><span class="ruby-constant">Ar</span><span class="ruby-operator">::</span><span class="ruby-constant">Models</span><span class="ruby-operator">::</span><span class="ruby-constant">Recovery</span>
@@ -226,9 +234,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000057">
+                <div class="title" id="M000055">
                     
-                    <a name="M000057"></a><b>acts_as_session</b>()
+                    <a name="M000055"></a><b>acts_as_session</b>()
                     
                 </div>
                 
@@ -237,10 +245,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000055_source')" id="l_M000055_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000057_source" class="dyn-source">
+                    <div id="M000055_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 42</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_session</span>
         <span class="ruby-identifier">include</span> <span class="ruby-constant">Authentasaurus</span><span class="ruby-operator">::</span><span class="ruby-constant">Ar</span><span class="ruby-operator">::</span><span class="ruby-constant">Models</span><span class="ruby-operator">::</span><span class="ruby-constant">Session</span>
@@ -251,9 +261,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000058">
+                <div class="title" id="M000056">
                     
-                    <a name="M000058"></a><b>acts_as_user_invitation</b>()
+                    <a name="M000056"></a><b>acts_as_user_invitation</b>()
                     
                 </div>
                 
@@ -262,10 +272,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000056_source')" id="l_M000056_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L46" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000058_source" class="dyn-source">
+                    <div id="M000056_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 46</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_user_invitation</span>
         <span class="ruby-identifier">include</span> <span class="ruby-constant">Authentasaurus</span><span class="ruby-operator">::</span><span class="ruby-constant">Ar</span><span class="ruby-operator">::</span><span class="ruby-constant">Models</span><span class="ruby-operator">::</span><span class="ruby-constant">UserInvitation</span>
@@ -276,9 +288,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000061">
+                <div class="title" id="M000057">
                     
-                    <a name="M000061"></a><b>acts_as_validation</b>()
+                    <a name="M000057"></a><b>acts_as_validation</b>()
                     
                 </div>
                 
@@ -287,10 +299,12 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000061_source')" id="l_M000061_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_overrider.rb#L50" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000061_source" class="dyn-source">
+                    <div id="M000057_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_overrider.rb, line 50</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">acts_as_validation</span>
         <span class="ruby-identifier">include</span> <span class="ruby-constant">Authentasaurus</span><span class="ruby-operator">::</span><span class="ruby-constant">Ar</span><span class="ruby-operator">::</span><span class="ruby-constant">Models</span><span class="ruby-operator">::</span><span class="ruby-constant">Validation</span>

@@ -43,7 +43,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000032">authenticate</a></li>
+                <li><a href="#M000028">authenticate</a></li>
                 
             </ul>
         </dd>
@@ -52,7 +52,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000035">encrypt_password</a></li>
+                <li><a href="#M000034">encrypt_password</a></li>
                 
             </ul>
         </dd>
@@ -74,9 +74,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000032">
+                <div class="title" id="M000028">
                     
-                    <a name="M000032"></a><b>authenticate</b>(username_or_email, password, remember = false)
+                    <a name="M000028"></a><b>authenticate</b>(username_or_email, password, remember = false)
                     
                 </div>
                 
@@ -92,10 +92,12 @@ Authenticates the username (or email) and password
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_authenticatable.rb#L23" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000032_source" class="dyn-source">
+                    <div id="M000028_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_authenticatable.rb, line 23</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authenticate</span>(<span class="ruby-identifier">username_or_email</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">remember</span> = <span class="ruby-keyword kw">false</span>)
         <span class="ruby-identifier">user</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_username</span>(<span class="ruby-identifier">username_or_email</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-identifier">username_or_email</span>)
@@ -115,9 +117,9 @@ Authenticates the username (or email) and password
             </div>
             
             <div class="method">
-                <div class="title" id="M000035">
+                <div class="title" id="M000034">
                     
-                    <a name="M000035"></a><b>encrypt_password</b>(password, password_seed)
+                    <a name="M000034"></a><b>encrypt_password</b>(password, password_seed)
                     
                 </div>
                 
@@ -133,10 +135,12 @@ Encrypts the password using the given seed
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
+                        
+                        | <a href="http://github.com/cousine/Authentasuarus-2/blob/9f35019b78d87fdf386c9d64834171263868b8aa/lib/authentasaurus/ar/acts_as_authenticatable.rb#L37" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000035_source" class="dyn-source">
+                    <div id="M000034_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/acts_as_authenticatable.rb, line 37</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt_password</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">password_seed</span>)
                         <span class="ruby-identifier">pass_to_hash</span>=<span class="ruby-identifier">password</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;Securasaurus&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">password_seed</span>
