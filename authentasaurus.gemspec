@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{authentasaurus}
-  s.version = "0.7.4"
+  s.version = "0.8.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  s.date = %q{2010-11-13}
+  s.date = %q{2010-11-22}
   s.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   s.email = %q{info@mashsolvents.com}
   s.extra_rdoc_files = [
@@ -67,32 +67,7 @@ Gem::Specification.new do |s|
      "app/views/validations/resend_validation_email.html.erb",
      "app/views/validations/validate.html.erb",
      "config/locales/en.yml",
-     "lib/action_controller/authorization.rb",
-     "lib/action_view/authorization.rb",
-     "lib/active_record/acts_as_authenticatable.rb",
-     "lib/active_record/acts_as_authenticatable_validatable.rb",
-     "lib/active_record/authenticatable.rb",
-     "lib/active_resource/acts_as_authenticatable.rb",
-     "lib/active_resource/authenticatable.rb",
-     "lib/authentasaurus.rb",
-     "lib/authentasaurus/areas_controller.rb",
-     "lib/authentasaurus/groups_controller.rb",
-     "lib/authentasaurus/models/area.rb",
-     "lib/authentasaurus/models/group.rb",
-     "lib/authentasaurus/models/permission.rb",
-     "lib/authentasaurus/models/recovery.rb",
-     "lib/authentasaurus/models/session.rb",
-     "lib/authentasaurus/models/user_invitation.rb",
-     "lib/authentasaurus/models/validation.rb",
-     "lib/authentasaurus/permissions_controller.rb",
-     "lib/authentasaurus/recoveries_controller.rb",
-     "lib/authentasaurus/registrations_controller.rb",
-     "lib/authentasaurus/sessions_controller.rb",
-     "lib/authentasaurus/user_invitations_controller.rb",
-     "lib/authentasaurus/users_controller.rb",
-     "lib/authentasaurus/validations_controller.rb",
-     "lib/helpers/migrations.rb",
-     "lib/helpers/routing.rb"
+     "lib/authentasaurus.rb"
   ]
   s.homepage = %q{http://github.com/cousine/Authentasaurus-2}
   s.rdoc_options = ["--charset=UTF-8"]
