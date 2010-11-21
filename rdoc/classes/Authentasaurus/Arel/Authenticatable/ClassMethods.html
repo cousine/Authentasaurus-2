@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Authentasaurus::Arel::Authenticatable::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Authentasaurus::Arel::Authenticatable::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/authentasaurus/arel/authenticatable_rb.html">lib/authentasaurus/arel/authenticatable.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000001">authenticatable</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <a href="../../Ac/Routing/InstanceMethods.html">Authentasaurus::Ac::Routing::InstanceMethods</a>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000001">
+                    
+                    <a name="M000001"></a><b>authenticatable</b>(*args)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        
+                    </p>
+                    <div id="M000001_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/arel/authenticatable.rb, line 10</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authenticatable</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">unloadable</span>
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">site</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:site</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">authentasaurus</span>[<span class="ruby-identifier">:modules</span>][<span class="ruby-identifier">:remote</span>][<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_sync/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:site</span>]
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">element_name</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:session_element</span>].<span class="ruby-identifier">try</span>(<span class="ruby-identifier">:to_s</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">authentasaurus</span>[<span class="ruby-identifier">:modules</span>][<span class="ruby-identifier">:remote</span>][<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_sync/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:session_element</span>]
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:sync</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">authentasaurus</span>[<span class="ruby-identifier">:modules</span>][<span class="ruby-identifier">:remote</span>][<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_sync/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:sync</span>]
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sync_to</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:sync_to</span>].<span class="ruby-identifier">try</span>(<span class="ruby-identifier">:to_s</span>).<span class="ruby-identifier">try</span>(<span class="ruby-identifier">:camelize</span>).<span class="ruby-identifier">try</span>(<span class="ruby-identifier">:constantize</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">authentasaurus</span>[<span class="ruby-identifier">:modules</span>][<span class="ruby-identifier">:remote</span>][<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_sync/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">:sync_to</span>].<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">constantize</span>
+        
+        
+        <span class="ruby-comment cmt"># include authentication methods</span>
+        <span class="ruby-identifier">include</span> <span class="ruby-constant">Authentasaurus</span><span class="ruby-operator">::</span><span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">ActsAsAuthenticatable</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

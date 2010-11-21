@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  include Authentasaurus::GroupsController
+  acts_as_groups
 	require_read :index, :show
 	require_write :new, :create, :edit, :update, :destroy
 end

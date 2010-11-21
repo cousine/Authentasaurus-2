@@ -1,64 +1,51 @@
-module Authentasaurus
-  # NEVER EVER REMOVE THIS !!!
-  require 'authentasaurus/railtie' if defined?(Rails)
-  # Controller stubs
-  require 'authentasaurus/areas_controller' if defined?(ActionController)
-  require 'authentasaurus/groups_controller' if defined?(ActionController)
-  require 'authentasaurus/permissions_controller' if defined?(ActionController)
-  require 'authentasaurus/recoveries_controller' if defined?(ActionController)
-  require 'authentasaurus/registrations_controller' if defined?(ActionController)
-  require 'authentasaurus/sessions_controller' if defined?(ActionController)
-  require 'authentasaurus/user_invitations_controller' if defined?(ActionController)
-  require 'authentasaurus/users_controller' if defined?(ActionController)
-  require 'authentasaurus/validations_controller' if defined?(ActionController)
-  # Model stubs
-  require 'authentasaurus/models/area' if defined?(ActiveRecord)
-  require 'authentasaurus/models/group' if defined?(ActiveRecord)
-  require 'authentasaurus/models/permission' if defined?(ActiveRecord)
-  require 'authentasaurus/models/recovery' if defined?(ActiveRecord)
-  require 'authentasaurus/models/session' if defined?(ActiveRecord)
-  require 'authentasaurus/models/user_invitation' if defined?(ActiveRecord)
-  require 'authentasaurus/models/validation' if defined?(ActiveRecord)
-  # Overriders ^^
-  require 'action_controller/authorization'
-  require 'action_view/authorization'  
-  require 'active_record/authenticatable'  
-  require 'active_resource/authenticatable'
-  require 'helpers/migrations'
-  require 'helpers/routing'  
+module Authentasaurus  
+  require 'authentasaurus/railtie' if defined?(Rails) # NEVER EVER REMOVE THIS LINE !!!
+  # Authorization Helpers
+  require 'authentasaurus/authorization'
+  # Controllers, Views and Routes helpers
+  require 'authentasaurus/ac/acts_as_overrider'
+  require 'authentasaurus/ac/routing'
+  # ActiveRecord And Migrations Helpers  
+  require 'authentasaurus/ar/acts_as_overrider'
+  require 'authentasaurus/ar/authenticatable'
+  require 'authentasaurus/ar/migrations'
+  # ActiveResource Helpers
+  require 'authentasaurus/arel/authenticatable'
   
   if defined?(ActionController)
     class ActionController::Base
-      include ActionController::Authorization
+      include Authentasaurus::Authorization::ActionController
+      include Authentasaurus::Ac::ActsAsOverrider
     end
     
     class ActionView::Base
-      include ActionView::Authorization
+      include Authentasaurus::Authorization::ActionView
     end
     
     class ActionDispatch::Routing::Mapper
-      include Routing
+      include Authentasaurus::Ac::Routing
     end
   end
   
   if defined?(ActiveRecord)
     class ActiveRecord::Base
-      include ActiveRecord::Authenticatable
+      include Authentasaurus::Ar::Authenticatable
+      include Authentasaurus::Ar::ActsAsOverrider
     end
     
     class ActiveRecord::ConnectionAdapters::AbstractAdapter
-      include Migrations::Tables
+      include Authentasaurus::Ar::Migrations::Tables
     end
     
     class ActiveRecord::ConnectionAdapters::TableDefinition
-      include Migrations::Columns
+      include Authentasaurus::Ar::Migrations::Columns
     end
   end
   
   if defined?(ActiveResource)
     class ActiveResource::Base
       class_inheritable_accessor :sync, :sync_to
-      include ActiveResource::Authenticatable
+      include Authentasaurus::Arel::Authenticatable
     end
   end
 

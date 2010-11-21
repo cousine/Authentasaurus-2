@@ -1,3 +1,3 @@
 class Recovery < ActiveRecord::Base
-  include Authentasaurus::Models::Recovery
+  acts_as_recovery
 end

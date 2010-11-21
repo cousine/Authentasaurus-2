@@ -1,3 +1,3 @@
 class SessionsController < ApplicationController
-  include Authentasaurus::SessionsController
+  acts_as_sessions
 end

@@ -1,3 +1,3 @@
 class Validation < ActiveRecord::Base
-  include Authentasaurus::Models::Validation
+  acts_as_validation
 end

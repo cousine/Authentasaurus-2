@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            README.rdoc
+        </h1>
+        <ul class="files">
+            <li>README.rdoc</li>
+            <li>Last modified: Tue Sep 28 23:34:58 +0300 2010</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h2><a href="../classes/Authentasaurus.html">Authentasaurus</a></h2>
+<p>
+<a href="../classes/Authentasaurus.html">Authentasaurus</a> is a dynamic
+group/permission based authentication and authorization engine plugin, its
+simple to use and easy to setup.
+</p>
+<p>
+Most helpers are inspired by Devise.
+</p>
+<h2>Installation</h2>
+<p>
+To start using <a href="../classes/Authentasaurus.html">Authentasaurus</a>
+follow these simple steps :
+</p>
+<ol>
+<li>install authentasaurus gem by running the following command
+
+<pre>
+ gem install authentasaurus
+</pre>
+</li>
+<li>add authentasaurus to your application environment; in
+config/environment.rb
+
+<pre>
+ config.gem &quot;authentasaurus&quot;
+</pre>
+</li>
+<li>generate authentasaurus configuration and tasks in your application
+
+<pre>
+ script/generate authentasaurus
+</pre>
+</li>
+<li>setup your migrations using the migration helpers
+
+<pre>
+ in the migration up method just use
+   authentasaurus_tables
+ in the migration down method
+   authentasaurus_drop_tables
+</pre>
+</li>
+<li>migrate your database and setup your default data
+
+<pre>
+ rake authentasaurus:setup_defaults
+</pre>
+</li>
+<li>add your routes
+
+<pre>
+ map.authentasaurus_routes :authorizable, :validatable, :invitable
+</pre>
+</li>
+</ol>
+<p>
+that&#8217;s the most basic and quick setup, you can now test your
+application by running script/server in your project root directory and
+going to <a
+href="http://localhost:3000/sessions/sign-in">localhost:3000/sessions/sign-in</a>
+</p>
+<p>
+<a href="../classes/Authentasaurus.html">Authentasaurus</a> is modular, you
+can install modules as you need them (the previous setup contains all
+modules), refer to the documentation for more information.
+</p>
+<h2>Under the hood</h2>
+<p>
+<a href="../classes/Authentasaurus.html">Authentasaurus</a> takes advantage
+of rails&#8217; before_filter; it checks for the appropriate permissions
+before every action that requires a login, a write or read permission.
+</p>
+<p>
+At login, authentasaurus would load the user&#8217;s group permissions into
+a session hash and then attempts to read that hash when it meets a require
+helper on a controller.
+</p>
+<h3><a href="../classes/Authentasaurus.html">Authentasaurus</a> uses the following terms:</h3>
+<table>
+<tr><td valign="top"><tt>Area</tt>:</td><td>An area is in plain english the controller&#8217;s name, so if you have a
+controller named &#8220;PostsController&#8221;, the corresponding area name
+would be &#8220;posts&#8221; (just as you type it in the generator command)
+
+</td></tr>
+<tr><td valign="top"><tt>Group</tt>:</td><td>A group is as the name suggests, each group contains a number of users, and
+each user inherits the group permissions, also note that at any given time,
+the user can only belong to one group
+
+</td></tr>
+<tr><td valign="top"><tt>Permission</tt>:</td><td>A permission is one of two, either read or write, but take care, read or
+write is only a naming, and though it doesn&#8217;t make sense, you could
+treat a read permission as a write permission and vice versa, but as i said
+it makes no sense !
+
+</td></tr>
+</table>
+<h2>Generators</h2>
+<p>
+There are two generators in <a
+href="../classes/Authentasaurus.html">Authentasaurus</a>, the default
+generator
+</p>
+<pre>
+  authentasaurus
+</pre>
+<p>
+and the views generator
+</p>
+<pre>
+  authentasaurus_views
+</pre>
+<p>
+The default generator generates configurations and tasks needed by <a
+href="../classes/Authentasaurus.html">Authentasaurus</a>, while the views
+generator generates the views used by <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> in your
+application, this is useful for customizing authentasaurus and is totally
+optional.
+</p>
+<p>
+<a href="../classes/Authentasaurus.html">Authentasaurus</a> views generator
+takes the name of the user controller, by default it&#8217;s users
+</p>
+<pre>
+  script/generate authentasaurus_views users
+</pre>
+<p>
+You can also use namespaces:
+</p>
+<pre>
+  script/generate authentasaurus_views admin/users
+</pre>
+<p>
+Also you can use some options with the <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> views generator to
+add the modules you need:
+</p>
+<table>
+<tr><td valign="top"><tt>--authorizable</tt>:</td><td>generates the views necessary for authorization (groups, areas and
+permissions)
+
+</td></tr>
+<tr><td valign="top"><tt>--invitable</tt>:</td><td>generates the views necessary for invitable users
+
+</td></tr>
+<tr><td valign="top"><tt>--validatable</tt>:</td><td>generates the views necessary for validatable users
+
+</td></tr>
+</table>
+<p>
+You can use a combination of those options like the following example:
+</p>
+<pre>
+  script/generate authentasaurus_views users --authorizable --invitable --validatable
+</pre>
+<h2>Controller Authorization Helpers</h2>
+<p>
+There are four main authorization helpers in <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> for use on
+controllers:
+</p>
+<table>
+<tr><td valign="top"><tt>require_login</tt>:</td><td>requires the user to login before accessing the actions specified
+
+<p>
+<b>ex:</b> Tells <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> that the action
+destroy requires login and that <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> shouldn&#8217;t
+store the request in the session (typically for logout actions)
+</p>
+<ul>
+<li>:skip_request - skips saving the original request (to redirect to after
+login)
+
+</li>
+<li>:user_model - if defined, authentasaurus will use that model instead of the
+default &#8220;User&#8220;
+
+</li>
+<li>:if - specifies a method, proc or string to call to determine if the
+authorization should occur
+
+</li>
+<li>:unless - specifies a method, proc or string to call to determine if the
+authorization should not occur
+
+<p>
+require_login :destroy, :skip_request => true
+</p>
+</li>
+</ul>
+</td></tr>
+<tr><td valign="top"><tt>require_write</tt>:</td><td>requires the user to have a write permission to that area to access the
+actions specified
+
+<p>
+<b>ex:</b> Tells <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> that the actions
+create_user and delete_user requires login and write permission.
+</p>
+<ul>
+<li>:skip_request - skips saving the original request (to redirect to after
+login)
+
+</li>
+<li>:user_model - if defined, authentasaurus will use that model instead of the
+default &#8220;User&#8220;
+
+</li>
+<li>:if - specifies a method, proc or string to call to determine if the
+authorization should occur
+
+</li>
+<li>:unless - specifies a method, proc or string to call to determine if the
+authorization should not occur
+
+<p>
+require_write :create_user, :delete_user
+</p>
+</li>
+</ul>
+</td></tr>
+<tr><td valign="top"><tt>require_read</tt>:</td><td>requires the user to have a read permission to that area to access the
+actions specified
+
+<p>
+<b>ex:</b> Tells <a
+href="../classes/Authentasaurus.html">Authentasaurus</a> that the action
+show_user requires login and read permission.
+</p>
+<ul>
+<li>:skip_request - skips saving the original request (to redirect to after
+login)
+
+</li>
+<li>:user_model - if defined, authentasaurus will use that model instead of the
+default &#8220;User&#8220;
+
+</li>
+<li>:if - specifies a method, proc or string to call to determine if the
+authorization should occur
+
+</li>
+<li>:unless - specifies a method, proc or string to call to determine if the
+authorization should not occur
+
+<p>
+require_read :show_user, :if api_key.nil?
+</p>
+</li>
+</ul>
+</td></tr>
+</table>
+<p>
+You can use any of those class methods on you controllers to restrict
+access levels like so:
+</p>
+<pre>
+  class PostsController &lt; ApplicationController
+    require_login :index
+    require_read :show
+    require_write :new, :create, :edit, :update, :destroy
+
+    def index
+      # your code here
+    end
+
+    def show
+      # your code here
+    end
+
+    def new
+      # your code here
+    end
+
+    def create
+      # your code here
+    end
+
+    def edit
+      # your code here
+    end
+
+    def update
+      # your code here
+    end
+
+    def destroy
+      # your code here
+    end
+  end
+</pre>
+<p>
+In addition there is also the has? helper which is available in both
+Controllers and Views
+</p>
+<table>
+<tr><td valign="top"><tt>has?(permission, area=nil)</tt>:</td><td>Checks if the current user has the appropriate permissions for the area
+specified
+
+<p>
+<b>ex</b>: has?(:write) or has?(:read, :users)
+</p>
+</td></tr>
+</table>
+<p>
+Copyright &#169; 2010 Mash, Ltd., released under the MIT license
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

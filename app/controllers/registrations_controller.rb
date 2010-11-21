@@ -1,3 +1,3 @@
 class RegistrationsController < ApplicationController
-  include Authentasaurus::RegistrationsController
+  acts_as_registrations
 end

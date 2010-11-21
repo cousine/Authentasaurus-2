@@ -1,3 +1,3 @@
 class ValidationsController < ApplicationController
-  include Authentasaurus::ValidationsController
+  acts_as_validations
 end

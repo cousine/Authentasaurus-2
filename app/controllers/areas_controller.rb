@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-  include Authentasaurus::AreasController
+  acts_as_areas
 	require_read :index, :show
 	require_write :new, :create, :edit, :update, :destroy
 end

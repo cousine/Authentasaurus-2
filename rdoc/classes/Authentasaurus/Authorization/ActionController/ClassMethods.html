@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Authentasaurus::Authorization::ActionController::ClassMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Authentasaurus::Authorization::ActionController::ClassMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/authentasaurus/authorization_rb.html">lib/authentasaurus/authorization.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000011">require_login</a>,</li>
+                
+                <li><a href="#M000013">require_read</a>,</li>
+                
+                <li><a href="#M000012">require_write</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000011">
+                    
+                    <a name="M000011"></a><b>require_login</b>(*attrs)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Requires the user to login before accessing the actions specified
+</p>
+<p>
+<b>ex:</b> Tells <a href="../../../Authentasaurus.html">Authentasaurus</a>
+that the action destroy requires login and that <a
+href="../../../Authentasaurus.html">Authentasaurus</a> shouldn&#8217;t
+store the request in the session (typically for logout actions).
+</p>
+<pre>
+  require_login :destroy, :skip_request =&gt; true
+</pre>
+<p>
+<b>Options</b>
+</p>
+<pre>
+  :skip_request - skips saving the original request (to redirect to after login)
+  :user_model   - if defined, authentasaurus will use that model instead of the default &quot;User&quot;
+  :if           - specifies a method, proc or string to call to determine if the authorization should occur
+  :unless       - specifies a method, proc or string to call to determine if the authorization should not occur
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        
+                    </p>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/authorization.rb, line 183</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_login</span> (<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+        <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">flatten</span>
+        
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span><span class="ruby-operator">|</span>
+                    <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">instance_eval</span> {<span class="ruby-identifier">check_logged_in</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>]}
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
+                          <span class="ruby-identifier">c</span>.<span class="ruby-identifier">instance_eval</span> {<span class="ruby-identifier">check_logged_in</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>]}
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000013">
+                    
+                    <a name="M000013"></a><b>require_read</b>(*attrs)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Requires the user to have a read permission to that area to access the
+actions specified
+</p>
+<p>
+<b>ex:</b> Tells <a href="../../../Authentasaurus.html">Authentasaurus</a>
+that the action show_user requires login and read permission.
+</p>
+<pre>
+  require_read :show_user
+</pre>
+<p>
+<b>Options</b>
+</p>
+<pre>
+  :skip_request - skips saving the original request (to redirect to after login)
+  :user_model   - if defined, authentasaurus will use that model instead of the default &quot;User&quot;
+  :if           - specifies a method, proc or string to call to determine if the authorization should occur
+  :unless       - specifies a method, proc or string to call to determine if the authorization should not occur
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show</a>
+                        
+                    </p>
+                    <div id="M000013_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/authorization.rb, line 239</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_read</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+        <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">flatten</span>
+        
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span><span class="ruby-operator">|</span>
+                          <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">instance_eval</span> { <span class="ruby-identifier">check_read_permissions</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>] }
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
+                          <span class="ruby-identifier">c</span>.<span class="ruby-identifier">instance_eval</span> { <span class="ruby-identifier">check_read_permissions</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>] } 
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000012">
+                    
+                    <a name="M000012"></a><b>require_write</b>(*attrs)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Requires the user to have a write permission to that area to access the
+actions specified
+</p>
+<p>
+<b>ex:</b> Tells <a href="../../../Authentasaurus.html">Authentasaurus</a>
+that the actions create_user and delete_user requires login and write
+permission.
+</p>
+<pre>
+  require_write :create_user, :delete_user
+</pre>
+<p>
+<b>Options</b>
+</p>
+<pre>
+  :skip_request - skips saving the original request (to redirect to after login)
+  :user_model   - if defined, authentasaurus will use that model instead of the default &quot;User&quot;
+  :if           - specifies a method, proc or string to call to determine if the authorization should occur
+  :unless       - specifies a method, proc or string to call to determine if the authorization should not occur
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show</a>
+                        
+                    </p>
+                    <div id="M000012_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/authorization.rb, line 211</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_write</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">extract_options!</span>.<span class="ruby-identifier">symbolize_keys</span>
+        <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">flatten</span>
+        
+        
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attrs</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span><span class="ruby-operator">|</span>
+                          <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">instance_eval</span> { <span class="ruby-identifier">check_write_permissions</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>] }
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">before_filter</span> <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:if</span>], <span class="ruby-identifier">:unless</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
+                          <span class="ruby-identifier">c</span>.<span class="ruby-identifier">instance_eval</span> {<span class="ruby-identifier">check_write_permissions</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-identifier">:skip_request</span>].<span class="ruby-identifier">nil?</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_model</span>]}
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

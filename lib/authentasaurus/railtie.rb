@@ -1,13 +1,13 @@
 require 'authentasaurus'
 require 'rails'
 
-module Authentasaurus
+module Authentasaurus #:nodoc:
   class Railtie < Rails::Engine   
     ActiveSupport.on_load(:before_initialize) do
       Rails.application.config.authentasaurus = {}
-      require 'active_record/acts_as_authenticatable'
-      require 'active_record/acts_as_authenticatable_validatable'
-      require 'active_resource/acts_as_authenticatable'
+      require 'authentasaurus/ar/acts_as_authenticatable'
+      require 'authentasaurus/ar/acts_as_authenticatable_validatable'
+      require 'authentasaurus/arel/acts_as_authenticatable'
     end
   end
 end

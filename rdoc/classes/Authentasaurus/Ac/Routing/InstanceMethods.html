@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Authentasaurus::Ac::Routing::InstanceMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Authentasaurus::Ac::Routing::InstanceMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/authentasaurus/ac/routing_rb.html">lib/authentasaurus/ac/routing.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000062">authentasaurus_authorizable</a>,</li>
+                
+                <li><a href="#M000064">authentasaurus_invitable</a>,</li>
+                
+                <li><a href="#M000065">authentasaurus_invitable_public</a>,</li>
+                
+                <li><a href="#M000066">authentasaurus_recoverable</a>,</li>
+                
+                <li><a href="#M000053">authentasaurus_routes</a>,</li>
+                
+                <li><a href="#M000059">authentasaurus_sessions</a>,</li>
+                
+                <li><a href="#M000060">authentasaurus_users</a>,</li>
+                
+                <li><a href="#M000063">authentasaurus_validatable</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000062">
+                    
+                    <a name="M000062"></a><b>authentasaurus_authorizable</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000062_source')" id="l_M000062_source">show</a>
+                        
+                    </p>
+                    <div id="M000062_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 52</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_authorizable</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:groups</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:areas</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:permissions</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000064">
+                    
+                    <a name="M000064"></a><b>authentasaurus_invitable</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000064_source')" id="l_M000064_source">show</a>
+                        
+                    </p>
+                    <div id="M000064_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 69</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_invitable</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:user_invitations</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">:except</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:show</span>, <span class="ruby-identifier">:edit</span>, <span class="ruby-identifier">:update</span>]})
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000065">
+                    
+                    <a name="M000065"></a><b>authentasaurus_invitable_public</b>(*opts)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000065_source')" id="l_M000065_source">show</a>
+                        
+                    </p>
+                    <div id="M000065_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 75</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_invitable_public</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:registrations</span>, <span class="ruby-identifier">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:new</span>, <span class="ruby-identifier">:create</span>], <span class="ruby-identifier">:path_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;/:token&quot;</span>, <span class="ruby-identifier">:requirements</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp re">/[0-9a-zA-Z]+/</span>}
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000066">
+                    
+                    <a name="M000066"></a><b>authentasaurus_recoverable</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000066_source')" id="l_M000066_source">show</a>
+                        
+                    </p>
+                    <div id="M000066_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 82</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_recoverable</span>      
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/forgot-password&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;recoveries#new&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'forgot_password'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/forgot-password&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;recoveries#create&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:post</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'do_forgot_password'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/recover-password/:token&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;recoveries#edit&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'recover_password'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/recover-password/:token&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;recoveries#destroy&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:delete</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'do_recover_password'</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000053">
+                    
+                    <a name="M000053"></a><b>authentasaurus_routes</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        
+                    </p>
+                    <div id="M000053_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 10</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_routes</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-comment cmt"># Authenticatable</span>
+        <span class="ruby-identifier">authentasaurus_sessions</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-identifier">authentasaurus_users</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-comment cmt"># Recoverable</span>
+        <span class="ruby-identifier">authentasaurus_recoverable</span>
+        
+        <span class="ruby-comment cmt"># Authorizable</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:authorization</span>)
+          <span class="ruby-identifier">authentasaurus_authorizable</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-comment cmt"># Validatable</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:validation</span>)
+          <span class="ruby-identifier">authentasaurus_validatable</span>
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-comment cmt"># Invitable</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:invitation</span>)
+          <span class="ruby-identifier">authentasaurus_invitable</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+          <span class="ruby-identifier">authentasaurus_invitable_public</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000059">
+                    
+                    <a name="M000059"></a><b>authentasaurus_sessions</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show</a>
+                        
+                    </p>
+                    <div id="M000059_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 37</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_sessions</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">get</span>     <span class="ruby-value str">&quot;/sessions/sign-in(.:format)&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;sessions#new&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:new_session</span>
+        <span class="ruby-identifier">post</span>    <span class="ruby-value str">&quot;/sessions(.:format)&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;sessions#create&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sessions</span>
+        <span class="ruby-identifier">delete</span>  <span class="ruby-value str">&quot;/sessions/sign-out(.:format)&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;sessions#destroy&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:session</span>
+        <span class="ruby-identifier">get</span>     <span class="ruby-value str">&quot;/sessions/no-access(.:format)&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;sessions#no_access&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:no_access_sessions</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000060">
+                    
+                    <a name="M000060"></a><b>authentasaurus_users</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
+                        
+                    </p>
+                    <div id="M000060_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 45</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_users</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">extract_options!</span>
+        
+        <span class="ruby-identifier">resources</span> <span class="ruby-identifier">:users</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000063">
+                    
+                    <a name="M000063"></a><b>authentasaurus_validatable</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+TODO: add documentation here
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000063_source')" id="l_M000063_source">show</a>
+                        
+                    </p>
+                    <div id="M000063_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ac/routing.rb, line 61</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_validatable</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/validate&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;validations#validate&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'validate'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/activate&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;validations#activate&quot;</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'activate'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/resend-validation&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;validations#resend_validation_email&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'recover_password'</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-value str">&quot;/resend-validation&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;validations#do_resend_validation_email&quot;</span>, <span class="ruby-identifier">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:post</span>, <span class="ruby-identifier">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'do_recover_password'</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

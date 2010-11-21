@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Authentasaurus::Ar::Migrations::Tables::InstanceMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Authentasaurus::Ar::Migrations::Tables::InstanceMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/authentasaurus/ar/migrations_rb.html">lib/authentasaurus/ar/migrations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000018">authentasaurus_area</a>,</li>
+                
+                <li><a href="#M000027">authentasaurus_drop_area</a>,</li>
+                
+                <li><a href="#M000025">authentasaurus_drop_group</a>,</li>
+                
+                <li><a href="#M000028">authentasaurus_drop_permission</a>,</li>
+                
+                <li><a href="#M000031">authentasaurus_drop_recovery</a>,</li>
+                
+                <li><a href="#M000023">authentasaurus_drop_tables</a>,</li>
+                
+                <li><a href="#M000024">authentasaurus_drop_user</a>,</li>
+                
+                <li><a href="#M000030">authentasaurus_drop_user_invitation</a>,</li>
+                
+                <li><a href="#M000029">authentasaurus_drop_validation</a>,</li>
+                
+                <li><a href="#M000017">authentasaurus_group</a>,</li>
+                
+                <li><a href="#M000019">authentasaurus_permission</a>,</li>
+                
+                <li><a href="#M000022">authentasaurus_recovery</a>,</li>
+                
+                <li><a href="#M000015">authentasaurus_tables</a>,</li>
+                
+                <li><a href="#M000016">authentasaurus_user</a>,</li>
+                
+                <li><a href="#M000021">authentasaurus_user_invitation</a>,</li>
+                
+                <li><a href="#M000020">authentasaurus_validation</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000018">
+                    
+                    <a name="M000018"></a><b>authentasaurus_area</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates areas table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        
+                    </p>
+                    <div id="M000018_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 50</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_area</span>
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:areas</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:name</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000027">
+                    
+                    <a name="M000027"></a><b>authentasaurus_drop_area</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops areas table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
+                        
+                    </p>
+                    <div id="M000027_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 125</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_area</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:areas</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000025">
+                    
+                    <a name="M000025"></a><b>authentasaurus_drop_group</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops groups table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show</a>
+                        
+                    </p>
+                    <div id="M000025_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 120</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_group</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:groups</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000028">
+                    
+                    <a name="M000028"></a><b>authentasaurus_drop_permission</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops permissions table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
+                        
+                    </p>
+                    <div id="M000028_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 130</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_permission</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:permissions</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000031">
+                    
+                    <a name="M000031"></a><b>authentasaurus_drop_recovery</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops recoveries table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
+                        
+                    </p>
+                    <div id="M000031_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 145</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_recovery</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:recoveries</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000023">
+                    
+                    <a name="M000023"></a><b>authentasaurus_drop_tables</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops all tables
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        
+                    </p>
+                    <div id="M000023_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 104</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_tables</span>
+          <span class="ruby-identifier">authentasaurus_drop_user</span>
+          <span class="ruby-identifier">authentasaurus_drop_group</span>
+          <span class="ruby-identifier">authentasaurus_drop_area</span>
+          <span class="ruby-identifier">authentasaurus_drop_permission</span>
+          <span class="ruby-identifier">authentasaurus_drop_validation</span>
+          <span class="ruby-identifier">authentasaurus_drop_user_invitation</span>
+          <span class="ruby-identifier">authentasaurus_drop_recovery</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000024">
+                    
+                    <a name="M000024"></a><b>authentasaurus_drop_user</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops users table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
+                        
+                    </p>
+                    <div id="M000024_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 115</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_user</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:users</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000030">
+                    
+                    <a name="M000030"></a><b>authentasaurus_drop_user_invitation</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops user_invitations table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        
+                    </p>
+                    <div id="M000030_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 140</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_user_invitation</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:user_invitations</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000029">
+                    
+                    <a name="M000029"></a><b>authentasaurus_drop_validation</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+drops validations table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
+                        
+                    </p>
+                    <div id="M000029_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 135</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_drop_validation</span>
+          <span class="ruby-identifier">drop_table</span> <span class="ruby-identifier">:validations</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>authentasaurus_group</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates groups table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        
+                    </p>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 41</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_group</span>
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:groups</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:name</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000019">
+                    
+                    <a name="M000019"></a><b>authentasaurus_permission</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates permissions table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        
+                    </p>
+                    <div id="M000019_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 59</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_permission</span>
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:permissions</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:group_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:area_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span> <span class="ruby-identifier">:read</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span> <span class="ruby-identifier">:write</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000022">
+                    
+                    <a name="M000022"></a><b>authentasaurus_recovery</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates recoveries table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
+                        
+                    </p>
+                    <div id="M000022_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 93</span>
+                  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_recovery</span>
+                    <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:recoveries</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+                      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+                      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-identifier">:email</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+                      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:token</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:unique</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+                
+                      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+                    <span class="ruby-keyword kw">end</span>
+                  <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000015">
+                    
+                    <a name="M000015"></a><b>authentasaurus_tables</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates all tables
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        
+                    </p>
+                    <div id="M000015_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 11</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_tables</span>
+          <span class="ruby-identifier">authentasaurus_user</span> <span class="ruby-identifier">:authorizable</span>
+          <span class="ruby-identifier">authentasaurus_group</span>
+          <span class="ruby-identifier">authentasaurus_area</span>
+          <span class="ruby-identifier">authentasaurus_permission</span>
+          <span class="ruby-identifier">authentasaurus_validation</span>
+          <span class="ruby-identifier">authentasaurus_user_invitation</span>
+          <span class="ruby-identifier">authentasaurus_recovery</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000016">
+                    
+                    <a name="M000016"></a><b>authentasaurus_user</b>(*opts)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates users table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        
+                    </p>
+                    <div id="M000016_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 22</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_user</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:users</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:username</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:hashed_password</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:password_seed</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:name</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:email</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span> <span class="ruby-identifier">:active</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:remember_me_token</span>
+            
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:authorizable</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">&quot;authorizable&quot;</span>)
+              <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:group_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-keyword kw">end</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000021">
+                    
+                    <a name="M000021"></a><b>authentasaurus_user_invitation</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates user_invitations table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        
+                    </p>
+                    <div id="M000021_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 83</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_user_invitation</span>
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:user_invitations</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-identifier">:token</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">:unique</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-identifier">:email</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000020">
+                    
+                    <a name="M000020"></a><b>authentasaurus_validation</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+creates validations table
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        
+                    </p>
+                    <div id="M000020_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/authentasaurus/ar/migrations.rb, line 71</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authentasaurus_validation</span>
+          <span class="ruby-identifier">create_table</span> <span class="ruby-identifier">:validations</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-identifier">:user_id</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-identifier">:user_type</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:email</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-identifier">:validation_code</span>, <span class="ruby-identifier">:null</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+      
+            <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

@@ -1,3 +1,3 @@
 class RecoveriesController < ApplicationController
-  include Authentasaurus::RecoveriesController
+  acts_as_recoveries
 end

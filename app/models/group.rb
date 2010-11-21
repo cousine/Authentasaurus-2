@@ -1,3 +1,3 @@
 class Group < ActiveRecord::Base
-  include Authentasaurus::Models::Group
+  acts_as_group
 end

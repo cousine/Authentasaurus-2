@@ -45,11 +45,18 @@ task :test => :check_dependencies
 task :default => :test
 
 require 'rake/rdoctask'
+require 'sdoc'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "authentasaurus #{version}"
   rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('TODO*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+  rdoc.rdoc_files.exclude('lib/generators')
+  rdoc.rdoc_files.exclude('lib/authentasaurus.rb')
+  rdoc.rdoc_files.exclude('lib/authentasaurus/railtie.rb')
+  rdoc.rdoc_files.exclude('lib/authentasaurus/ar/models')
+  rdoc.rdoc_files.exclude('lib/authentasaurus/ac/controllers')
 end

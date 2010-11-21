@@ -1,3 +1,6 @@
+* Integrate with ActiveModel instead of ActiveRecord
+* Complete documentation
+--
 * Update views to use the new flash convention [DONE]
   * flash[:notice] for information messages [DONE]
   * flash[:alert] for error messages [DONE]
