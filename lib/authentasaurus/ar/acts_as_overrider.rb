@@ -39,10 +39,6 @@ module Authentasaurus::Ar
         include Authentasaurus::Ar::Models::Recovery
       end
       
-      def acts_as_session
-        include Authentasaurus::Ar::Models::Session
-      end
-      
       def acts_as_user_invitation
         include Authentasaurus::Ar::Models::UserInvitation
       end

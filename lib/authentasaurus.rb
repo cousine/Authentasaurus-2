@@ -48,5 +48,4 @@ module Authentasaurus
       include Authentasaurus::Arel::Authenticatable
     end
   end
-
 end

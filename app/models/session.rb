@@ -1,3 +1,3 @@
 class Session
-  acts_as_session
+  include Authentasaurus::Ar::Models::Session
 end
