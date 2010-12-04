@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{authentasaurus}
-  s.version = "0.7.5"
+  s.version = "0.8.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  s.date = %q{2010-11-22}
+  s.date = %q{2010-12-04}
   s.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   s.email = %q{info@mashsolvents.com}
   s.extra_rdoc_files = [
@@ -126,7 +126,70 @@ Gem::Specification.new do |s|
      "lib/generators/authentasaurus/views/templates/users/show.html.erb",
      "lib/generators/authentasaurus/views/templates/validations/resend_validation_email.html.erb",
      "lib/generators/authentasaurus/views/templates/validations/validate.html.erb",
-     "lib/generators/authentasaurus/views/views_generator.rb"
+     "lib/generators/authentasaurus/views/views_generator.rb",
+     "rdoc/apple-touch-icon.png",
+     "rdoc/classes/Authentasaurus.html",
+     "rdoc/classes/Authentasaurus/Ac.html",
+     "rdoc/classes/Authentasaurus/Ac/ActsAsOverrider.html",
+     "rdoc/classes/Authentasaurus/Ac/ActsAsOverrider/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Ac/Routing.html",
+     "rdoc/classes/Authentasaurus/Ac/Routing/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Ar.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatable.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatable/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatable/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatableValidatable.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatableValidatable/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsAuthenticatableValidatable/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsOverrider.html",
+     "rdoc/classes/Authentasaurus/Ar/ActsAsOverrider/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/Authenticatable.html",
+     "rdoc/classes/Authentasaurus/Ar/Authenticatable/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/Migrations.html",
+     "rdoc/classes/Authentasaurus/Ar/Migrations/Columns.html",
+     "rdoc/classes/Authentasaurus/Ar/Migrations/Columns/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Ar/Migrations/Tables.html",
+     "rdoc/classes/Authentasaurus/Ar/Migrations/Tables/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Arel.html",
+     "rdoc/classes/Authentasaurus/Arel/ActsAsAuthenticatable.html",
+     "rdoc/classes/Authentasaurus/Arel/ActsAsAuthenticatable/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Arel/ActsAsAuthenticatable/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Arel/Authenticatable.html",
+     "rdoc/classes/Authentasaurus/Arel/Authenticatable/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Authorization.html",
+     "rdoc/classes/Authentasaurus/Authorization/ActionController.html",
+     "rdoc/classes/Authentasaurus/Authorization/ActionController/ClassMethods.html",
+     "rdoc/classes/Authentasaurus/Authorization/ActionController/InstanceMethods.html",
+     "rdoc/classes/Authentasaurus/Authorization/ActionView.html",
+     "rdoc/classes/Authentasaurus/Authorization/CommonInstanceMethods.html",
+     "rdoc/created.rid",
+     "rdoc/css/main.css",
+     "rdoc/css/panel.css",
+     "rdoc/css/reset.css",
+     "rdoc/favicon.ico",
+     "rdoc/files/README_rdoc.html",
+     "rdoc/files/TODO.html",
+     "rdoc/files/lib/authentasaurus/ac/acts_as_overrider_rb.html",
+     "rdoc/files/lib/authentasaurus/ac/routing_rb.html",
+     "rdoc/files/lib/authentasaurus/ar/acts_as_authenticatable_rb.html",
+     "rdoc/files/lib/authentasaurus/ar/acts_as_authenticatable_validatable_rb.html",
+     "rdoc/files/lib/authentasaurus/ar/acts_as_overrider_rb.html",
+     "rdoc/files/lib/authentasaurus/ar/authenticatable_rb.html",
+     "rdoc/files/lib/authentasaurus/ar/migrations_rb.html",
+     "rdoc/files/lib/authentasaurus/arel/acts_as_authenticatable_rb.html",
+     "rdoc/files/lib/authentasaurus/arel/authenticatable_rb.html",
+     "rdoc/files/lib/authentasaurus/authorization_rb.html",
+     "rdoc/i/arrows.png",
+     "rdoc/i/results_bg.png",
+     "rdoc/i/tree_bg.png",
+     "rdoc/index.html",
+     "rdoc/js/jquery-1.3.2.min.js",
+     "rdoc/js/jquery-effect.js",
+     "rdoc/js/main.js",
+     "rdoc/js/searchdoc.js",
+     "rdoc/panel/index.html",
+     "rdoc/panel/search_index.js",
+     "rdoc/panel/tree.js"
   ]
   s.homepage = %q{http://github.com/cousine/Authentasaurus-2}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -139,12 +202,9 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     else
-      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     end
   else
-    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
   end
 end
 
