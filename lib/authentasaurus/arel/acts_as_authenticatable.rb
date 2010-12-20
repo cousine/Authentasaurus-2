@@ -12,7 +12,7 @@ module Authentasaurus::Arel
         when ActiveResource::Formats::XmlFormat
           user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password, :remember => remember).body).values.first
         when ActiveResource::Formats::JsonFormat
-          user = self.new ActiveSupport::JSON.decode(self.post(:signin,:username => username, :password => password, :remember => remember).body).first
+          user = self.new ActiveSupport::JSON.decode(self.post(:signin,:username => username, :password => password, :remember => remember).body)
         else
           user = self.new Hash.from_xml(self.post(:signin,:username => username, :password => password, :remember => remember).body).values.first
         end
