@@ -4,8 +4,7 @@ module Authentasaurus
     
     def install
       copy_file "defaults.yml", "config/authentasaurus.yml"
-      copy_file "authentasaurus_tasks.rake", "lib/tasks/authentasaurus_tasks.rake"
-      copy_file "initializer.rb", "config/initializers/authentasaurus.rb"
+      copy_file "authentasaurus_tasks.rake", "lib/tasks/authentasaurus_tasks.rake"      
     end
   end
 end

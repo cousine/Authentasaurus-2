@@ -108,7 +108,7 @@ module Authentasaurus::Authorization
     #   
     #   user_model  - The model class representing a user (User by default)
     def current_user(user_model = nil)#:doc:
-      user_model = User if user_model.nil?
+      user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
       return user_model.find session[:user_id] if session[:user_id]
     end
     
@@ -151,7 +151,7 @@ module Authentasaurus::Authorization
     #   
     #   user_model  - The model class representing a user (User by default)
     def is_logged_in?(user_model = nil) #:doc:
-      user_model = User if user_model.nil?
+      user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
       unless user_model.find_by_id(session[:user_id])
         return cookie_login?(user_model)
       end
@@ -260,6 +260,7 @@ module Authentasaurus::Authorization
       # 
       # If skip_request is set to true, the user won't be redirected to the original url after he/she logs in.
       def check_logged_in(skip_request = false, user_model = nil) #:nodoc:
+        user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
         unless is_logged_in?(user_model)
           login_required skip_request
         end
@@ -270,11 +271,12 @@ module Authentasaurus::Authorization
       #
       # If skip_request is set to true, the user won't be redirected to the original url after he/she logs in.
       def check_write_permissions(skip_request = false, user_model = nil) #:nodoc:
-        if is_logged_in?(user_model)
+        user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
+        if is_logged_in?(user_model) && user_model.new.respond_to?(:permissions)          
           user_permissions = session[:user_permissions]
           check = user_permissions[:write].find { |perm| perm==self.controller_name || perm=="all" }
           unless check
-            redirect_to no_access_sessions_path
+            redirect_to no_access_authentasaurus_sessions_path
           end
         else
           login_required skip_request
@@ -286,11 +288,12 @@ module Authentasaurus::Authorization
       #
       # If skip_request is set to true, the user won't be redirected to the original url after he/she logs in.    
       def check_read_permissions(skip_request = false, user_model = nil) #:nodoc:
-        if is_logged_in?(user_model)
+        user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
+        if is_logged_in?(user_model) && user_model.new.respond_to?(:permissions)
           user_permissions = session[:user_permissions]
           check = user_permissions[:read].find { |perm| perm==self.controller_name || perm=="all" }
           unless check
-            redirect_to no_access_sessions_path
+            redirect_to no_access_authentasaurus_sessions_path
           end
         else
           login_required skip_request
@@ -299,7 +302,7 @@ module Authentasaurus::Authorization
       
       # Logs in the user through a remember me cookie    
       def cookie_login?(user_model = nil) #:nodoc:
-        user_model = User if user_model.nil?
+        user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
         
         if cookies[:remember_me_token]
           user = user_model.find_by_remember_me_token cookies[:remember_me_token]
@@ -324,7 +327,7 @@ module Authentasaurus::Authorization
           session[:original_url]=request.url
         end
         flash.now[:alert] = t(:login_required, :scope => [:authentasaurus, :action_controller, :errors, :messages])
-        redirect_to new_session_path
+        redirect_to new_authentasaurus_session_path
       end
       
       def controller_instance #:nodoc:

@@ -1,7 +1,7 @@
 <p>Dear <%= @name %>,</p>
 
 <p>A request has been made to recover your account's password.</p>
-<p>Please visit this <%= link_to "link", recover_password_url(:host => Rails.application.config.authentasaurus[:mail][:host], :token => @token) %> and follow the instructions.</p>
+<p>Please visit this <%= link_to "link", recover_password_url(:host => Authentasaurus::Configuration.instance.configuration[:mail][:host], :token => @token) %> and follow the instructions.</p>
 
 <p>Best Regards,</p>
-<p><%= Rails.application.config.authentasaurus[:mail][:host] %> Team</p>
+<p><%= Authentasaurus::Configuration.instance.configuration[:mail][:host] %> Team</p>

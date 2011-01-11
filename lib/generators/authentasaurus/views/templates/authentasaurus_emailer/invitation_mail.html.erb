@@ -1,4 +1,4 @@
-<p>You've been invited to create an account at <%= Rails.application.config.authentasaurus[:mail][:host] %> follow this <%= link_to "link", new_registrations_url(:host => Rails.application.config.authentasaurus[:mail][:host], :token => @token) %> to respond to the invitation.</p>
+<p>You've been invited to create an account at <%= Authentasaurus::Configuration.instance.configuration[:mail][:host] %> follow this <%= link_to "link", new_registrations_url(:host => Authentasaurus::Configuration.instance.configuration[:mail][:host], :token => @token) %> to respond to the invitation.</p>
 
 <p>Best Regards,</p>
-<p><%= Rails.application.config.authentasaurus[:mail][:host] %> Team</p>
+<p><%= Authentasaurus::Configuration.instance.configuration[:mail][:host] %> Team</p>

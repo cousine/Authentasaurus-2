@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Omar Mekky", "Kareem Diaa", "Ramy Aboul Naga", "Khaled Gomaa"]
-  s.date = %q{2010-12-20}
+  s.date = %q{2011-01-10}
   s.description = %q{Simple and easy dynamic restful group/permission based authentication and authorization engine plugin for Rails}
   s.email = %q{info@mashsolvents.com}
   s.extra_rdoc_files = [
@@ -30,10 +30,10 @@ Gem::Specification.new do |s|
      "app/controllers/validations_controller.rb",
      "app/models/area.rb",
      "app/models/authentasaurus_emailer.rb",
+     "app/models/authentasaurus_session.rb",
      "app/models/group.rb",
      "app/models/permission.rb",
      "app/models/recovery.rb",
-     "app/models/session.rb",
      "app/models/user.rb",
      "app/models/user_invitation.rb",
      "app/models/user_sync.rb",
@@ -91,12 +91,12 @@ Gem::Specification.new do |s|
      "lib/authentasaurus/arel/acts_as_authenticatable.rb",
      "lib/authentasaurus/arel/authenticatable.rb",
      "lib/authentasaurus/authorization.rb",
+     "lib/authentasaurus/configuration.rb",
      "lib/authentasaurus/railtie.rb",
      "lib/generators/authentasaurus/install/USAGE",
      "lib/generators/authentasaurus/install/install_generator.rb",
      "lib/generators/authentasaurus/install/templates/authentasaurus_tasks.rake",
      "lib/generators/authentasaurus/install/templates/defaults.yml",
-     "lib/generators/authentasaurus/install/templates/initializer.rb",
      "lib/generators/authentasaurus/views/USAGE",
      "lib/generators/authentasaurus/views/templates/areas/edit.html.erb",
      "lib/generators/authentasaurus/views/templates/areas/index.html.erb",
@@ -194,11 +194,10 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/cousine/Authentasaurus-2}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.4.1}
   s.summary = %q{Restful dynamic group/permission based authentication and authorization for Rails}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

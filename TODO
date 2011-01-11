@@ -1,6 +1,8 @@
 * Integrate with ActiveModel instead of ActiveRecord
 * Complete documentation
+* Add HAML support
 --
+* Convert mixins to use ActiveSupport::Concern [DONE]
 * Update views to use the new flash convention [DONE]
   * flash[:notice] for information messages [DONE]
   * flash[:alert] for error messages [DONE]

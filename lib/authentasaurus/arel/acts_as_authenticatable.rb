@@ -1,9 +1,6 @@
 module Authentasaurus::Arel
   module ActsAsAuthenticatable
-    def self.included(base)
-      base.send :extend, ClassMethods
-      base.send :include, InstanceMethods
-    end
+    extend ActiveSupport::Concern
     
     module ClassMethods
       ## Authenticates the username and password
@@ -46,27 +43,25 @@ module Authentasaurus::Arel
         return user
       end
     end
-    
-    module InstanceMethods
-      def sync
-        if self.class.sync && !self.class.sync_to.nil?
-          user = self.dup
-          last_update = user.attributes.delete "updated_at"
-          local_user = self.class.sync_to.find_or_initialize_by_username user.username, user.attributes
-          
-          unless local_user.new_record?
-            local_user.update_attributes user.attributes            
-          else
-            self.sync_to.default_data.each do |key,value|
-              local_user.send(key.to_s + '=', value)
-            end          
-            
-            local_user.save
-          end
+        
+    def sync
+      if self.class.sync && !self.class.sync_to.nil?
+        user = self.dup
+        last_update = user.attributes.delete "updated_at"
+        local_user = self.class.sync_to.find_or_initialize_by_username user.username, user.attributes
+        
+        unless local_user.new_record?
+          local_user.update_attributes user.attributes            
         else
-          false
+          self.sync_to.default_data.each do |key,value|
+            local_user.send(key.to_s + '=', value)
+          end          
+          
+          local_user.save
         end
+      else
+        false
       end
     end
-  end
+  end  
 end

@@ -1,6 +1,7 @@
 ## Authentasaurus configuration
 development: &non_production_settings
   :hashing: "SHA2" # MD5 - SHA1 - SHA2
+  :user_model: &user_model "user"
   :mail:
     :email: &development_email "foo_bar@your-domain.com"
     :host: "http://localhost:3000/"
@@ -10,7 +11,7 @@ development: &non_production_settings
         :site: "http://localhost:3000/api_key/auth"
         :session_element: "remote_sync"
         :sync: true
-        :sync_to: "user"
+        :sync_to: *user_model
     :recoverable:
       :token_expires_after: 10 # days
       :send_email: true
@@ -30,6 +31,7 @@ test:
 
 production:
   :hashing: "SHA2" # MD5 - SHA1 - SHA2
+  :user_model: &user_model "user"
   :mail:
     :email: &production_email "foo_bar@your-domain.com"
     :host: "http://your_website.com/"
@@ -39,7 +41,7 @@ production:
         :site: "http://localhost:3000/api_key/auth"
         :session_element: "remote_sync"
         :sync: true
-        :sync_to: "user"
+        :sync_to: *user_model
     :recoverable:
       :token_expires_after: 10 # days
       :send_email: true

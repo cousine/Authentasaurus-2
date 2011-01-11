@@ -1,10 +1,9 @@
 module Authentasaurus::Ar
   module ActsAsAuthenticatableValidatable
-    def self.included(base)
-      base.send :extend, ActsAsAuthenticatable::ClassMethods
-      base.send :include, ActsAsAuthenticatable::InstanceMethods
-      base.send :extend, ClassMethods
-      base.send :include, InstanceMethods
+    extend ActiveSupport::Concern
+    
+    included do      
+      include ActsAsAuthenticatable
     end
     
     module ClassMethods
@@ -23,16 +22,14 @@ module Authentasaurus::Ar
       end
     end
     
-    module InstanceMethods
-      private
-  		def send_validation
-  			unless self.active
-  				validation = self.build_validation(:email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
-  				unless validation.save
-  					raise "Could not create validation record"
-  				end
-  			end
-  		end
+    private
+    def send_validation
+      unless self.active
+				validation = self.build_validation(:email => self.email, :validation_code => User.encrypt_password(self.username,self.password_seed))
+        unless validation.save
+					raise "Could not create validation record"
+        end
+      end
     end
-  end
+  end    
 end

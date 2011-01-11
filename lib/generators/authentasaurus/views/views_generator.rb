@@ -1,6 +1,6 @@
 module Authentasaurus
   class ViewsGenerator < Rails::Generators::NamedBase
-    source_root File.expand_path('../templates', __FILE__)
+    source_root File.expand_path('../../../../../app/views', __FILE__)
     class_option  :authorization, :type => :boolean, :default => true, :desc => "Generates views for authorization"
     class_option  :validation, :type => :boolean, :default => true, :desc => "Generates views for user validation"
     class_option  :invitation, :type => :boolean, :default => true, :desc => "Generates views for user invitation"

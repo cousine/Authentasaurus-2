@@ -1,10 +1,8 @@
-module Authentasaurus::Ac
+module Authentasaurus::Ac  
   Dir[File.dirname(__FILE__) + '/controllers/*.rb'].each {|file| require file }
   
   module ActsAsOverrider
-    def self.included(base)
-      base.send :extend, ClassMethods
-    end
+    extend ActiveSupport::Concern    
     
     module ClassMethods      
       def acts_as_areas
@@ -27,7 +25,10 @@ module Authentasaurus::Ac
         include Authentasaurus::Ac::Controllers::RegistrationsController
       end
       
-      def acts_as_sessions
+      def acts_as_sessions(user_model = nil)        
+        cattr_accessor :user_model
+        self.user_model = user_model || Authentasaurus::Configuration.instance.user_model.to_sym
+        
         include Authentasaurus::Ac::Controllers::SessionsController
       end
       

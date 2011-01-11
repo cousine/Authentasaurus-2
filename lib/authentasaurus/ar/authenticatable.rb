@@ -1,8 +1,6 @@
 module Authentasaurus::Ar
   module Authenticatable
-    def self.included(base)
-      base.send :extend, ClassMethods
-    end
+    extend ActiveSupport::Concern
     
     module ClassMethods
       def authenticatable(*args)

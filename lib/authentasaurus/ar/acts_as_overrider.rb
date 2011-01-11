@@ -2,9 +2,7 @@ module Authentasaurus::Ar
   Dir[File.dirname(__FILE__) + '/models/*.rb'].each {|file| require file }
   
   module ActsAsOverrider
-    def self.included(base)
-      base.send :extend, ClassMethods
-    end
+    extend ActiveSupport::Concern    
     
     module ClassMethods
       def acts_as_area        

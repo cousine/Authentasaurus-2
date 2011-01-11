@@ -1,3 +1,7 @@
-=Version 0.4.14 > 0.5.4
+=Version 0.8.4 > 0.8.5
 
-* Improved inheritance of models by adding _model to all models in the libs folder
+* Convert mixins to use ActiveSupport::Concern
+* Improved configuration access
+* Added user_model option to specify the default user model application wide
+* Changed views generator template path to app instead of lib/generators/authentasaurus/views/templates
+* Prefixed session model and routes with authentasaurus to avoid name collisions

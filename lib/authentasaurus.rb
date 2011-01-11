@@ -1,5 +1,6 @@
 module Authentasaurus  
-  require 'authentasaurus/railtie' if defined?(Rails) # NEVER EVER REMOVE THIS LINE !!!
+  require 'authentasaurus/configuration'
+  require 'authentasaurus/railtie' #if defined?(Rails) # NEVER EVER REMOVE THIS LINE !!!  
   # Authorization Helpers
   require 'authentasaurus/authorization'
   # Controllers, Views and Routes helpers
@@ -9,6 +10,9 @@ module Authentasaurus
   require 'authentasaurus/ar/acts_as_overrider'
   require 'authentasaurus/ar/authenticatable'
   require 'authentasaurus/ar/migrations'
+  require 'authentasaurus/ar/acts_as_authenticatable'
+  require 'authentasaurus/ar/acts_as_authenticatable_validatable'
+  require 'authentasaurus/arel/acts_as_authenticatable'
   # ActiveResource Helpers
   require 'authentasaurus/arel/authenticatable'
   
