@@ -152,7 +152,7 @@ module Authentasaurus::Authorization
     #   user_model  - The model class representing a user (User by default)
     def is_logged_in?(user_model = nil) #:doc:
       user_model = Authentasaurus::Configuration.instance.user_model.camelize.constantize if user_model.nil?
-      unless user_model.find_by_id(session[:user_id])
+      unless user_model.find_by_id(session[:user_id]) || !defined?(cookie_login?)
         return cookie_login?(user_model)
       end
 			return true
